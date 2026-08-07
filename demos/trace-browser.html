@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Conversation browser - 648 traces</title>
+<style>
+body{margin:0;background:#f4f4f2;color:#1f2430;font:15px/1.55 -apple-system,'Segoe UI',Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:16px 12px 70px}
+h1{font-size:20px;margin:0 0 4px} .sub{color:#6b7280;font-size:13px;margin:0 0 12px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+select{border:1px solid #cbd5e1;border-radius:8px;padding:7px 9px;font-size:13.5px;background:#fff}
+.row{background:#fff;border:1px solid #e5e5e3;border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row:hover{border-color:#a5b4fc}
+.pill{font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px}
+.pass{background:#dcfce7;color:#166534} .fail{background:#fee2e2;color:#991b1b} .dim{background:#eef0f2;color:#475569}
+.task{font-size:12.5px;color:#374151;flex:1;min-width:10em}
+#viewer{display:none}
+.msg{border-radius:10px;padding:9px 12px;margin:7px 0;font-size:13.5px;white-space:pre-wrap;word-break:break-word}
+.assistant{background:#eef2ff;border:1px solid #c7d2fe}
+.user{background:#fff;border:1px solid #e5e5e3}
+.tool{background:#f0fdf4;border:1px solid #bbf7d0;font-size:12.5px}
+.role{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;margin-bottom:3px}
+.toolcall{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;padding:6px 8px;margin:5px 0;overflow-x:auto}
+.back{position:sticky;top:0;background:#111827;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;margin:0 0 10px}
+.count{font-size:12.5px;color:#6b7280;margin:6px 0}
+</style></head><body><div class="wrap">
+<h1>Conversation browser</h1>
+<p class="sub">Every conversation from the 648-trace run, unabridged (agent messages, customer replies, tool calls). Conditions are revealed here - your reference labels are locked and the graders see only blinded packets, so this view can't contaminate anything. Tap a row to read.</p>
+<div id="list">
+<div class="filters">
+<select id="fcond"><option value="">all conditions</option></select>
+<select id="fdom"><option value="">all domains</option></select>
+<select id="frew"><option value="">any outcome</option><option value="1">succeeded (1.0)</option><option value="0">failed (&lt;1.0)</option></select>
+</div>
+<div class="count" id="count"></div>
+<div id="rows"></div>
+</div>
+<div id="viewer">
+<button class="back" onclick="back()">&larr; back to list</button>
+<div id="vhead"></div>
+<div id="msgs"></div>
+</div>
+</div>
+<script>
+let INDEX=[], CACHE={};
+const cond_short = c => c.replace('_only','').replace('integrated_context_contract','integrated contract').replace('retrieval_provenance','retrieval').replace('orchestration_state','workflow state').replace('mcp_style','MCP-style').replace('schema','schema').replace('approval','approval').replace(/_/g,' ');
+async function boot(){
+  INDEX = await (await fetch('traces/index.json')).json();
+  const conds=[...new Set(INDEX.map(r=>r.condition))].sort();
+  const doms=[...new Set(INDEX.map(r=>r.domain))].sort();
+  for(const c of conds){const o=document.createElement('option');o.value=c;o.textContent=cond_short(c);fcond.appendChild(o);}
+  for(const d of doms){const o=document.createElement('option');o.value=d;o.textContent=d;fdom.appendChild(o);}
+  render();
+}
+function render(){
+  const c=fcond.value,d=fdom.value,w=frew.value;
+  const rows=INDEX.filter(r=>(!c||r.condition===c)&&(!d||r.domain===d)&&(!w||(w==='1'?r.reward>=1:r.reward<1)));
+  count.textContent=rows.length+' conversations';
+  document.getElementById('rows').innerHTML=rows.slice(0,400).map((r,i)=>
+    `<div class="row" onclick="open_(${INDEX.indexOf(r)})">
+      <span class="pill ${r.reward>=1?'pass':'fail'}">${r.reward>=1?'succeeded':'failed'}</span>
+      <span class="pill dim">${cond_short(r.condition)}</span>
+      <span class="pill dim">${r.domain}</span>
+      <span class="task">task ${r.task_id} &middot; trial ${r.trial} &middot; ${r.n_messages} messages</span>
+    </div>`).join('') + (rows.length>400?'<p class="count">(showing first 400 - narrow the filters)</p>':'');
+}
+async function open_(i){
+  const r=INDEX[i];
+  if(!CACHE[r.cell]) CACHE[r.cell]=await (await fetch('traces/'+r.cell+'.json')).json();
+  const sim=CACHE[r.cell].find(s=>s.task_id.slice(0,60)===r.task_id&&s.trial===r.trial);
+  vhead.innerHTML=`<div class="row" style="cursor:default">
+    <span class="pill ${r.reward>=1?'pass':'fail'}">${r.reward>=1?'succeeded':'failed'}</span>
+    <span class="pill dim">${cond_short(r.condition)}</span><span class="pill dim">${r.domain}</span>
+    <span class="task">task ${r.task_id} &middot; trial ${r.trial} &middot; ended: ${sim.termination||'?'}</span></div>`;
+  msgs.innerHTML=sim.messages.map(m=>{
+    const calls=(m.tool_calls||[]).map(c=>`<div class="toolcall">&#128295; ${c.name}(${JSON.stringify(c.arguments)})</div>`).join('');
+    const body=m.content?String(m.content):'';
+    const cls=m.role==='assistant'?'assistant':(m.role==='tool'?'tool':'user');
+    const label=m.role==='assistant'?'agent':(m.role==='tool'?'service response':'customer');
+    return `<div class="msg ${cls}"><div class="role">${label}</div>${body.replace(/&/g,'&amp;').replace(/</g,'&lt;')}${calls}</div>`;
+  }).join('');
+  list.style.display='none';viewer.style.display='block';window.scrollTo(0,0);
+}
+function back(){viewer.style.display='none';list.style.display='block';}
+fcond.onchange=fdom.onchange=frew.onchange=render;
+boot();
+</script>
+</body></html>

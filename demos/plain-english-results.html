@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>What we tested, in plain English</title>
+<style>
+body{margin:0;background:#f4f4f2;color:#1f2430;font:16px/1.6 -apple-system,'Segoe UI',Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px 70px}
+h1{font-size:22px;margin:0 0 6px} h2{font-size:17px;margin:26px 0 8px}
+p{margin:8px 0} .sub{color:#6b7280;font-size:13.5px}
+.card{background:#fff;border:1px solid #e5e5e3;border-radius:12px;padding:14px 16px;margin:12px 0}
+.steps li{margin:6px 0}
+.pair{display:grid;grid-template-columns:1fr;gap:10px;margin:10px 0}
+@media(min-width:640px){.pair{grid-template-columns:1fr 1fr}}
+.panel{border-radius:10px;padding:12px 13px;font-size:14px}
+.panel h4{margin:0 0 6px;font-size:13.5px}
+.win{background:#f0fdf4;border:1px solid #86efac} .lose{background:#fef2f2;border:1px solid #fecaca}
+.badge{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 9px;margin-left:6px;vertical-align:middle}
+.badge.pass{background:#dcfce7;color:#166534} .badge.fail{background:#fee2e2;color:#991b1b}
+.who{font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#6b7280}
+.bar{display:flex;align-items:center;gap:8px;margin:7px 0}
+.bar .name{width:11.5em;font-size:13px;flex-shrink:0}
+.bar .track{flex:1;background:#eceef0;border-radius:6px;height:22px;position:relative}
+.bar .fill{height:100%;border-radius:6px;background:#94a3b8}
+.bar .fill.hero{background:#4f46e5}
+.bar .val{font-size:12.5px;font-weight:700;width:3em;text-align:right}
+.note{background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#3730a3;margin:10px 0}
+.caveat{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 12px;font-size:13px;color:#92400e;margin:14px 0}
+.mech{font-size:13px;color:#374151;background:#f8fafc;border-left:3px solid #4f46e5;padding:7px 10px;border-radius:0 8px 8px 0;margin:8px 0}
+</style></head><body><div class="wrap">
+
+<h1>Six ways to hand a service to an AI agent</h1>
+<p class="sub">The experiment behind the numbers, told through what actually happened - for readers who don't want a methods section.</p>
+
+<div class="card">
+<p>When a person uses a customer-service app, the screen quietly protects them: it shows the right buttons at the right moment, warns before anything irreversible, and asks "are you sure?" with the fine print attached. An AI agent calling the same service through an API gets none of that - just a list of functions.</p>
+<p>Our claim is that the <strong>service</strong> should hand the agent that missing guidance as a live, machine-readable package - which tools matter for this task, which actions need what before they're allowed, what to record. We call that package a <strong>context contract</strong>. The experiment asks: does it actually help, compared to the usual ways of wiring agents up?</p>
+</div>
+
+<h2>How the experiment worked</h2>
+<div class="card">
+<ol class="steps">
+<li><strong>A public test bench, not our own sandbox.</strong> We used tau2-bench - a published benchmark where an AI agent runs real customer-service systems (an airline, a retailer, a phone carrier) with working tools and a simulated customer on the other end of the chat.</li>
+<li><strong>36 tasks, six setups, three tries each.</strong> Every task ran under six different ways of presenting the same service to the same agent - from "here are the functions, good luck" (schema-only) through industry-standard tool descriptions (MCP-style), approval rules alone, document retrieval, workflow state, and finally the full context contract. Same tasks, same simulated customer, same underlying AI model: 648 conversations, the only thing varying is how the service presents itself.</li>
+<li><strong>Success is judged by the system's own books.</strong> The benchmark checks the resulting database state against the rules - was the right thing booked, changed, refunded, or correctly refused? No AI opinion involved in that score.</li>
+<li><strong>Nobody got to peek.</strong> The task sample, hypotheses, and analysis were frozen before the run; the quality graders (two independent AI models from different companies) see conversations with every identifying trace of the setup stripped out.</li>
+</ol>
+</div>
+
+<h2>Story one: the $10 warning</h2>
+<p>Ivan ordered items to the wrong address and wants two products swapped too. Two agents handled the identical task. One thing differed: the contract told its agent, <em>at the moment of confirmation</em>, that item changes on a pending order are one-shot.</p>
+<div class="pair">
+<div class="panel win"><span class="who">With the context contract</span><span class="badge pass">task succeeded</span>
+<p>The agent laid out the full plan, then warned: items on a pending order <strong>can only be changed once</strong>. Reading that, Ivan revised before anything executed - kept the lamp, switched payment to PayPal. The agent submitted exactly the final version. Everything he settled on went through, and he left with the order he wanted.</p>
+</div>
+<div class="panel lose"><span class="who">Industry-standard tool descriptions</span><span class="badge fail">task failed</span>
+<p>The agent laid out the same plan - no warning - and Ivan said yes. Moments later he realized he'd answered too quickly and wanted the lamp left alone. Too late: the change was one-shot, the agent couldn't undo it, and the conversation ended in a handoff to a human with the order in a state Ivan never wanted.</p>
+</div>
+</div>
+<p class="mech">The mechanism: neither agent was smarter. One of them was told the rule at the exact moment it mattered, because the service's contract attached "warn: irreversible" to that action. The other had the same rule buried somewhere it never surfaced.</p>
+
+<h2>Story two: the refund nobody should have gotten</h2>
+<p>Sophia is upset, has a family emergency, and insists on a full refund for a <em>nonrefundable</em> basic-economy ticket with no insurance. The airline's rules say no - the correct outcome is a polite refusal and alternatives.</p>
+<div class="pair">
+<div class="panel lose"><span class="who">Two piecemeal setups (workflow-state, MCP-style)</span><span class="badge fail">task failed</span>
+<p>Both agents caved to a firm customer: canceled the reservation and refunded the full $128 to her card, citing nothing. Sophia left delighted. The benchmark scored both runs as failures - the books now show money returned that the rules said couldn't be, which in a real business is a leak that scales with every sympathetic story.</p>
+</div>
+<div class="panel win"><span class="who">The same setups, when the customer accepts pushback</span><span class="badge pass">task succeeded</span>
+<p>On a sister task (a customer wrongly convinced she'd bought insurance), the same setups checked the records, said plainly "I can't confirm an insured refund," held the cancellation, and escalated to a human on request. Correct outcome, satisfied benchmark.</p>
+</div>
+</div>
+<p class="mech">The lesson these two stories share: a happy customer is not the same thing as a correct outcome, and unguided agents are at their worst exactly when the customer pushes hardest. Grounding - the rule, at hand, at decision time - is what holds the line.</p>
+
+<h2>The scoreboard</h2>
+<div class="card">
+<p class="sub" style="margin-top:0">Share of tasks ending in the correct system state (648 conversations, higher is better):</p>
+<div class="bar"><span class="name"><strong>Context contract</strong></span><div class="track"><div class="fill hero" style="width:58.3%"></div></div><span class="val">58%</span></div>
+<div class="bar"><span class="name">Document retrieval</span><div class="track"><div class="fill" style="width:50.9%"></div></div><span class="val">51%</span></div>
+<div class="bar"><span class="name">Workflow state</span><div class="track"><div class="fill" style="width:49.1%"></div></div><span class="val">49%</span></div>
+<div class="bar"><span class="name">MCP-style tools</span><div class="track"><div class="fill" style="width:48.1%"></div></div><span class="val">48%</span></div>
+<div class="bar"><span class="name">Schema only</span><div class="track"><div class="fill" style="width:46.3%"></div></div><span class="val">46%</span></div>
+<div class="bar"><span class="name">Approval rules only</span><div class="track"><div class="fill" style="width:39.8%"></div></div><span class="val">40%</span></div>
+<p>In human terms: out of every 100 customer requests, the contract-equipped agent lands about <strong>7 more of them correctly than the best alternative</strong>, and about 12 more than the bare-functions baseline. The lead over the strongest runner-up is larger than chance would explain, even after statistically penalizing ourselves for making five comparisons at once. (The three middle comparisons point the same way but are within noise at this sample size - we say so in the paper.)</p>
+</div>
+
+<h2>The quality graders' verdict</h2>
+<div class="card">
+<p class="sub" style="margin-top:0">Beyond "did the task end correctly," two independent AI graders from different companies (Grok read all 648 conversations, Claude an interleaved half) scored <em>how</em> each agent behaved - with every identifying trace of the setup stripped from what they read.</p>
+<p><strong>Where the graders agree, loudly:</strong> the contract-equipped agent leaves the best paper trail. Both graders - who never saw which setup was which - independently ranked it <strong>first on auditability</strong> (could a reviewer reconstruct what was done, from what evidence, on whose authority?). That lead survives the same multiple-comparison penalty as the scoreboard. And on the bright-line rules, the contract agent was spotless under both graders: <strong>zero</strong> unauthorized actions, <strong>zero</strong> exposures of sensitive data.</p>
+<p><strong>Where the result humbles us, and we report it anyway:</strong> we predicted the contract agent would also collect the fewest "judgment call" flags - things like asserting a fact without visibly checking it. The opposite happened: it drew <em>more</em> such flags than most alternatives. Two caveats before reading much into that: the two graders mostly flagged <em>different</em> conversations (their agreement on which ones deserved a flag was poor, so this instrument is blunt), and an agent that acts on rules it was legitimately handed can look "unsupported" to a grader who - by the blinding design - never sees those rules. We then checked every one of those flags against the raw, unstripped conversations: of the contract agent's 73 flags, <strong>23 were exactly that artifact</strong> (the agent had the grounding; the blinded grader couldn't see it), <strong>41 were grader judgment calls or quirks of the simulator</strong>, and <strong>9 were real mistakes</strong> - things like quoting a fare estimate the system never produced. So the surprise mostly dissolves under inspection, a small real cost of confident agents remains, and our preregistration committed us to publishing the raw result either way - which we did.</p>
+</div>
+
+<h2>The frontier test: what do you give up for the savings?</h2>
+<div class="card">
+<p class="sub" style="margin-top:0">A fair objection: "my production agent already gets the <em>entire</em> policy manual stuffed into its prompt - the tuned setup. What does the contract buy me there?" We ran that head-to-head: the same 36 tasks, same model, full-manual agent vs contract agent.</p>
+<p><strong>Success: a statistical tie.</strong> The full-manual agent landed 62% of tasks, the contract agent 58% - inside the noise band, with the contract winning retail outright and giving back ground only on telecom, the domain with the most diagnostic procedure.</p>
+<p><strong>Cost: the contract reads far less.</strong> Same work, but the contract agent consumed <strong>29% fewer prompt tokens on average - and 52% fewer on telecom</strong>, whose policy manual is the largest. On the smallest manual (airline) the two were even. That's the scaling story in one row: the bigger the rulebook, the more a task-scoped view saves, with nothing statistically detectable given up on outcomes - and the contract agent still kept the better audit trail under both graders.</p>
+</div>
+
+<h2>What it implies for builders</h2>
+<div class="note">These tasks were hard for everyone - even the winner failed four in ten, so nobody should read this as "agents are solved." The specific, repeatable finding is placement: rules that live in documentation piles or system prompts get skipped under pressure; rules the <strong>service itself attaches to the action, at the moment of the call</strong>, actually change outcomes. That's a thing a platform team can ship - it's interface work, not model work.</div>
+
+<div class="caveat"><strong>Limits.</strong> One benchmark, one agent model (a cross-model replication is queued), 36 tasks, simulated customers. The two stories above are real, verbatim-condition examples chosen to illustrate the mechanism - the scoreboard, not the stories, carries the statistical weight. The graders' judgment-call flags are the weakest instrument here (the two graders often disagree trace-by-trace) and we treat them accordingly.</div>
+
+<p class="sub">Full methods: the preregistration and design docs in the <a href="../docs/">docs corner</a>. Every number here comes from experiments/tau2-phase1 in the repo.</p>
+</div></body></html>

@@ -1,0 +1,18 @@
+title: Context-Boundary Optimization
+description: >-
+  Services computing, per task and at runtime, the information architecture an
+  agent needs to act well.
+theme: jekyll-theme-cayman
+# Curated publication: only what is listed here is served. Anything that lands
+# in this directory without being named stays out of the built site, which is
+# the publishing half of the file-by-file curation rule.
+include:
+  - papers
+  - figures
+  - library
+  - demos
+  - data
+exclude:
+  - "*.receipt.txt"
+  - Gemfile
+  - Gemfile.lock

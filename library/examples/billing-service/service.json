@@ -1,0 +1,18 @@
+{
+  "name": "billing-service",
+  "use_case": "Send customer invoice emails from approved invoice drafts.",
+  "operations": [
+    {
+      "name": "send_invoice",
+      "description": "Externally-visible email send for an approved customer invoice."
+    },
+    {
+      "name": "lookup_invoice",
+      "description": "Read the current invoice draft and source approval record."
+    },
+    {
+      "name": "void_invoice",
+      "description": "Irreversible invoice cancellation for a customer account."
+    }
+  ]
+}

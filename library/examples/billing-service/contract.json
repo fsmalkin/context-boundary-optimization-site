@@ -1,0 +1,75 @@
+{
+  "authority": {
+    "metadata": {},
+    "preconditions": {
+      "send_invoice": [
+        "approval_state=approved",
+        "argument:customer_id",
+        "argument:invoice_id"
+      ]
+    },
+    "promises": [],
+    "requires": [
+      "human approval before customer-visible invoice sends"
+    ]
+  },
+  "memory": {
+    "metadata": {},
+    "preconditions": {},
+    "promises": [],
+    "requires": [
+      "carry invoice draft state until send or cancellation"
+    ]
+  },
+  "metadata": {
+    "example": "billing-service"
+  },
+  "name": "billing-service",
+  "output_audit": {
+    "metadata": {},
+    "preconditions": {},
+    "promises": [
+      "record action, context, checked obligations, decision, and evidence"
+    ],
+    "requires": []
+  },
+  "privacy": {
+    "metadata": {},
+    "preconditions": {},
+    "promises": [],
+    "requires": [
+      "limit trace entries to invoice and customer identifiers needed for audit"
+    ]
+  },
+  "provenance": {
+    "metadata": {},
+    "preconditions": {
+      "send_invoice": [
+        "source_ids"
+      ]
+    },
+    "promises": [],
+    "requires": [
+      "source identity for invoice draft and approval record"
+    ]
+  },
+  "required_context": {
+    "metadata": {},
+    "preconditions": {},
+    "promises": [],
+    "requires": [
+      "customer_id",
+      "invoice_id",
+      "approval_record"
+    ]
+  },
+  "uncertainty": {
+    "metadata": {},
+    "preconditions": {},
+    "promises": [],
+    "requires": [
+      "ask for clarification when invoice or approval state is missing"
+    ]
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,11 @@
+{
+  "approval_state": "approved",
+  "arguments": {
+    "customer_id": "cus_123",
+    "invoice_id": "inv_456"
+  },
+  "operation": "send_invoice",
+  "source_ids": [
+    "approval-ticket-42"
+  ]
+}
