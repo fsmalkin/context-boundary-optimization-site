@@ -1,0 +1,505 @@
+{
+  "version": 3,
+  "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f",
+  "active": true,
+  "tickets": [
+    "ALEPH-164"
+  ],
+  "lanes": {
+    "cbo-paper-ui-design": {
+      "active": true,
+      "sprint": "2026-08-08-cbo-paper-ui-implementation",
+      "planned": "2026-08-08",
+      "tickets": [
+        "ALEPH-164"
+      ],
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "state": "active"
+    }
+  },
+  "federatedAdmissions": [
+    {
+      "ticket": "ALEPH-164",
+      "stableKey": "cbo-aleph164-paper-ui-mock-selection-2026-08-08-v1",
+      "admittedAt": "2026-08-08T22:38:04.462Z",
+      "admittedBy": {
+        "nodeId": "context-boundary-optimization-site",
+        "role": "project-node"
+      },
+      "goal": "Create exactly three unpublished mobile-first paper-UI directions grounded in the live CBO page and Fred's recovered hand-drawn ImageGen family, then obtain Fred's explicit selection before any implementation, pull-request update, merge, or publication.",
+      "priority": "Urgent",
+      "costOfDelayOrDeadline": "No calendar deadline. Delay leaves the owner-rejected glossy illustration candidate as the only implementation candidate and blocks the accepted redesign, functional UAT, and live publication outcome.",
+      "dependencies": [
+        {
+          "id": "cbo-public-comparison-removal",
+          "state": "completed-live",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+        },
+        {
+          "id": "cbo-owner-redesign-direction",
+          "state": "complete",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228325227"
+        },
+        {
+          "id": "cbo-hand-drawn-reference-family",
+          "state": "recovered-and-visually-inspected",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170"
+        }
+      ],
+      "risk": "Low and bounded to three private design images shown only in the active conversation. The operation does not modify tracked product source, update PR 1, create a new pull request, expose a comparison board, merge, deploy, publish, share through Filevine, call Gemini, or use another drafting provider.",
+      "effort": "Capture the current live page at 390 by 844, inspect the recovered hand-drawn references, generate three distinct built-in ImageGen paper-UI directions sequentially, and stop at Fred's 1/2/3 selection gate.",
+      "capacity": {
+        "wipLimit": 1,
+        "activeCount": 1,
+        "verifiedAt": "2026-08-08T22:38:04.462Z",
+        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+      },
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "providerFences": [
+        {
+          "laneId": "filevine-sharing",
+          "operationId": "cbo-aleph164-filevine-share-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "historical-image-generation",
+          "operationId": "cbo-aleph164-image-generation-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "gemini-drafting",
+          "operationId": "cbo-aleph164-gemini-drafting-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "other-drafting-provider",
+          "operationId": "cbo-aleph164-other-drafting-provider-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "historical-github-publication",
+          "operationId": "cbo-aleph164-reviewed-candidate-pr-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-github-ledger",
+          "operationId": "cbo-aleph164-next-stage-drafting-replacement-admission-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-github-publication",
+          "operationId": "cbo-aleph164-drafting-replacement-pr-update-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-github-ledger",
+          "operationId": "cbo-aleph164-full-access-ledger-receipts-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3
+        },
+        {
+          "laneId": "historical-pr-metadata-readiness",
+          "operationId": "cbo-aleph164-pr1-readiness-2026-08-08-v1",
+          "state": "in-progress",
+          "invocationCount": 1,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-preview",
+          "operationId": "cbo-aleph164-production-equivalent-preview-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-independent-uat",
+          "operationId": "cbo-aleph164-independent-blind-functional-uat-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-merge-pages",
+          "operationId": "cbo-aleph164-pr1-main-pages-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-live-verification",
+          "operationId": "cbo-aleph164-live-verification-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-linear-projection",
+          "operationId": "cbo-aleph164-linear-projections-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3
+        },
+        {
+          "laneId": "incident-github-ledger",
+          "operationId": "cbo-aleph164-public-comparison-ledger-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-independent-review",
+          "operationId": "cbo-aleph164-public-comparison-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-github-publication",
+          "operationId": "cbo-aleph164-public-comparison-hotfix-pr-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-merge-pages",
+          "operationId": "cbo-aleph164-public-comparison-main-pages-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "incident-live-verification",
+          "operationId": "cbo-aleph164-public-comparison-live-verify-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "incident-linear-projection",
+          "operationId": "cbo-aleph164-public-comparison-linear-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-image-generation",
+          "operationId": "cbo-aleph164-paper-ui-ideation-imagegen-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 3,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Discard only the generated private mock artifacts. Nothing is published and no product source is changed."
+        },
+        {
+          "laneId": "paper-ui-github-ledger",
+          "operationId": "cbo-aleph164-paper-ui-design-ledger-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-linear-projection",
+          "operationId": "cbo-aleph164-paper-ui-linear-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-source-implementation",
+          "operationId": "cbo-aleph164-paper-ui-source-implementation-hold-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "paper-ui-publication",
+          "operationId": "cbo-aleph164-paper-ui-publication-hold-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        }
+      ],
+      "rationale": "Fred explicitly rejected the glossy candidate, requested the prior hand-sketched ImageGen direction and a paper UI, and identified the comparison board as unsuitable for publication. The exposure incident is terminal. WIP returns to 1/1 for the required full-loop-mock-first selection gate. The latest direction admits only three private built-in ImageGen mock invocations; every historical generic provider hold and all publication boundaries remain preserved.",
+      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228540303",
+      "state": "terminal",
+      "terminalAt": "2026-08-08T22:47:47.896Z",
+      "terminalStage": "Fred selected the Research Field Guide paper-UI direction after the second private mock; the unused third mock invocation was not made.",
+      "terminalEvidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352",
+      "ownerPick": "Research Field Guide paper UI with ruled notebook paper, hand-drawn navy ink, clipped index-card navigation, and muted marker accents.",
+      "ownerPickVerbatim": "That's the style I want",
+      "selectedMock": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
+      "designContext": {
+        "designLoopMode": "full-loop-mock-first",
+        "liveReferenceUrl": "https://fsmalkin.github.io/context-boundary-optimization-site/",
+        "liveReferenceCapture": "D:\\tmp\\cbo-reference-capture-019fe30f\\live-mobile-390x844.png",
+        "referenceImages": [
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fb173-fefe-7b52-acb8-655dbe2ca17d\\exec-99846db5-f8fa-44d6-9033-f8b8295e165d.png",
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fc439-b88e-7762-8a69-fbc745634784\\exec-62dfa873-a953-4af8-983f-97b27c7e20c6.png",
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fc439-b88e-7762-8a69-fbc745634784\\exec-49007f3a-52d7-4380-8bcf-9c5bcf891ce8.png"
+        ],
+        "userJob": "On a phone, quickly understand the context-boundary optimization thesis, recognize the hand-drawn system story, and reach the papers or working tools.",
+        "hardConstraints": [
+          "warm off-white paper background and subtle paper texture",
+          "friendly hand-drawn marker-and-ink illustration language",
+          "muted navy, teal, warm orange, sage, and pale blue",
+          "preserve the site's real title, thesis, research surfaces, and tool routes",
+          "no glossy violet or neon infographic treatment",
+          "no public comparison board",
+          "mobile target 390 by 844"
+        ]
+      },
+      "verification": {
+        "tier": "T2 at the eventual live milestone; this admission is private R&D mock selection only",
+        "designLoopMode": "full-loop-mock-first",
+        "required": [
+          "live mobile page captured and opened before ideation",
+          "recovered hand-drawn reference images visually inspected",
+          "generate independent ImageGen UI directions sequentially until Fred selects one, within the three-invocation ceiling",
+          "Fred selects one direction before implementation"
+        ]
+      },
+      "externalTuple": {
+        "task": "ALEPH-164 / fsmalkin/aleph#170",
+        "initiative": "select the hand-drawn paper-UI redesign direction",
+        "provider": "built-in ImageGen",
+        "account": "current subscription-backed built-in tool",
+        "dataClass": "public CBO page capture and Fred-authored/recovered non-sensitive reference images",
+        "boundedOperationSet": "three sequential unpublished UI mock generations only",
+        "costCeilingUsd": 0,
+        "maximumInvocationCount": 3,
+        "cleanupOrRollback": "Discard only private generated mock artifacts; no source, PR, Pages, Filevine, or external share mutation occurs."
+      }
+    },
+    {
+      "ticket": "ALEPH-164",
+      "stableKey": "cbo-aleph164-paper-ui-implementation-2026-08-08-v1",
+      "admittedAt": "2026-08-08T22:47:47.896Z",
+      "admittedBy": {
+        "nodeId": "context-boundary-optimization-site",
+        "role": "project-node"
+      },
+      "goal": "Implement Fred's selected Research Field Guide paper UI and a coherent hand-drawn CBO illustration set in the existing static site, then update only existing PR 1, pass T2 production-equivalent independent blind functional UAT, merge once, publish through GitHub Pages, and verify the live mobile-first outcome.",
+      "priority": "Urgent",
+      "costOfDelayOrDeadline": "No calendar deadline. The selected redesign is now the only accepted path to replace the rejected glossy candidate and unblock the shareable live CBO outcome.",
+      "dependencies": [
+        {
+          "id": "cbo-paper-ui-owner-selection",
+          "state": "completed",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352"
+        },
+        {
+          "id": "cbo-public-comparison-removal",
+          "state": "completed-live",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+        },
+        {
+          "id": "cbo-pages-current-main",
+          "state": "built-at-2df0a5974bb2e4aee4923f4a8614be033059bfd0",
+          "evidenceLink": "https://fsmalkin.github.io/context-boundary-optimization-site/"
+        }
+      ],
+      "risk": "T2 user-facing redesign. The source boundary is the static presentation layer and the six CBO figure assets; papers, PDFs, experimental data, library behavior, and demos remain semantically unchanged. External mutations are limited to replacing the existing PR 1 branch after review, one PR metadata update, one merge, the existing Pages build, and bounded readback. Rollback is a reviewed revert of only the redesign merge.",
+      "effort": "Generate the selected mock's required paper texture, workflow, navigation art, and five replacement CBO figures; implement the responsive paper layout in the existing Jekyll site; run deterministic, accessibility, link, visual, and interaction checks; pass Product Design design QA and independent review; update existing PR 1; run production-equivalent blind UAT; merge once; verify Pages and the mobile user task.",
+      "capacity": {
+        "wipLimit": 1,
+        "activeCount": 1,
+        "verifiedAt": "2026-08-08T22:47:47.896Z",
+        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352"
+      },
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "providerFences": [
+        {
+          "laneId": "filevine-sharing",
+          "operationId": "cbo-aleph164-filevine-share-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "gemini-drafting",
+          "operationId": "cbo-aleph164-gemini-drafting-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "other-drafting-provider",
+          "operationId": "cbo-aleph164-other-drafting-provider-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "paper-ui-assets",
+          "operationId": "cbo-aleph164-paper-ui-assets-imagegen-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 9,
+          "invocationCeiling": 9,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Remove only unused task-generated assets before commit; after integration, restore the prior tracked images and presentation files through a reviewed revert."
+        },
+        {
+          "laneId": "paper-ui-fig5-correction",
+          "operationId": "cbo-aleph164-paper-ui-fig5-gate-correction-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Replace only figures/fig5-enforcement.png with the prior generated version if the one-call correction does not make the reject and permitted execution branches semantically unambiguous."
+        },
+        {
+          "laneId": "paper-ui-independent-review",
+          "operationId": "cbo-aleph164-paper-ui-independent-review-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-pr1-update",
+          "operationId": "cbo-aleph164-paper-ui-pr1-update-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2,
+          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR."
+        },
+        {
+          "laneId": "paper-ui-production-preview",
+          "operationId": "cbo-aleph164-paper-ui-production-preview-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-blind-uat",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-merge-pages",
+          "operationId": "cbo-aleph164-paper-ui-main-pages-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "paper-ui-live-verification",
+          "operationId": "cbo-aleph164-paper-ui-live-verification-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "paper-ui-implementation-ledger",
+          "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 3
+        },
+        {
+          "laneId": "paper-ui-implementation-linear",
+          "operationId": "cbo-aleph164-paper-ui-implementation-linear-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2
+        }
+      ],
+      "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
+      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352",
+      "state": "active",
+      "sourceBoundary": {
+        "allowed": [
+          "index.md",
+          "_config.yml only where required for the selected presentation and existing publication exclusion",
+          "_layouts/default.html",
+          "assets/css/style.scss",
+          "assets/images/ selected paper-UI raster assets",
+          "figures/fig1-boundary.png through figures/fig6-spectrum.png only to establish the selected coherent hand-drawn family",
+          "focused regression and design-QA artifacts",
+          ".claude/sprint-scope.json task-local admission metadata"
+        ],
+        "excluded": "Paper bodies and PDFs, empirical claims, experimental data, Python library behavior and tests except presentation-regression coverage, unrelated demos, Filevine, and all unrelated repositories."
+      },
+      "selectedVisual": {
+        "path": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
+        "ownerPickVerbatim": "That's the style I want",
+        "name": "Research Field Guide",
+        "mobileViewport": "390x844",
+        "requiredTraits": [
+          "warm ruled notebook paper",
+          "hand-drawn navy marker typography and outlines",
+          "muted teal, sage, warm orange, and pale-blue accents",
+          "task to service to context-contract to agent workflow",
+          "clipped index-card navigation for Papers, Build, and Explore",
+          "working-drafts status carried as a quiet stamp"
+        ]
+      },
+      "verification": {
+        "tier": "T2",
+        "designLoopMode": "full-loop-mock-first selected",
+        "required": [
+          "T0 deterministic build, link, content, image, accessibility, and regression checks on the immutable candidate",
+          "Product Design visual comparison and design-qa.md final result passed",
+          "independent tier-matched changed-tree review",
+          "production-equivalent locked preview preserving GitHub Pages semantics",
+          "independent blind mobile-first functional UAT against the exact preview",
+          "matching GitHub Pages build and post-deploy mobile-first live verification"
+        ]
+      },
+      "shippingBoundary": {
+        "externalTuple": {
+          "task": "ALEPH-164 / fsmalkin/aleph#170",
+          "initiative": "ship Fred's selected Research Field Guide paper UI",
+          "target": "existing PR 1, fsmalkin/context-boundary-optimization-site main, and legacy GitHub Pages main:/",
+          "sanctionedAccount": "fsmalkin",
+          "credentialScope": "existing GitHub CLI and connected Linear OAuth; metadata-only verification",
+          "dataClass": "public static-site source and non-sensitive generated design assets",
+          "boundedOperationSet": "nine sequential built-in ImageGen asset calls plus one exact Figure 5 semantic-correction call, source implementation, review, existing PR 1 update, production-equivalent preview, blind UAT, one merge and Pages trigger, and live verification",
+          "verificationTier": "T2",
+          "costCeilingUsd": 0
+        },
+        "rollback": "If live verification fails, promote a reviewed revert of only the paper-UI redesign merge. Do not replay the merge invocation and do not restore the removed public comparison route.",
+        "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "canonicalReceipt": "https://github.com/fsmalkin/aleph/issues/170"
+      }
+    }
+  ],
+  "notes": [
+    "The public comparison route was removed and verified 404 at main and Pages commit 2df0a5974bb2e4aee4923f4a8614be033059bfd0.",
+    "Rejected draft PR 1 remains open and unmerged at 2dbb70ca5ea32573d567219a1fa32b9dcf578930; it receives no update in this design-selection admission.",
+    "The recovered hand-drawn family is the Aug. 2 warm-paper marker-and-ink ImageGen direction. Exact original prompts and per-request receipts are not invented.",
+    "Filevine, Gemini, other drafting providers, and the historical generic image-generation hold remain 0/0. Fred's new direction admits only the separately named three-call private design-mock operation.",
+    "No comparison board, mock route, branch push, pull request, merge, deployment, or publication occurs before Fred selects a direction."
+  ]
+}

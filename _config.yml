@@ -13,6 +13,7 @@ include:
   - data
 exclude:
   - demos/figure-comparison.html
+  - design-qa.md
   - "*.receipt.txt"
   - Gemfile
   - Gemfile.lock

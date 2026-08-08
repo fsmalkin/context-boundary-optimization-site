@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5efdf">
+    <meta name="color-scheme" content="light">
+    <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body{% if page.url == '/' %} class="home-page"{% endif %}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="field-guide-shell">
+      <header class="site-header">
+        <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Context-Boundary Optimization home">
+          <img class="brand-mark" src="{{ '/assets/images/cbo-mark-transparent.png' | relative_url }}" width="235" height="115" alt="" aria-hidden="true">
+          <span class="brand-name">Research field guide</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="{{ '/#papers' | relative_url }}">Papers</a>
+          <a href="{{ '/library/' | relative_url }}">Build</a>
+          <a href="{{ '/demos/' | relative_url }}">Explore</a>
+          <a href="https://github.com/fsmalkin/context-boundary-optimization-site">GitHub</a>
+        </nav>
+      </header>
+
+      <main id="main-content" class="site-content">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <span class="status-stamp">Working drafts</span>
+        <p>MIT for code · CC BY for papers · <a href="{{ '/LICENSE' | relative_url }}">License</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
