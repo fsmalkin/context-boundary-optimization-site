@@ -67,7 +67,7 @@ action the gate approves and one it rejects.
 
 ## Interactive
 
-Four tools built while running the experiments, kept because they show the
+Three tools built while running the experiments, kept because they show the
 mechanism better than prose does.
 
 - [**Trace browser**](demos/trace-browser.html) — step through what an agent
@@ -76,8 +76,6 @@ mechanism better than prose does.
   where scorers disagreed
 - [**Plain-English results**](demos/plain-english-results.html) — the findings
   without the statistics
-- [**Figure comparison**](demos/figure-comparison.html) — the conceptual figures
-  side by side
 
 ## Figures
 

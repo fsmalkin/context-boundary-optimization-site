@@ -3,9 +3,8 @@ description: >-
   Services computing, per task and at runtime, the information architecture an
   agent needs to act well.
 theme: jekyll-theme-cayman
-# Curated publication: only what is listed here is served. Anything that lands
-# in this directory without being named stays out of the built site, which is
-# the publishing half of the file-by-file curation rule.
+# Publication roots. Files inside these directories are served unless they are
+# explicitly excluded below.
 include:
   - papers
   - figures
@@ -13,6 +12,7 @@ include:
   - demos
   - data
 exclude:
+  - demos/figure-comparison.html
   - "*.receipt.txt"
   - Gemfile
   - Gemfile.lock
