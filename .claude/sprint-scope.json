@@ -613,16 +613,28 @@
         {
           "laneId": "paper-ui-implementation-ledger",
           "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
-          "invocationCeiling": 3
+          "state": "in-progress",
+          "invocationCount": 1,
+          "invocationCeiling": 3,
+          "currentInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
+            "target": "fsmalkin/aleph#170",
+            "startedAt": "2026-08-08T22:20:06.1415122-04:00",
+            "purpose": "Record the immutable reviewed paper-UI candidate and Fred's active production-equivalent mobile UAT without changing PR, provider, merge, or Pages state."
+          }
         },
         {
           "laneId": "paper-ui-implementation-linear",
           "operationId": "cbo-aleph164-paper-ui-implementation-linear-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
-          "invocationCeiling": 2
+          "state": "in-progress",
+          "invocationCount": 1,
+          "invocationCeiling": 2,
+          "currentInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
+            "target": "ALEPH-164",
+            "startedAt": "2026-08-08T22:20:06.1415122-04:00",
+            "purpose": "Project the immutable candidate and active Fred UAT checkpoint while preserving the issue's non-complete state."
+          }
         }
       ],
       "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
