@@ -1,0 +1,1002 @@
+{
+  "version": 3,
+  "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f",
+  "active": true,
+  "tickets": [
+    "ALEPH-164"
+  ],
+  "lanes": {
+    "cbo-paper-ui-design": {
+      "active": true,
+      "sprint": "2026-08-08-cbo-paper-ui-implementation",
+      "planned": "2026-08-08",
+      "tickets": [
+        "ALEPH-164"
+      ],
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "state": "active"
+    }
+  },
+  "federatedAdmissions": [
+    {
+      "ticket": "ALEPH-164",
+      "stableKey": "cbo-aleph164-paper-ui-mock-selection-2026-08-08-v1",
+      "admittedAt": "2026-08-08T22:38:04.462Z",
+      "admittedBy": {
+        "nodeId": "context-boundary-optimization-site",
+        "role": "project-node"
+      },
+      "goal": "Create exactly three unpublished mobile-first paper-UI directions grounded in the live CBO page and Fred's recovered hand-drawn ImageGen family, then obtain Fred's explicit selection before any implementation, pull-request update, merge, or publication.",
+      "priority": "Urgent",
+      "costOfDelayOrDeadline": "No calendar deadline. Delay leaves the owner-rejected glossy illustration candidate as the only implementation candidate and blocks the accepted redesign, functional UAT, and live publication outcome.",
+      "dependencies": [
+        {
+          "id": "cbo-public-comparison-removal",
+          "state": "completed-live",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+        },
+        {
+          "id": "cbo-owner-redesign-direction",
+          "state": "complete",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228325227"
+        },
+        {
+          "id": "cbo-hand-drawn-reference-family",
+          "state": "recovered-and-visually-inspected",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170"
+        }
+      ],
+      "risk": "Low and bounded to three private design images shown only in the active conversation. The operation does not modify tracked product source, update PR 1, create a new pull request, expose a comparison board, merge, deploy, publish, share through Filevine, call Gemini, or use another drafting provider.",
+      "effort": "Capture the current live page at 390 by 844, inspect the recovered hand-drawn references, generate three distinct built-in ImageGen paper-UI directions sequentially, and stop at Fred's 1/2/3 selection gate.",
+      "capacity": {
+        "wipLimit": 1,
+        "activeCount": 1,
+        "verifiedAt": "2026-08-08T22:38:04.462Z",
+        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+      },
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "providerFences": [
+        {
+          "laneId": "filevine-sharing",
+          "operationId": "cbo-aleph164-filevine-share-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "historical-image-generation",
+          "operationId": "cbo-aleph164-image-generation-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "gemini-drafting",
+          "operationId": "cbo-aleph164-gemini-drafting-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "other-drafting-provider",
+          "operationId": "cbo-aleph164-other-drafting-provider-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "historical-github-publication",
+          "operationId": "cbo-aleph164-reviewed-candidate-pr-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-github-ledger",
+          "operationId": "cbo-aleph164-next-stage-drafting-replacement-admission-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-github-publication",
+          "operationId": "cbo-aleph164-drafting-replacement-pr-update-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-github-ledger",
+          "operationId": "cbo-aleph164-full-access-ledger-receipts-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3
+        },
+        {
+          "laneId": "historical-pr-metadata-readiness",
+          "operationId": "cbo-aleph164-pr1-readiness-2026-08-08-v1",
+          "state": "in-progress",
+          "invocationCount": 1,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-preview",
+          "operationId": "cbo-aleph164-production-equivalent-preview-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-independent-uat",
+          "operationId": "cbo-aleph164-independent-blind-functional-uat-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "historical-merge-pages",
+          "operationId": "cbo-aleph164-pr1-main-pages-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-live-verification",
+          "operationId": "cbo-aleph164-live-verification-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "historical-linear-projection",
+          "operationId": "cbo-aleph164-linear-projections-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3
+        },
+        {
+          "laneId": "incident-github-ledger",
+          "operationId": "cbo-aleph164-public-comparison-ledger-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-independent-review",
+          "operationId": "cbo-aleph164-public-comparison-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-github-publication",
+          "operationId": "cbo-aleph164-public-comparison-hotfix-pr-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "incident-merge-pages",
+          "operationId": "cbo-aleph164-public-comparison-main-pages-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "incident-live-verification",
+          "operationId": "cbo-aleph164-public-comparison-live-verify-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1
+        },
+        {
+          "laneId": "incident-linear-projection",
+          "operationId": "cbo-aleph164-public-comparison-linear-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-image-generation",
+          "operationId": "cbo-aleph164-paper-ui-ideation-imagegen-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 3,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Discard only the generated private mock artifacts. Nothing is published and no product source is changed."
+        },
+        {
+          "laneId": "paper-ui-github-ledger",
+          "operationId": "cbo-aleph164-paper-ui-design-ledger-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-linear-projection",
+          "operationId": "cbo-aleph164-paper-ui-linear-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-source-implementation",
+          "operationId": "cbo-aleph164-paper-ui-source-implementation-hold-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "paper-ui-publication",
+          "operationId": "cbo-aleph164-paper-ui-publication-hold-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        }
+      ],
+      "rationale": "Fred explicitly rejected the glossy candidate, requested the prior hand-sketched ImageGen direction and a paper UI, and identified the comparison board as unsuitable for publication. The exposure incident is terminal. WIP returns to 1/1 for the required full-loop-mock-first selection gate. The latest direction admits only three private built-in ImageGen mock invocations; every historical generic provider hold and all publication boundaries remain preserved.",
+      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228540303",
+      "state": "terminal",
+      "terminalAt": "2026-08-08T22:47:47.896Z",
+      "terminalStage": "Fred selected the Research Field Guide paper-UI direction after the second private mock; the unused third mock invocation was not made.",
+      "terminalEvidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352",
+      "ownerPick": "Research Field Guide paper UI with ruled notebook paper, hand-drawn navy ink, clipped index-card navigation, and muted marker accents.",
+      "ownerPickVerbatim": "That's the style I want",
+      "selectedMock": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
+      "designContext": {
+        "designLoopMode": "full-loop-mock-first",
+        "liveReferenceUrl": "https://fsmalkin.github.io/context-boundary-optimization-site/",
+        "liveReferenceCapture": "D:\\tmp\\cbo-reference-capture-019fe30f\\live-mobile-390x844.png",
+        "referenceImages": [
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fb173-fefe-7b52-acb8-655dbe2ca17d\\exec-99846db5-f8fa-44d6-9033-f8b8295e165d.png",
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fc439-b88e-7762-8a69-fbc745634784\\exec-62dfa873-a953-4af8-983f-97b27c7e20c6.png",
+          "C:\\Users\\Fred\\.codex\\generated_images\\019fc439-b88e-7762-8a69-fbc745634784\\exec-49007f3a-52d7-4380-8bcf-9c5bcf891ce8.png"
+        ],
+        "userJob": "On a phone, quickly understand the context-boundary optimization thesis, recognize the hand-drawn system story, and reach the papers or working tools.",
+        "hardConstraints": [
+          "warm off-white paper background and subtle paper texture",
+          "friendly hand-drawn marker-and-ink illustration language",
+          "muted navy, teal, warm orange, sage, and pale blue",
+          "preserve the site's real title, thesis, research surfaces, and tool routes",
+          "no glossy violet or neon infographic treatment",
+          "no public comparison board",
+          "mobile target 390 by 844"
+        ]
+      },
+      "verification": {
+        "tier": "T2 at the eventual live milestone; this admission is private R&D mock selection only",
+        "designLoopMode": "full-loop-mock-first",
+        "required": [
+          "live mobile page captured and opened before ideation",
+          "recovered hand-drawn reference images visually inspected",
+          "generate independent ImageGen UI directions sequentially until Fred selects one, within the three-invocation ceiling",
+          "Fred selects one direction before implementation"
+        ]
+      },
+      "externalTuple": {
+        "task": "ALEPH-164 / fsmalkin/aleph#170",
+        "initiative": "select the hand-drawn paper-UI redesign direction",
+        "provider": "built-in ImageGen",
+        "account": "current subscription-backed built-in tool",
+        "dataClass": "public CBO page capture and Fred-authored/recovered non-sensitive reference images",
+        "boundedOperationSet": "three sequential unpublished UI mock generations only",
+        "costCeilingUsd": 0,
+        "maximumInvocationCount": 3,
+        "cleanupOrRollback": "Discard only private generated mock artifacts; no source, PR, Pages, Filevine, or external share mutation occurs."
+      }
+    },
+    {
+      "ticket": "ALEPH-164",
+      "stableKey": "cbo-aleph164-paper-ui-implementation-2026-08-08-v1",
+      "admittedAt": "2026-08-08T22:47:47.896Z",
+      "admittedBy": {
+        "nodeId": "context-boundary-optimization-site",
+        "role": "project-node"
+      },
+      "goal": "Implement Fred's selected Research Field Guide paper UI and a coherent hand-drawn CBO illustration set in the existing static site, then update only existing PR 1, pass T2 production-equivalent independent blind functional UAT, merge once, publish through GitHub Pages, and verify the live mobile-first outcome.",
+      "priority": "Urgent",
+      "costOfDelayOrDeadline": "No calendar deadline. The selected redesign is now the only accepted path to replace the rejected glossy candidate and unblock the shareable live CBO outcome.",
+      "dependencies": [
+        {
+          "id": "cbo-paper-ui-owner-selection",
+          "state": "completed",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352"
+        },
+        {
+          "id": "cbo-public-comparison-removal",
+          "state": "completed-live",
+          "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228441620"
+        },
+        {
+          "id": "cbo-pages-current-main",
+          "state": "built-at-2df0a5974bb2e4aee4923f4a8614be033059bfd0",
+          "evidenceLink": "https://fsmalkin.github.io/context-boundary-optimization-site/"
+        }
+      ],
+      "risk": "T2 user-facing redesign. The source boundary is the static presentation layer and six CBO figure assets, plus exact UAT repairs for rendered paper metadata and links, trace-browser mobile containment, return navigation and one-to-one trace identity, and one corrected-inference sentence. Paper-body substance, PDFs, empirical data and analyses, and library behavior remain unchanged. External mutations are limited to replacing the existing PR 1 branch after review, one PR metadata update, one merge, the existing Pages build, and bounded readback. Rollback is a reviewed revert of only the redesign merge.",
+      "effort": "Generate the selected mock's required paper texture, workflow, navigation art, and five replacement CBO figures; implement the responsive paper layout in the existing Jekyll site; run deterministic, accessibility, link, visual, and interaction checks; pass Product Design design QA and independent review; update existing PR 1; run production-equivalent blind UAT; merge once; verify Pages and the mobile user task.",
+      "capacity": {
+        "wipLimit": 1,
+        "activeCount": 1,
+        "verifiedAt": "2026-08-08T22:47:47.896Z",
+        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352"
+      },
+      "writerFence": {
+        "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
+        "writerId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "checkout": "D:\\tmp\\cbo-aleph164-paper-ui-design-019fe30f"
+      },
+      "providerFences": [
+        {
+          "laneId": "filevine-sharing",
+          "operationId": "cbo-aleph164-filevine-share-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "gemini-drafting",
+          "operationId": "cbo-aleph164-gemini-drafting-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "other-drafting-provider",
+          "operationId": "cbo-aleph164-other-drafting-provider-hold-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 0
+        },
+        {
+          "laneId": "paper-ui-assets",
+          "operationId": "cbo-aleph164-paper-ui-assets-imagegen-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 9,
+          "invocationCeiling": 9,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Remove only unused task-generated assets before commit; after integration, restore the prior tracked images and presentation files through a reviewed revert."
+        },
+        {
+          "laneId": "paper-ui-fig5-correction",
+          "operationId": "cbo-aleph164-paper-ui-fig5-gate-correction-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Replace only figures/fig5-enforcement.png with the prior generated version if the one-call correction does not make the reject and permitted execution branches semantically unambiguous."
+        },
+        {
+          "laneId": "paper-ui-independent-review",
+          "operationId": "cbo-aleph164-paper-ui-independent-review-2026-08-08-v1",
+          "state": "ambiguous",
+          "invocationCount": 2,
+          "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-independent-review-recovery",
+          "operationId": "cbo-aleph164-paper-ui-independent-review-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Read-only review creates no product or provider mutation. If no report returns, mark terminal-no-verdict and do not retry."
+        },
+        {
+          "laneId": "paper-ui-table-fix-review",
+          "operationId": "cbo-aleph164-paper-ui-table-fix-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. If no verdict returns, do not retry."
+        },
+        {
+          "laneId": "paper-ui-pr1-update",
+          "operationId": "cbo-aleph164-paper-ui-pr1-update-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "authorizedAt": "2026-08-09T00:32:44.231-04:00",
+          "authority": "Fred accepted the current private paper candidate and explicitly directed immediate publication through the existing reviewed GitHub and Pages path. The later sales-page redesign and incremental Gemini work must not delay this release.",
+          "target": "existing PR https://github.com/fsmalkin/context-boundary-optimization-site/pull/1 and existing remote branch origin/afuturehead/aleph-164-api-illustrations only",
+          "expectedRemoteHead": "2dbb70ca5ea32573d567219a1fa32b9dcf578930",
+          "sourceCandidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882 plus task-local release and ordering receipts only",
+          "boundedOperationSet": "One exact force-with-lease replacement of the existing PR branch, followed by one serialized GitHub metadata/readiness request. Do not create a branch or pull request.",
+          "readback": "Require the remote branch to resolve to the pushed exact head, PR 1 to be open and ready with the current title/body, and the mergeable state to be clean before the merge boundary.",
+          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR."
+        },
+        {
+          "laneId": "paper-ui-production-preview",
+          "operationId": "cbo-aleph164-paper-ui-production-preview-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "boundaryInstance": "tailscale-serve-8447-paper-ui-uat-remediation-v2",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0 plus admitted uncommitted UAT remediation",
+          "indexSha256": "DC982A7B62E7E23DD54A45D11B678F3718218865F9792A1C8522CD860C550659",
+          "verifiedAt": "2026-08-08T21:12:36.5606142-04:00",
+          "cleanupOrRollback": "Remove only the Tailscale Serve HTTPS 8447 handler. Preserve every other Tailscale listener and the local production-equivalent build."
+        },
+        {
+          "laneId": "paper-ui-production-preview-trace-fix",
+          "operationId": "cbo-aleph164-paper-ui-production-preview-trace-identity-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "boundaryInstance": "tailscale-serve-8447-paper-ui-trace-identity-v3",
+          "indexSha256": "DC982A7B62E7E23DD54A45D11B678F3718218865F9792A1C8522CD860C550659",
+          "traceBrowserSha256": "ECEF0C6CD58BA579A4460281F0CD88031F0C074D05F0959C1ABAFFC15F103A7C",
+          "traceIdentitySha256": "21866E8F5C55E4E3DE2F0E94C034C0FE876484E5F8CDCDD2D4701FFE8314BCB4",
+          "verifiedAt": "2026-08-08T21:19:22.6712542-04:00",
+          "result": "Official GitHub Pages-equivalent build passed. Exhaustive mapping reached all 648 source traces exactly once with 648 unique full-task identities; the in-app browser opened both members of the identical 65-message collision pair as distinct conversations at 390 pixels.",
+          "cleanupOrRollback": "Remove only the Tailscale Serve HTTPS 8447 handler and preserve every other listener. Restore the prior verified local preview root if the production-equivalent build fails."
+        },
+        {
+          "laneId": "paper-ui-blind-uat",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0",
+          "exactArtifact": "index-sha256:1597620DEFB10927BB3049BF00B05CBEB1B33C8649477496410612FB9DC0504A",
+          "attempt1": "provider-free preparation failure before prompt construction or Codex launch: jsonschema was absent from the default Python path; run directory contains only scratch and heartbeat evidence, and the blind-run lease was released",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard any run whose blindness certificate fails; resolve only gate findings against the same preview boundary."
+        },
+        {
+          "laneId": "paper-ui-blind-uat-runtime-recovery",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-powershell51-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0",
+          "exactArtifact": "index-sha256:1597620DEFB10927BB3049BF00B05CBEB1B33C8649477496410612FB9DC0504A",
+          "runtime": "Windows PowerShell 5.1.26100.8875 with ExecutionPolicy Bypass for the trusted local certified launcher",
+          "runtimeControl": "two distinct one-second heartbeat renewals plus live owner, acquisition, and verdict-stage readback passed before launch",
+          "result": "The actor ran with nine heartbeat renewals, but the blindness certificate failed. Its functional findings are discarded for gate authority. Independently reproduced source and browser checks established three remediation targets: raw Markdown paper routes, trace-browser mobile overflow and missing site navigation, and a user-facing corrected-inference overstatement.",
+          "certificate": "D:\\e2e-usability\\blind-runs\\20260808-204348034-e364757f-cbo-aleph164-paper-ui-mobile-019fe30f-ps51\\blindness-certificate.txt",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard a failed blindness certificate and release only the blind-run lease. Preserve the private preview for diagnosis."
+        },
+        {
+          "laneId": "paper-ui-uat-remediation-review",
+          "operationId": "cbo-aleph164-paper-ui-uat-remediation-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL: exhaustive read-only inspection found 18 pairs of rows whose truncated task ID and trial collide; the current find() resolver opens the first trace for both rows, leaving 18 conversations unreachable.",
+          "cleanupOrRollback": "Read-only affected-scope review created no product or provider mutation. The non-pass verdict blocks the replacement blind run."
+        },
+        {
+          "laneId": "paper-ui-uat-remediation-review-recovery",
+          "operationId": "cbo-aleph164-paper-ui-uat-remediation-review-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "PASS: exhaustive mapping reached all 648 source traces exactly once across 18 cells, preserved 648 unique stable identities, separated all 18 colliding pairs, and failed the metadata-order and duplicate-identity negative controls.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator controls and eight transcript/provenance controls passed. The corrected auditor also classified the prior exact transcript as 29 correlated Playwright calls, 58 target-origin output records, and zero host-access evidence hits.",
+          "cleanupOrRollback": "Remove only the task-local auditor copy if independent review finds that browser-output provenance or forbidden host-access detection is not discriminating. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: correlated events exempted invocation arguments, while same-call-ID executor output was exempt without exact result-content correlation or single-use enforcement. Three adversarial provenance-mismatch cases produced false greens.",
+          "cleanupOrRollback": "Read-only review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-provenance-repair-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-provenance-repair-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and fourteen transcript provenance controls pass. Exact static arguments, matched MCP result content, one executor output per call, and exact bounded-truncation projections are required. Injected arguments, mismatched output, duplicate output, and spoofed truncation fail. The prior exact transcript passes with 29 calls and 58 correlated records.",
+          "cleanupOrRollback": "Remove only the task-local provenance repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-provenance-repair-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-provenance-repair-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: the executor preamble and whole-result input_text blocks accepted extra properties, then the successful correlation removed the entire output array from the deny scan. Host-path metadata beside valid text therefore produced a false green.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-closed-shape-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-closed-shape-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and twenty-five transcript provenance controls pass. Result envelopes, result content, executor preambles and forwarded blocks use closed shapes; declared HTTPS target origin and transcript identity are bound; unknown agent record forms, orphan output, metadata injection, mismatched or duplicate output, cross-transcript correlation, absent or off-target page observations, and spoofed truncation fail. The prior exact transcript still passes with 29 calls, 58 correlated records, and the declared target observed.",
+          "cleanupOrRollback": "Remove only the task-local closed-shape repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-closed-shape-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-closed-shape-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: the event payload and invocation envelopes permitted extra properties, alternate outer transcript record types failed open, and target observation trusted a Page URL literal returned by browser_evaluate without a real navigation. Six independent generator mutations produced false greens.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-envelope-navigation-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-envelope-navigation-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and thirty-four transcript controls pass. Transcript records, Playwright event payloads, invocations, executor calls, executor outputs, results, and forwarded content use closed shapes; unknown outer record types fail; duplicate MCP event IDs fail; target observation requires the declared origin in a real browser_navigate result. Alternate record types and a fabricated browser_evaluate Page URL fail. The prior exact transcript still passes with 29 calls, 58 correlated records, and the declared target observed.",
+          "cleanupOrRollback": "Remove only the task-local envelope and navigation repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-envelope-navigation-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-envelope-navigation-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "PASS: independent current-files-only review ran an additional 35-case generator suite with four valid positives and 31 negative mutations. All prior bypasses and correlated sibling cases discriminated correctly; PowerShell 5.1 parsing, launcher fail-closed wiring, exact scope identity, and provider fences passed with no P0-P2 finding.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-blind-uat-remediation",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-remediation-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard any run whose corrected task-local blindness certificate fails and release only the blind-run lease."
+        },
+        {
+          "laneId": "paper-ui-plain-paper-type-refinement",
+          "operationId": "cbo-aleph164-paper-ui-plain-paper-print-type-refinement-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-09T02:39:00Z",
+          "completedAt": "2026-08-08T23:10:00-04:00",
+          "purpose": "Apply Fred's exact gate-only visual refinement: retain the tactile paper-and-ink system while removing ruled-paper cues and cursive or script typography from the selected site.",
+          "sourceBoundary": "assets/css/style.scss, affected-scope design QA, and task-local admission metadata only. Reuse the existing raster illustrations; make no ImageGen or other provider call.",
+          "impactSweep": {
+            "costDeltaUsd": 0,
+            "timelineEffect": "One small local style, preview, and affected-scope visual-QA pass before Fred resumes UAT.",
+            "strengthens": "Readability and the selected plain-paper editorial aesthetic.",
+            "invalidates": "Only prior visual screenshots, design-QA conclusions about ruled-paper treatment, and the pending Fred UAT verdict.",
+            "displaces": "The ruled background texture, notebook margin rule, script font stack, and dashed paper-preview rules; content, information architecture, routes, illustrations, and interaction behavior remain unchanged."
+          },
+          "cleanupOrRollback": "Revert only this bounded CSS and affected-scope QA change if the refreshed preview does not preserve the selected hierarchy or usability.",
+          "result": "PASS: the GitHub Pages Jekyll build and in-app browser show a warm plain-paper shell, printed HTML display typography, a cropped line-free workflow panel, and zero mobile or desktop overflow. Built CSS contains none of the ruled-texture or script-font identifiers.",
+          "evidence": ".claude/design-qa/pm-home-mobile.png, .claude/design-qa/pm-home-desktop.png, and .claude/design-qa/pm-home-comparison.png"
+        },
+        {
+          "laneId": "paper-ui-pm-homepage-editorial",
+          "operationId": "cbo-aleph164-pm-first-homepage-editorial-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-08T22:46:00-04:00",
+          "completedAt": "2026-08-08T23:10:00-04:00",
+          "purpose": "Resolve Fred's UAT finding by making the homepage explain the product problem and CBO mechanism to a nontechnical product manager before offering research, implementation, and evidence deep dives through navigation.",
+          "designLoopMode": "gate-only extension of the selected Research Field Guide idiom; Fred supplied the target audience, comprehension outcome, and navigation boundary.",
+          "sourceBoundary": "index.md, _layouts/default.html, _config.yml, assets/css/style.scss, affected-scope design QA, and task-local admission metadata. Paper bodies, experiment data, library behavior, and routes remain unchanged.",
+          "invariant": "A cold product manager can explain the problem, the service-owned solution, and the next deep-dive choice from the opening mobile flow without understanding context-engineering terminology first.",
+          "cleanupOrRollback": "Revert only this homepage, navigation-label, metadata, style, and affected-scope QA slice if cold comprehension or route access regresses.",
+          "result": "PASS: the first mobile flow states the product outcome, explains the API context gap, defines the context contract in plain language, and exposes Research, Implementation, and Evidence navigation. All three deep-dive interactions reach their existing pages; console and framework-overlay checks are clear.",
+          "evidence": "design-qa.md and .claude/design-qa/pm-home-comparison.png"
+        },
+        {
+          "laneId": "gemini-whole-site-editorial",
+          "operationId": "cbo-iterative-publications-gemini-whole-site-editorial-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "preflightAttemptCount": 1,
+          "preflightAttemptCeiling": 1,
+          "costCeilingUsd": 0,
+          "provider": "Official @google/gemini-cli 0.54.4 only",
+          "authentication": "Google account OAuth using Gemini Code Assist individual free usage only. GEMINI_API_KEY and GOOGLE_API_KEY are absent and remain prohibited; paid API, Vertex, Workspace billing, or subscription changes are excluded.",
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "sourceTuple": "Historical preflight for the current CBO navigation, homepage, papers index, library index, demos index, and selected visual direction. The earlier PM-first primary positioning and one-shot whole-site packet are superseded before any model request.",
+          "boundedOperationSet": "This unconsumed one-shot whole-site editorial operation stays held at 0/1 and must not be invoked. Stage 3 admits one exact public prose section at a time under a separately bounded derived operation. Each section receives review and Fred acceptance before the next section is admitted. No source write, tool action, search grounding, account mutation, or publication occurs in the Gemini provider lane.",
+          "readback": "Capture CLI version, authentication outcome, exact bounded prompt, exit status, output, and provider-request acceptance state. Treat an authentication wall or ambiguous request state as terminal for automatic retry.",
+          "cleanupOrRollback": "The review is read-only. Delete only task-local transient packet/output copies after durable synthesis; never alter account or billing settings.",
+          "lastPreflight": {
+            "attemptedAt": "2026-08-08T22:51:00-04:00",
+            "cliVersion": "0.54.4",
+            "scopeSha256": "61407AB01C396D1FEE69ABF3B6E4B1309B152A7404CEDB50AF81162D615287A6",
+            "exitCode": 41,
+            "errorClass": "AUTH_METHOD_REQUIRED",
+            "sanitizedMessage": "Official Gemini CLI requires a configured authentication method before a headless run. No OAuth credential cache, GEMINI_API_KEY, or GOOGLE_API_KEY is present.",
+            "providerRequestAccepted": false,
+            "modelInvocationCount": 0,
+            "costUsd": 0,
+            "sessionId": "ef440a03-4c05-4fcf-8951-99ed080f77a2"
+          },
+          "ownerAction": "Stage 3 requires one official Google-account OAuth sign-in for Gemini CLI before its first separately admitted section. The wall does not block stage 1 publication or stage 2 research and mock design. API-key, Vertex, and paid paths remain held.",
+          "adjacentWork": "Publish the accepted candidate now, then run the broader sales-page research and full-loop mock-pick slice while the Gemini-only provider boundary waits."
+        },
+        {
+          "laneId": "paper-ui-editorial-preview-refresh",
+          "operationId": "cbo-aleph164-paper-ui-pm-editorial-preview-refresh-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-08T23:00:00-04:00",
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "sourceTuple": "Current one-writer checkout after the admitted plain-paper, printed-type, PM-first homepage, and carrier-deletion changes; official GitHub Pages Jekyll toolchain; final local build root preview-root-paper-v5.",
+          "target": "Tailnet-only https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/ via the final loopback preview server on port 48168.",
+          "boundedOperationSet": "Build and verify the new local root, start one loopback server, then change only the existing Tailscale 8447 proxy after successful local readback.",
+          "rollback": "Restore Tailscale 8447 to http://127.0.0.1:48166 and stop only the final 48168 server. Preserve the prior preview root and server until Fred accepts the refresh.",
+          "readback": "Verify the Tailscale serve table, candidate marker, homepage title and navigation, expected deep-dive routes, missing comparison route, and mobile visual surface.",
+          "completedAt": "2026-08-08T23:21:47.9562112-04:00",
+          "scopeHashBeforeSwitch": "F2FD7E8DE4398768EE88510E89E885AC5D478A9A153C1EA2D6A61E933BD4A13E",
+          "serveReceipt": "One Tailscale Serve mutation exited 0 and read back only HTTPS 8447 changed from loopback 48166 to 48168; all other serve targets remained unchanged.",
+          "httpReceipt": "PASS: homepage, Research, Implementation, Evidence, stylesheet, workflow asset, and all six exact figures returned 200 through the tailnet URL; comparison, raw index source, and negative-control routes returned 404; marker hashes matched the locked source tuple.",
+          "browserReceipt": "PASS in the selected Codex in-app browser at configured 390x844: exact tailnet URL and title, DOM snapshot with main landmark, document clientWidth=scrollWidth=375, printed Trebuchet/Aptos/Segoe UI display stack, body and shell background-image none, workflow naturalWidth 1200, zero warning/error logs, and semantic clicks to Research, Implementation, and Evidence reached the expected routes. Tailnet screenshot bytes matched the committed mobile evidence SHA-256 073AAF9709CDDC5CF7132F884BA88D9076143960D72AB10CF8F06AF1A30A82CB.",
+          "cleanup": "Stopped only the unreferenced intermediate 48167 preview after verifying its exact process and preview-root-paper-v4 command line. Preserved rollback server 48166 and current server 48168."
+        },
+        {
+          "laneId": "paper-ui-pm-refinement-independent-review",
+          "operationId": "cbo-aleph164-paper-ui-pm-refinement-independent-review-2026-08-08-v1",
+          "state": "held",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-08T23:05:59.1418669-04:00",
+          "provider": "Fable selector using Claude.ai subscription authentication only",
+          "mode": "Blind one-off read with no tools, repository access, session persistence, or project memory",
+          "sourceTuple": "Homepage SHA-256 76049C68A82D3AF300E847CC660DB774229403971C6849A8C1753C4FDE7E9DCC; layout BCDD5BED6CE3DB30964880F04CEA53A78AD73CB596A91B4053C86BFFA9A82A4C; config F87639C1E8864B08D072DDA6A8FE0C58D121751FC11786EBFFA7166BA58E6BDC; style 757672C873C0AB281A2F88C5F9F4DBED5BEC997B5BEDBCE0F601A74241D92401; exact rendered screenshots and deterministic receipts supplied in the bounded packet.",
+          "reviewScope": "Adversarially review the PM-first comprehension flow, claim discipline, carrier precedence, plain-paper and print-type owner direction, responsive hierarchy, existing-route navigation, accessibility semantics, and affected-scope regression risk.",
+          "passCondition": "Explicit PASS with no unresolved P0-P2. Any finding returns only this affected scope to repair before PR or publication.",
+          "cleanupOrRollback": "Read-only review creates no product mutation. Preserve the exact prompt and verdict; discard any output produced without verified subscription authentication or the declared blind flags.",
+          "authenticationReceipt": "Claude Code 2.1.220; loggedIn=true; authMethod=claude.ai; apiProvider=firstParty; subscriptionType=max; ANTHROPIC_API_KEY and forced API-provider variables cleared before invocation.",
+          "completedAt": "2026-08-08T23:06:00.4968669-04:00",
+          "result": "NO REVIEW AUTHORITY: the authenticated one-off Fable request exited 1 with api_error_status 429 before reading any input tokens or producing output; weekly subscription limit resets 2026-08-12 at 20:00 America/New_York. Provider-reported input_tokens=0, output_tokens=0, total_cost_usd=0.",
+          "sessionId": "6224f787-8a77-4e13-8c1e-1b67be6e7c74",
+          "sanitizedEvidence": "claude CLI exit 1; api_error 429 weekly_limit; no model review result"
+        },
+        {
+          "laneId": "paper-ui-pm-refinement-independent-review-codex-exception",
+          "operationId": "cbo-aleph164-paper-ui-pm-refinement-independent-review-codex-exception-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-08T23:06:00.4968669-04:00",
+          "sourceTuple": "Exact unchanged commit e442e8b8429b7b8563187a3bddb0445beeef7510 and tree 286f0e4533ef6a917d9d0aa15315c267c6f07882; same bounded artifact packet and review scope as the failed Fable call.",
+          "reviewScope": "Independent affected-scope adversarial review of PM-first comprehension, claim discipline, carrier precedence, plain-paper printed-type direction, responsive hierarchy, existing-route navigation, accessibility semantics, and regression risk.",
+          "authorityCeiling": "Substitute inherits independent-review evidence authority only. It has no source-write, provider, certified-UAT, promotion, merge, Pages, or owner-acceptance authority.",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "passCondition": "Reviewer is not the implementer and returns explicit PASS with no unresolved P0-P2 against the exact immutable candidate.",
+          "cleanupOrRollback": "Read-only review creates no product mutation; any output that exceeds the declared independent-review ceiling is discarded.",
+          "completedAt": "2026-08-08T23:14:20.3905542-04:00",
+          "reviewer": "/root/paper_ui_independent_review; reviewer was not the implementer and performed no source or external mutation",
+          "verdict": "PASS",
+          "p0P2Findings": "None",
+          "p3Notes": [
+            "design-qa.md names configured viewport sizes while the hash-matching captured content-area bitmaps are 375x812 and 1265x712; clarify later without holding UAT.",
+            "Deep-dive cards use h2 beneath a section h2; h3 would express the semantic hierarchy more precisely.",
+            "The first narrow-screen technical figure precedes its explanatory prose; the completed hero introduction makes this optional polish."
+          ],
+          "result": "PASS for owner UAT: exact commit e442e8b8429b7b8563187a3bddb0445beeef7510 and tree 286f0e4533ef6a917d9d0aa15315c267c6f07882 have no unresolved P0-P2. Reviewer independently inspected the committed diff and three hash-matching screenshots, confirmed PM-first comprehension, disciplined claims, plain-paper printed-type direction, genuine raster illustrations, navigation semantics, and responsive visual coherence. Runtime behavior remains covered by the separate deterministic and browser receipts; this review is not certified UAT or owner acceptance."
+        },
+        {
+          "laneId": "paper-ui-merge-pages",
+          "operationId": "cbo-aleph164-paper-ui-main-pages-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "target": "merge existing PR 1 into fsmalkin/context-boundary-optimization-site main and trigger the existing legacy GitHub Pages build from main:/",
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "preInvocationReadback": "Re-read fsmalkin/aleph#170, PR 1, remote main, exact PR head, mergeability, and Pages source immediately before the single merge request.",
+          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route."
+        },
+        {
+          "laneId": "paper-ui-live-verification",
+          "operationId": "cbo-aleph164-paper-ui-live-verification-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "target": "https://fsmalkin.github.io/context-boundary-optimization-site/ at the resulting merge commit",
+          "boundedOperationSet": "Wait for the matching successful Pages build, then verify the mobile-first homepage task, key routes, all six figures, navigation, and the withdrawn comparison route's 404 state.",
+          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation."
+        },
+        {
+          "laneId": "paper-ui-implementation-ledger",
+          "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
+          "state": "planned",
+          "invocationCount": 2,
+          "invocationCeiling": 3,
+          "lastInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
+            "target": "fsmalkin/aleph#170",
+            "startedAt": "2026-08-08T22:20:06.1415122-04:00",
+            "completedAt": "2026-08-08T22:21:18.475-04:00",
+            "purpose": "Record the immutable reviewed paper-UI candidate and Fred's active production-equivalent mobile UAT without changing PR, provider, merge, or Pages state.",
+            "result": "PASS: comment created and independently read back with exact actor, event key, candidate, gates, held lanes, and next action.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229347777"
+          },
+          "secondInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-pm-first-private-uat-refresh-2026-08-08-v1",
+            "target": "fsmalkin/aleph#170",
+            "startedAt": "2026-08-08T23:21:47.9562112-04:00",
+            "completedAt": "2026-08-08T23:23:34-04:00",
+            "purpose": "Record the exact reviewed PM-first plain-paper candidate, independent affected-scope PASS, verified private preview refresh, unchanged release state, and Fred's current UAT next action.",
+            "result": "PASS: the GitHub comment was created and independently read back with the actor line, event key, exact candidate, private URL, review verdict, Gemini wall, unchanged PR and Pages state, and Fred's next UAT action.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229557440"
+          }
+        },
+        {
+          "laneId": "paper-ui-pm-editorial-linear-projection",
+          "operationId": "cbo-aleph164-pm-first-private-uat-linear-projection-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "startedAt": "2026-08-08T23:21:47.9562112-04:00",
+          "stableMaterialEventKey": "cbo-aleph164-pm-first-private-uat-refresh-2026-08-08-v1",
+          "target": "ALEPH-164",
+          "boundedOperationSet": "Add one phone-readable comment to the existing issue with the refreshed private UAT URL, reviewed candidate identity, current Gemini authentication wall, and Fred's exact next action. Do not create a new issue or change status, priority, project, or assignment.",
+          "readback": "Read back the created comment by returned ID and verify the exact URL, candidate, current next action, and Gemini wall.",
+          "completedAt": "2026-08-08T23:25:20.2186978-04:00",
+          "result": "PASS after duplicate cleanup: the canonical GitHub ledger comment automatically synchronized into ALEPH-164 as comment 02a8f395-9fcf-4021-a2b1-9098affe0861 and carries the event key, candidate, private URL, Gemini wall, and next action. A separately created direct Linear comment was redundant and was deleted by exact ID; readback confirms it is absent while the synchronized canonical projection remains.",
+          "receipt": "linear-comment:02a8f395-9fcf-4021-a2b1-9098affe0861",
+          "unexpectedDirectComment": {
+            "id": "aa718b6f-5bc7-4b6f-b669-e0531c9d6641",
+            "state": "deleted",
+            "cleanupInvocationCount": 1,
+            "cleanupInvocationCeiling": 1,
+            "readback": "Exact ID absent; synchronized receipt, material event key, candidate, and tailnet URL present."
+          },
+          "whyChain": [
+            "The material transition briefly appeared twice in Linear because the canonical GitHub comment auto-synchronized before the task also posted its planned direct Linear comment.",
+            "The task treated GitHub and Linear comment writes as independent transports and did not inspect Linear after the GitHub mutation before invoking the direct projection.",
+            "The issue's GitHub integration is a second projection path for the same material event key.",
+            "The pre-mutation gate checked duplicate issues and operation identity but did not check for post-GitHub automatic synchronization.",
+            "Future synchronized-issue transitions must read Linear after the GitHub receipt and suppress a direct comment when the same event key is already present."
+          ],
+          "invariant": "Exactly one current Linear projection remains for one stable material event key, regardless of whether it arrives through GitHub synchronization or a direct Linear mutation."
+        },
+        {
+          "laneId": "paper-ui-implementation-linear",
+          "operationId": "cbo-aleph164-paper-ui-implementation-linear-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2,
+          "firstInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
+            "target": "ALEPH-164",
+            "startedAt": "2026-08-08T22:20:06.1415122-04:00",
+            "completedAt": "2026-08-08T22:21:18.451-04:00",
+            "purpose": "Project the immutable candidate and active Fred UAT checkpoint while preserving the issue's non-complete state.",
+            "result": "PASS: Linear comment created and independently read back; ALEPH-164 remains non-complete while Fred's UAT verdict is pending.",
+            "receipt": "linear-comment:7e5abdb5-f849-4613-acee-56203fcd0c72"
+          },
+          "lastInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-owner-uat-entrypoint-correction-2026-08-08-v1",
+            "target": "ALEPH-164",
+            "startedAt": "2026-08-08T22:28:08.6628992-04:00",
+            "completedAt": "2026-08-09T02:28:53.574Z",
+            "purpose": "Reuse and retitle the existing exact CBO issue as Fred's phone-readable UAT action, and bind the private production-equivalent URL after the public-baseline environment mix-up.",
+            "boundedMutationSet": "One title update and one actionable UAT comment on ALEPH-164; preserve assignment, project, priority, status, relations, and every provider or release fence.",
+            "result": "PASS: ALEPH-164 independently read back with the exact UAT title, In Progress state, existing project and priority, and the actionable private-preview comment.",
+            "receipt": "linear-comment:25dd321c-e14c-4fcb-9ef3-b5ba6f2b59ca"
+          }
+        }
+      ],
+      "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
+      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352",
+      "state": "active",
+      "sourceBoundary": {
+        "allowed": [
+          "index.md",
+          "papers/index.md only for rendered-paper links",
+          "papers/technical-paper.md and papers/economic-paper.md only for rendering front matter; substantive paper prose remains excluded",
+          "demos/trace-browser.html only for mobile containment and a field-guide return link",
+          "demos/trace-identity.js only for stable one-to-one trace-row binding",
+          "demos/plain-english-results.html only for the verified corrected-inference sentence",
+          "_config.yml only where required for the selected presentation and existing publication exclusion",
+          "_layouts/default.html",
+          "assets/css/style.scss",
+          "assets/images/ selected paper-UI raster assets",
+          "figures/fig1-boundary.png through figures/fig6-spectrum.png only to establish the selected coherent hand-drawn family",
+          "focused regression and design-QA artifacts",
+          ".claude/sprint-scope.json task-local admission metadata"
+        ],
+        "excluded": "Paper-body prose beyond the one separately admitted plain-English correction, PDFs, empirical data and analyses, Python library behavior and tests except presentation-regression coverage, unrelated demos, Filevine, and all unrelated repositories."
+      },
+      "selectedVisual": {
+        "path": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
+        "ownerPickVerbatim": "That's the style I want",
+        "name": "Research Field Guide",
+        "mobileViewport": "390x844",
+        "requiredTraits": [
+          "warm plain-paper surface with no ruled lines or notebook margin rule",
+          "clear navy printed display typography with no cursive or script text",
+          "muted teal, sage, warm orange, and pale-blue accents",
+          "task to service to context-contract to agent workflow",
+          "clipped index-card navigation for Papers, Build, and Explore",
+          "working-drafts status carried as a quiet stamp"
+        ],
+        "ownerRefinement": {
+          "stableKey": "cbo-aleph164-plain-paper-print-type-owner-refinement-2026-08-08-v1",
+          "receivedAt": "2026-08-09T02:39:00Z",
+          "verbatim": "Okay so I like that. I would just say I don't want it to look like ruled paper. So like kind of plain paper aesthetic is good and no cursive type of text",
+          "designLoopMode": "gate-only adaptation of the selected Research Field Guide idiom",
+          "implementationBoundary": "Remove ruled-paper cues and script typography while preserving the selected layout, palette, hand-sketched illustrations, information architecture, routes, and interactions."
+        }
+      },
+      "changedDeliveryDirection": {
+        "stableKey": "cbo-iterative-publications-gemini-whole-site-editorial-2026-08-08-v1",
+        "receivedAt": "2026-08-08T21:47:41.5215102-04:00",
+        "supersededAt": "2026-08-09T00:32:44.231-04:00",
+        "scope": "The current accepted paper candidate publishes first. A separate broader sales-oriented landing-page slice then presents CBO as a prospective open-source product or business while remaining accessible to product managers and nontechnical visitors. Gemini editorial work follows as incremental section-by-section proposals.",
+        "sequencing": "Stage 1 publishes the accepted candidate through existing PR 1 and legacy Pages. Stage 2 uses current official-source research and the full-loop mock-pick process for the broader sales-page redesign. Stage 3 admits one Gemini editorial section at a time; every section is reviewed and accepted before the next begins.",
+        "primaryPositioning": "Broader open-source product and business entry point. PM-first remains an accessibility standard, not the page's exclusive purpose or information architecture.",
+        "navigationFinding": "The current phrase Open the deep dive that matches your job is directionally useful, but Evidence is a credibility layer rather than a visitor job. Stage 2 must organize primary paths around real visitor roles or intents and keep proof available as supporting credibility.",
+        "providerState": "The official Gemini CLI preflight remains terminal at AUTH_METHOD_REQUIRED before any model request. The unconsumed one-shot operation stays held; later section operations require official Google-account OAuth, USD 0, and fresh exact admission. API-key, Vertex, paid paths, and other drafting providers remain prohibited.",
+        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged."
+      },
+      "uatRemediation": {
+        "framedAt": "2026-08-08T21:04:00-04:00",
+        "ownerUatHandoff": {
+          "requestedAt": "2026-08-08T22:14:00.2354539-04:00",
+          "actor": "Fred",
+          "environment": "production-equivalent private Tailscale preview",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "status": "Fred accepted the current plain-paper candidate in the private preview and explicitly directed immediate publication through the existing reviewed GitHub and Pages path.",
+          "candidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882",
+          "refreshedAt": "2026-08-08T23:21:47.9562112-04:00",
+          "acceptedAt": "2026-08-09T00:32:44.231-04:00",
+          "acceptanceActor": "Fred",
+          "userTask": "Understand the CBO concept and use the mobile homepage to reach the existing deeper material.",
+          "result": "PASS for immediate publication. The broader sales-page positioning, intent-based navigation, and incremental Gemini rewrite are later slices and do not delay this candidate.",
+          "automatedReplacementInvocation": "held at 0/1",
+          "geminiEditorialState": "Official Gemini CLI preflight reached a Google-account OAuth wall before any model request; review remains 0/1 and USD 0 until Fred completes one sign-in."
+        },
+        "whyChain": [
+          "The first full mobile task failed because two paper links returned raw Markdown and the trace browser required horizontal scrolling and browser Back navigation.",
+          "The paper source files lacked Jekyll front matter, so GitHub Pages copied them as text/markdown instead of rendering them through the selected paper layout.",
+          "The standalone trace browser had desktop-width flex and content assumptions plus no route back to the field guide.",
+          "The earlier presentation boundary treated existing paper and demo routes as semantically frozen even though the redesign changed their user-facing shell and mobile entry path.",
+          "No production-equivalent mobile functional gate had previously traversed the full paper-reading and trace-exploration task."
+        ],
+        "invariant": "Every primary mobile route opened from the field guide renders inside the selected UI or deliberately preserves a usable standalone tool, fits a 390-pixel viewport without page-level horizontal scrolling, and provides a visible path back to the field guide. User-facing result prose must match the corrected paper inference.",
+        "allowedRepair": [
+          "add rendering-only Jekyll front matter to papers/technical-paper.md and papers/economic-paper.md",
+          "change only paper route links in index.md and papers/index.md from raw .md to rendered .html",
+          "add responsive containment and one field-guide return link to demos/trace-browser.html",
+          "replace only the disproven inferential sentence in demos/plain-english-results.html with the corrected result"
+        ],
+        "independentReviewFinding": {
+          "severity": "P1",
+          "finding": "The index truncates telecom task IDs to 60 characters while open_ uses find() on that truncated prefix and trial. Eighteen collision groups therefore resolve both rows to the first conversation.",
+          "whyChain": [
+            "Eighteen trace rows opened another row's conversation because the resolver selected the first prefix match.",
+            "The index stores a 60-character display task ID, while the source trace stores the full task ID.",
+            "The display abbreviation was reused as an identity key.",
+            "No exhaustive row-to-source bijection check exercised all 648 click targets.",
+            "The trace browser treated visible labels as persistent identity rather than binding a stable full-task identifier at the data seam."
+          ],
+          "invariant": "Each of the 648 index rows binds to exactly one source trace by cell-local position and a stable full-task identifier; every source trace is reachable once, and any row/source metadata mismatch fails loudly before display.",
+          "allowedRepair": "Add one small trace-identity helper, switch open_ to exact bound resolution, and add an exhaustive 648-row positive check plus collision and mismatch negative controls."
+        },
+        "ownerUatContentFinding": {
+          "stableKey": "cbo-aleph164-pm-first-homepage-uat-finding-2026-08-08-v1",
+          "receivedAt": "2026-08-08T22:45:00-04:00",
+          "severity": "P1",
+          "finding": "The homepage opens with research terminology and a large technical inventory before a nontechnical product manager can understand the product problem, the service-owned solution, or why the concept matters.",
+          "persona": "Product manager who works with AI-enabled products and does not begin with context-engineering vocabulary.",
+          "userJob": "Understand the concept and its product value from the homepage, then choose a deeper research, implementation, or evidence path through navigation.",
+          "whyChain": [
+            "The opening sentence defines CBO through information architecture instead of a familiar product problem.",
+            "Terms such as context contract and fisheye view arrive before the page gives the reader a plain-language mental model.",
+            "The homepage carries paper, code, experiment, and figure detail in one long stream instead of using navigation to control depth.",
+            "The selected visual implementation optimized mock fidelity and route coverage while leaving cold comprehension implicit.",
+            "The earlier acceptance task did not name a nontechnical product-manager persona or require a first-screen concept explanation."
+          ],
+          "invariant": "The opening mobile flow states the familiar API-to-agent product gap, explains CBO as a service-prepared task brief in plain language, defines context contract only after that mental model lands, and routes technical depth to existing dedicated pages.",
+          "allowedRepair": "Rewrite and shorten index.md, point the primary navigation and cards at existing deep-dive pages, update site description metadata, and add only the CSS needed for the new homepage hierarchy. Preserve papers, data, figures, library behavior, demos, routes, provider fences, and publication holds."
+        },
+        "excluded": "No new routes, redesign variants, paper-body rewriting, data or experiment changes, library behavior changes, provider calls, PR publication, merge, or Pages publication before the repaired artifact passes the declared gates."
+      },
+      "verification": {
+        "tier": "T2",
+        "designLoopMode": "full-loop-mock-first selected",
+        "required": [
+          "T0 deterministic build, link, content, image, accessibility, and regression checks on the immutable candidate",
+          "Product Design visual comparison and design-qa.md final result passed",
+          "independent tier-matched changed-tree review",
+          "production-equivalent locked preview preserving GitHub Pages semantics",
+          "independent blind mobile-first functional UAT against the exact preview",
+          "matching GitHub Pages build and post-deploy mobile-first live verification"
+        ]
+      },
+      "shippingBoundary": {
+        "externalTuple": {
+          "task": "ALEPH-164 / fsmalkin/aleph#170",
+          "initiative": "ship Fred's selected Research Field Guide paper UI",
+          "target": "existing PR 1, fsmalkin/context-boundary-optimization-site main, and legacy GitHub Pages main:/",
+          "sanctionedAccount": "fsmalkin",
+          "credentialScope": "existing GitHub CLI and connected Linear OAuth; metadata-only verification",
+          "dataClass": "public static-site source and non-sensitive generated design assets",
+          "boundedOperationSet": "nine sequential built-in ImageGen asset calls plus one exact Figure 5 semantic-correction call, source implementation, review, existing PR 1 update, production-equivalent preview, blind UAT, one merge and Pages trigger, and live verification",
+          "verificationTier": "T2",
+          "costCeilingUsd": 0
+        },
+        "rollback": "If live verification fails, promote a reviewed revert of only the paper-UI redesign merge. Do not replay the merge invocation and do not restore the removed public comparison route.",
+        "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+        "canonicalReceipt": "https://github.com/fsmalkin/aleph/issues/170"
+      }
+    }
+  ],
+  "notes": [
+    "The public comparison route was removed and verified 404 at main and Pages commit 2df0a5974bb2e4aee4923f4a8614be033059bfd0.",
+    "Rejected draft PR 1 remains open and unmerged at 2dbb70ca5ea32573d567219a1fa32b9dcf578930; it receives no update in this design-selection admission.",
+    "The recovered hand-drawn family is the Aug. 2 warm-paper marker-and-ink ImageGen direction. Exact original prompts and per-request receipts are not invented.",
+    "Filevine, other drafting providers, and the historical generic image-generation and Gemini-drafting holds remain 0/0. The exact Gemini whole-site editorial operation is separately admitted at 0/1 through the official CLI, Google-account OAuth free usage, and a USD 0 ceiling.",
+    "Fred accepted the current candidate for immediate publication through existing PR 1 and legacy Pages. The subsequent sales-page redesign and incremental Gemini sections remain separate later stages."
+  ]
+}

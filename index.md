@@ -1,96 +1,67 @@
 ---
 layout: default
 title: Context-Boundary Optimization
-description: Services computing, per task and at runtime, the information architecture an agent needs to act well.
+description: Context-Boundary Optimization lets a software service prepare the focused context and rules an AI agent needs for each task.
 ---
 
-# Context-Boundary Optimization
+<section class="hero" aria-labelledby="page-title">
+  <p class="hero-meta"><span class="status-stamp">Working drafts</span><span>Product guide · 2026</span></p>
+  <h1 id="page-title">Give AI agents the right context for each task</h1>
+  <p class="hero-lede"><strong>Context-Boundary Optimization</strong> lets a software service prepare a focused operating brief before an agent acts. The brief carries the relevant capabilities and service rules for that job.</p>
+  <figure class="hero-sketch">
+    <img src="{{ '/assets/images/cbo-workflow.webp' | relative_url }}" width="1200" height="600" alt="A task goes to a service, which prepares a focused context contract for an AI agent.">
+  </figure>
+</section>
 
-**When a person uses a software service, the interface is an information
-architecture.** It surfaces the relevant actions at each step, confirms the
-risky ones, and records what happened. An autonomous agent calling the same
-service through its API inherits none of that — only functions and types.
+<section class="guide-section" aria-labelledby="product-gap-heading">
+  <p class="section-kicker">For product teams</p>
+  <div class="section-heading"><h2 id="product-gap-heading">APIs expose actions. Agents still need product context.</h2></div>
+  <div class="split-panel">
+    <div>
+      <p>Product teams decide what people can do and which rules apply through the interface. An agent often reaches the same service through an API that provides a catalog of functions with less guidance about the current job.</p>
+      <p>CBO assigns that missing step to the service. For each task, the service computes a focused package called a <strong>context contract</strong>. It tells the agent which capabilities matter and keeps the service's operating rules attached to execution.</p>
+      <div class="concept-callout"><p>The design places the boundary at the service so multiple agent integrations can reuse one product-defined source of context.</p></div>
+    </div>
+    <figure class="figure-card">
+      <img src="{{ '/figures/fig1-boundary.png' | relative_url }}" width="1120" height="748" alt="The service turns its capabilities and operating requirements into a focused context contract for the agent." loading="lazy">
+      <figcaption>The service prepares the task boundary before the agent acts.</figcaption>
+    </figure>
+  </div>
+</section>
 
-This project develops **context-boundary optimization**: the service computing,
-per task and at runtime, the information architecture an agent needs. The
-governing object is a **context contract**; its mechanism is a **fisheye view**
-keyed to the current task rather than a static document.
+<section class="guide-section" aria-labelledby="example-heading">
+  <div class="section-heading"><h2 id="example-heading">A refund task should begin with a focused brief</h2></div>
+  <div class="split-panel">
+    <figure class="figure-card">
+      <img src="{{ '/figures/fig2-fisheye.png' | relative_url }}" width="1536" height="1024" alt="A large API catalog becomes a focused view centered on the current task." loading="lazy">
+      <figcaption>Relevant detail expands around the current task.</figcaption>
+    </figure>
+    <div>
+      <p>A billing API may expose forty functions. An agent resolving a duplicate charge on invoice 4471 may need four functions plus the approval and recordkeeping requirements. The service can assemble that context from the task before the agent takes action.</p>
+      <p>The context contract defines the product boundary for the task. It narrows the working view and supplies service rules that a deterministic gate can check.</p>
+    </div>
+  </div>
+</section>
 
-<img src="figures/fig1-boundary.png" alt="The boundary between a service and an agent: the service holds capabilities, obligations and record requirements; the agent receives only functions and types." style="max-width:100%">
+<section class="guide-section" aria-labelledby="deep-dive-heading">
+  <div class="section-heading"><h2 id="deep-dive-heading">Open the deep dive that matches your job</h2></div>
+  <nav class="index-nav" aria-label="Context-Boundary Optimization deep dives">
+    <a class="index-card" href="{{ '/papers/' | relative_url }}">
+      <span class="index-card-preview paper-preview" aria-hidden="true"><span><b>T</b> Technical</span><span><b>E</b> Economic</span></span>
+      <span class="index-card-copy"><span>Papers</span><h2>Research</h2><p>Read the framework, experiments, and economic argument.</p></span>
+    </a>
+    <a class="index-card" href="{{ '/library/' | relative_url }}">
+      <img src="{{ '/assets/images/books.webp' | relative_url }}" width="600" height="600" alt="Hand-drawn books representing the reference implementation." loading="lazy">
+      <span class="index-card-copy"><span>Library</span><h2>Implementation</h2><p>Inspect the Python objects, CLI, and worked billing service.</p></span>
+    </a>
+    <a class="index-card explore" href="{{ '/demos/' | relative_url }}">
+      <img src="{{ '/assets/images/toolbox.webp' | relative_url }}" width="600" height="600" alt="Hand-drawn toolbox representing the experiment evidence." loading="lazy">
+      <span class="index-card-copy"><span>Demos</span><h2>Evidence</h2><p>Walk through traces, scoring, and plain-English results.</p></span>
+    </a>
+  </nav>
+</section>
 
-## The argument in three parts
-
-| | Question it answers | |
-| --- | --- | --- |
-| **A · Technical** | What is a context contract, and does one improve agent reliability? | [read →](papers/technical-paper.md) · [PDF](papers/context-boundary-optimization.pdf) |
-| **B · Economic** | Who should compute the boundary, and why the provider? | [read →](papers/economic-paper.md) · [PDF](papers/computing-the-context-boundary.pdf) |
-| **3 · Implementation** | How does a service team actually build one? | [browse →](library/) |
-
-Paper A defines the framework and reports live experiments. Paper B makes the
-transaction-cost case for provider-side computation and enforcement. Part 3
-turns the framework into a small dependency-free library and a worked example,
-so the papers describe something runnable rather than only a design.
-
-## The idea, concretely
-
-A service exposes forty API functions. An agent asked to *"refund the duplicate
-charge on invoice 4471"* needs perhaps four of them, one obligation (a refund
-over $500 requires supervisor approval), and one record format. Today it
-receives all forty and a prompt hoping it infers the rest.
-
-**A context contract makes that inference unnecessary.** The service computes a
-task-scoped view, states the obligations that apply, and specifies the record it
-expects back — then enforces the obligations deterministically rather than
-trusting the model to remember them.
-
-<img src="figures/fig2-fisheye.png" alt="A fisheye view: the task-relevant region of a capability catalog is expanded in detail while distant capabilities are compressed." style="max-width:100%">
-
-## The reference implementation
-
-`context_contract` gives each construct in the papers a small Python object with
-no dependencies.
-
-```python
-from context_contract import ContextContract, focused_view, Gate
-
-contract = ContextContract.load("contract.json")
-view     = focused_view(catalog, task, contract, k=4)   # the fisheye selection
-verdict  = Gate(contract).check(action)                 # deterministic enforcement
-```
-
-Three ways to use it — an advisor agent that designs a contract for your
-service, a CLI (`python -m context_contract advise | scaffold | check`), and a
-[worked billing-service example](library/examples/billing-service/) carrying one
-action the gate approves and one it rejects.
-
-[**Browse the library →**](library/)
-
-## Interactive
-
-Three tools built while running the experiments, kept because they show the
-mechanism better than prose does.
-
-- [**Trace browser**](demos/trace-browser.html) — step through what an agent
-  actually did, turn by turn
-- [**Adjudication view**](demos/adjudication.html) — how a run was scored, and
-  where scorers disagreed
-- [**Plain-English results**](demos/plain-english-results.html) — the findings
-  without the statistics
-
-## Figures
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
-  <img src="figures/fig3-runtime-flow.png" alt="Runtime flow: task arrives, contract computes the view, agent acts, gate checks, trace is recorded." style="max-width:100%">
-  <img src="figures/fig4-amortization.png" alt="Amortization: the cost of computing a boundary is paid once by the provider and reused across every agent." style="max-width:100%">
-  <img src="figures/fig5-enforcement.png" alt="Enforcement: obligations checked deterministically at the gate rather than requested in a prompt." style="max-width:100%">
-  <img src="figures/fig6-spectrum.png" alt="A spectrum from raw API access to fully computed boundaries, with cost and capability on each axis." style="max-width:100%">
-</div>
-
-## Status
-
-**Both papers are working drafts.** The framework, the library and the worked
-example are complete and runnable; the empirical claims are still being
-strengthened, and the drafts are tagged accordingly. This site publishes the
-work as it stands rather than waiting for a finished version.
-
-Licensed MIT (code) and CC-BY (papers) — see [LICENSE](LICENSE).
+<section class="guide-section status-note" aria-labelledby="status-heading">
+  <h2 id="status-heading">Research status</h2>
+  <p>The framework and reference implementation are available. Both papers remain working drafts while the empirical claims are strengthened.</p>
+</section>

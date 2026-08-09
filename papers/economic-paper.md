@@ -1,3 +1,10 @@
+---
+layout: default
+title: Computing the Context Boundary
+description: A transaction-cost argument for provider-side context-boundary computation.
+permalink: /papers/economic-paper.html
+---
+
 # Computing the Context Boundary: A Transaction-Cost Argument for Agent-Aware Services
 
 Author: Fred Smalkin and collaborators

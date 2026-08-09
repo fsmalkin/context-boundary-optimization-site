@@ -1,3 +1,10 @@
+---
+layout: default
+title: Context-Boundary Optimization for Agent-Aware Services
+description: A context contract for task-scoped service policy, state, evidence, and authority.
+permalink: /papers/technical-paper.html
+---
+
 # Context-Boundary Optimization for Agent-Aware Services
 
 Author: Fred Smalkin and collaborators
