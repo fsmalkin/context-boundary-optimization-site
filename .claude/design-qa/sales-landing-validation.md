@@ -19,8 +19,8 @@ operations remain held.
 | `mocks/open-source-product/direction-2.html` | `2176F9E8EA7701482FE95F09C0CEF95AC827CD939D80EA2D6F4600AA09A37D33` | source |
 | `mocks/open-source-product/direction-3.html` | `2BA92D52A0E78F2FC26301CBC7ABA2934E160CC1CCBAD5ECDACB5B6EB6BB996D` | source |
 | `mocks/open-source-product/mock.css` | `150BFC7B07F226556F9363CF0C0DF88E36A197157EC80A65AABD5B87A7487CD5` | source |
-| Capture provenance check | `01C98356EB49CD26AB1D6AECBE58EBDD967B597580C4FF4D1A7ED4510FE63EAD` | source |
-| Capture provenance tests | `228B3ACC59B6B5AAE9816F32744BA4F87B1EE8D0E546F78A2CC5B2E94A26B281` | source |
+| Capture provenance check | `FC7011279D9B3911043B9B83C283E8D03DCD2AF04BE177A18EBAFD34845447A5` | source |
+| Capture provenance tests | `E14065900D0568505FDAF4D8FD894702A9DEB06978A1E0176D727816C31577FF` | source |
 | Problem-first mobile viewport | `F095F6BB204268926F60C66169E0A2B4D874EF23FED0853AFCFA074C2A8FAF6A` | 375 x 812 |
 | Problem-first desktop viewport | `D12280FE83A0A906B93C7522586D8BF7FB93903EB49602E813A7998E78EFC386` | 1265 x 712 |
 | Mechanism-first mobile viewport | `5BB153DF1697824D619077EB4A98519CDF8F450A0E20056DEAAC1D0A63D18D5F` | 375 x 812 |
@@ -61,6 +61,14 @@ and requires a new visual inspection plus an explicit manifest update. The
 deterministic gate therefore proves capture identity and provenance; the
 independent side-by-side inspection is the content judgment.
 
+A second independent generator control found that Python's `-O` mode removed
+the checker's language assertions. The final checker uses explicit runtime
+exceptions for every load-bearing predicate; the production checker has zero
+language assertions.
+The regression suite executes the exact positive set and every negative set
+through normal, `-O`, and `-OO` interpreter modes. A PASS marker is therefore
+reachable only after every provenance predicate executes successfully.
+
 The same remediation changes Direction 3 to "Give each agent the service
 context for its task" and replaces the board's flow-content `span` wrappers
 with `div` elements. Those edits resolve the two remaining review findings
@@ -89,10 +97,12 @@ without changing a live route.
 
 - `npx impeccable detect mocks/open-source-product`: exit 0.
 - `check_sales_landing_captures.py`: exit 0 for exact SHA-256 and dimensions
-  across the three mobile captures, three desktop captures, and comparison.
-- `test_check_sales_landing_captures.py`: 5/5 pass, covering the exact positive
-  set plus original false-green, uniform blank, high-entropy synthetic, and
-  swapped-valid negative controls.
+  across the three mobile captures, three desktop captures, and comparison in
+  normal, `-O`, and `-OO` modes.
+- `test_check_sales_landing_captures.py`: 5/5 pass under normal, `-O`, and `-OO`
+  execution. Its subprocess controls exercise every checker mode for the exact
+  positive set plus original false-green, uniform blank, high-entropy
+  synthetic, and swapped-valid negative controls.
 - Strong Drafting Style hard checks across mock source and design evidence:
   exit 0, with two review-only exhaustive-list candidates retained.
 - `git diff --check`: exit 0.

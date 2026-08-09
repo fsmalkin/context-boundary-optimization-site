@@ -1114,7 +1114,7 @@
         {
           "laneId": "sales-landing-capture-optimized-mode-remediation",
           "operationId": "cbo-aleph164-sales-landing-capture-optimized-mode-remediation-2026-08-09-v1",
-          "state": "in-progress",
+          "state": "completed",
           "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
@@ -1131,6 +1131,13 @@
           "invariant": "Exact artifacts pass and every substituted, malformed, swapped, wrong-format, or wrong-dimension artifact exits nonzero under normal, -O, and -OO Python execution. A PASS marker is unreachable unless every provenance predicate executes and succeeds.",
           "mostLeveragedLayer": "Use explicit runtime exceptions at the production evidence seam and test every standard interpreter optimization mode.",
           "readback": "Require zero production language asserts, positive exact-artifact PASS in normal/-O/-OO modes, and negative nonzero exits in all three modes for at least the original false green, high-entropy synthetic, and swapped valid capture.",
+          "completedAt": "2026-08-09T02:46:59.0328194-04:00",
+          "sourceHashes": {
+            "captureProvenanceCheck": "FC7011279D9B3911043B9B83C283E8D03DCD2AF04BE177A18EBAFD34845447A5",
+            "captureProvenanceTests": "E14065900D0568505FDAF4D8FD894702A9DEB06978A1E0176D727816C31577FF",
+            "validation": "FAB52B6E8B1790EABA2EC6772673D81F0CECA7CA0F458ADDAA0CC8D7769E86BE"
+          },
+          "result": "PASS locally: the production checker has zero language asserts and uses explicit exceptions for SHA-256, format, dimensions, and uniqueness. Exact artifacts pass in normal, -O, and -OO modes. Each of the original false green, uniform blank, deterministic high-entropy synthetic, and swapped valid substitutions exits nonzero without a PASS marker in all three modes. The 5-test suite passes when its own runner uses normal, -O, or -OO mode.",
           "cleanupOrRollback": "Revert only this optimized-mode remediation commit; publication remains held until a separately admitted independent review passes."
         },
         {

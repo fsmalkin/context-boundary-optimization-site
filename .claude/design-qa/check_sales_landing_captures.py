@@ -56,6 +56,12 @@ CAPTURES = {
 }
 
 
+def require(condition: bool, message: str) -> None:
+    """Raise in every interpreter mode when a provenance predicate fails."""
+    if not condition:
+        raise AssertionError(message)
+
+
 def inspect_capture(
     root: Path, group: str, name: str, expected_size: tuple[int, int], expected_sha: str
 ) -> tuple[str, str]:
@@ -65,17 +71,19 @@ def inspect_capture(
 
     raw = path.read_bytes()
     digest = hashlib.sha256(raw).hexdigest().upper()
-    assert digest == expected_sha, (
+    require(
+        digest == expected_sha,
         f"{name}: SHA-256 mismatch; expected exact independently inspected "
-        f"capture {expected_sha}, got {digest}"
+        f"capture {expected_sha}, got {digest}",
     )
 
     with Image.open(path) as image:
-        assert image.format == "PNG", f"{name}: expected PNG, got {image.format}"
+        require(image.format == "PNG", f"{name}: expected PNG, got {image.format}")
         rgb = image.convert("RGB")
-        assert rgb.size == expected_size, (
+        require(
+            rgb.size == expected_size,
             f"{name}: expected {expected_size[0]}x{expected_size[1]}, "
-            f"got {rgb.size[0]}x{rgb.size[1]}"
+            f"got {rgb.size[0]}x{rgb.size[1]}",
         )
 
         width, height = rgb.size
@@ -101,7 +109,7 @@ def verify_all(root: Path = DEFAULT_ROOT) -> None:
             digest, summary = inspect_capture(
                 root, group, name, expected_size, expected_sha
             )
-            assert digest not in digests, f"{group}: duplicate capture {name}"
+            require(digest not in digests, f"{group}: duplicate capture {name}")
             digests.add(digest)
             print(summary)
     print("sales-landing capture provenance checks: PASS")
