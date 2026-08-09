@@ -613,27 +613,33 @@
         {
           "laneId": "paper-ui-implementation-ledger",
           "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
-          "state": "in-progress",
+          "state": "planned",
           "invocationCount": 1,
           "invocationCeiling": 3,
-          "currentInvocation": {
+          "lastInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
             "target": "fsmalkin/aleph#170",
             "startedAt": "2026-08-08T22:20:06.1415122-04:00",
-            "purpose": "Record the immutable reviewed paper-UI candidate and Fred's active production-equivalent mobile UAT without changing PR, provider, merge, or Pages state."
+            "completedAt": "2026-08-08T22:21:18.475-04:00",
+            "purpose": "Record the immutable reviewed paper-UI candidate and Fred's active production-equivalent mobile UAT without changing PR, provider, merge, or Pages state.",
+            "result": "PASS: comment created and independently read back with exact actor, event key, candidate, gates, held lanes, and next action.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229347777"
           }
         },
         {
           "laneId": "paper-ui-implementation-linear",
           "operationId": "cbo-aleph164-paper-ui-implementation-linear-2026-08-08-v1",
-          "state": "in-progress",
+          "state": "planned",
           "invocationCount": 1,
           "invocationCeiling": 2,
-          "currentInvocation": {
+          "lastInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
             "target": "ALEPH-164",
             "startedAt": "2026-08-08T22:20:06.1415122-04:00",
-            "purpose": "Project the immutable candidate and active Fred UAT checkpoint while preserving the issue's non-complete state."
+            "completedAt": "2026-08-08T22:21:18.451-04:00",
+            "purpose": "Project the immutable candidate and active Fred UAT checkpoint while preserving the issue's non-complete state.",
+            "result": "PASS: Linear comment created and independently read back; ALEPH-164 remains non-complete while Fred's UAT verdict is pending.",
+            "receipt": "linear-comment:7e5abdb5-f849-4613-acee-56203fcd0c72"
           }
         }
       ],
