@@ -63,7 +63,7 @@ or states the project's maturity boundary.
 | String | Job | Unique fact | Existing carrier | Decision |
 | --- | --- | --- | --- | --- |
 | `Open source / Framework + Python reference library` | State availability and category | Public source plus exact artifact category | GitHub supports openness; the eyebrow supplies the category | Keep; applied after blind feedback |
-| Give every agent the same service context. | State the consistency benefit | Service context can be reused across connected agents | No visual carrier expresses cross-agent consistency | Tighten if the wording implies identical context across different tasks |
+| Give each agent the service context for its task. | State the adoption promise | The service supplies context scoped to each task | No visual carrier expresses task-specific preparation | Keep |
 | `Keep your API for execution. The reference path uses MCP to ask the service for a task-scoped context contract before the agent acts.` | State the adoption boundary | API execution plus recommended MCP path | Heading and art carry the overview; prose specifies the technical boundary | Keep in tightened form |
 | `Open the billing example / See the adoption path` | Offer example and implementation-sequence paths | Example destination and on-page steps | Button styling carries priority; labels name each destination | Keep billing as primary action |
 | Begin with one workflow. Expand only when the boundary proves useful. | State rollout discipline | Start narrow and expand based on evidence | No control or diagram expresses the decision rule | Keep |
