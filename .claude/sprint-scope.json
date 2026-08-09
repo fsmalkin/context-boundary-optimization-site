@@ -1036,15 +1036,17 @@
         {
           "laneId": "sales-landing-direction3-rd-blind-recheck",
           "operationId": "cbo-aleph164-sales-landing-direction3-rd-blind-recheck-2026-08-09-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
           "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
           "sourceBoundary": "The revised rendered Direction 3 mobile first screen only.",
           "boundedOperationSet": "One fresh-context UNCERTIFIED R&D blind read receiving only the new-visitor persona, comprehension goal, and revised Direction 3 entry point.",
-          "readback": "Require accurate task-scoped product understanding, API/MCP/CBO differentiation, relevance, and the primary next action without implementation context.",
+          "readback": "PASS. A fresh-context reader accurately understood CBO as a task-specific, service-owned contract; distinguished API execution, MCP delivery, and CBO definition, enforcement, versioning, and receipts; identified teams connecting agents to broad APIs; and chose the billing example as the primary next action. Minor residual ambiguity remains about whether MCP carries context only or both context and callable tools, and about infrastructure beyond the Python reference implementation.",
+          "completedAt": "2026-08-09T02:18:00.8104786-04:00",
+          "result": "UNCERTIFIED R&D blind comprehension PASS for the revised Direction 3 route.",
           "cleanupOrRollback": "Read-only R&D evidence changes no product or external state."
         },
         {
