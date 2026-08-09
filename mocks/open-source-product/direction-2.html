@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- impeccable-disable cramped-padding -- The shell delegates insets to its header, main, and footer; plain sections have no painted boundary, and accent sections define their own padding. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Context as a service for your service: a focused context contract for every agent task.">
+    <meta name="robots" content="noindex">
+    <title>Context-Boundary Optimization</title>
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body class="direction-two">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="mock-shell">
+      <header class="site-header">
+        <a class="brand" href="../../"><img src="../../assets/images/cbo-mark-transparent.png" width="235" height="115" alt=""><span>Context-Boundary Optimization</span></a>
+        <nav class="site-nav" aria-label="Primary navigation"><a href="#why">Why CBO</a><a href="#how">How it works</a><a href="../../library/">Build</a><a href="../../papers/">Research</a><a href="https://github.com/fsmalkin/context-boundary-optimization-site">GitHub</a></nav>
+      </header>
+      <main id="main-content">
+        <section class="hero hero-centered" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-stamp">Open source</span>Framework + Python reference library</p>
+            <h1 id="page-title">Context as a service for your service.</h1>
+            <p class="hero-lede">CBO turns what your service knows about a task into a focused, reusable context contract for any connected agent.</p>
+            <div class="actions"><a class="button" href="../../library/examples/billing-service/">Open the billing example</a><a class="button secondary" href="#how">See how it works</a></div>
+          </div>
+          <figure class="hero-art"><img src="../../assets/images/cbo-workflow.webp" width="1200" height="600" alt="A task goes to a service, which prepares a focused context contract for an AI agent."></figure>
+        </section>
+
+        <section class="section" id="why" aria-labelledby="service-title">
+          <div class="section-head"><h2 class="rule-title" id="service-title">Supply the right service context at the right moment</h2><p>An agent can call a valid operation and still miss a policy fact, use stale state, or cross an authority boundary. CBO makes the service responsible for preparing the focused view before execution.</p></div>
+          <div class="grid-3">
+            <article class="panel"><span class="number">1</span><h3>Focus</h3><p>The agent supplies the task and current focus.</p></article>
+            <article class="panel"><span class="number">2</span><h3>Contract</h3><p>The service computes relevant capabilities, state, rules, and obligations.</p></article>
+            <article class="panel"><span class="number">3</span><h3>Receipt</h3><p>The interaction returns the evidence required by the same contract.</p></article>
+          </div>
+        </section>
+
+        <section class="section accent-section" id="how" aria-labelledby="mcp-title">
+          <div class="task-card">
+            <div><h2 id="mcp-title">MCP carries the connection. CBO defines the task boundary.</h2><p>Your API still defines the operations. MCP is the recommended agent-facing connection for tools, resources, and prompts. CBO gives the service one versioned artifact that decides which context and obligations belong with this call.</p><div class="actions"><a class="button secondary" href="../../library/">Inspect the reference implementation</a></div></div>
+            <figure><img src="../../figures/fig1-boundary.png" width="1120" height="748" alt="The service supplies a focused context contract across the agent-service boundary."></figure>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="path-title">
+          <div class="section-head"><h2 class="rule-title" id="path-title">Choose your next step</h2></div>
+          <div class="intent-grid">
+            <a class="intent-card" href="../../papers/technical-paper.html"><span class="panel-label">Concept</span><h3>Define the boundary</h3><p>See the seven dimensions and the contract model.</p></a>
+            <a class="intent-card" href="../../library/examples/billing-service/"><span class="panel-label">Example</span><h3>Walk through billing</h3><p>Trace one context contract from task to receipt.</p></a>
+            <a class="intent-card" href="../../papers/economic-paper.html"><span class="panel-label">Strategy</span><h3>Place the ownership</h3><p>Examine why the provider is positioned to compute shared service context.</p></a>
+          </div>
+        </section>
+
+        <aside class="proof-band" aria-label="Project credibility"><strong>Inspectable working materials</strong><div class="proof-links"><a href="../../papers/">Papers</a><a href="../../library/">Python library</a><a href="../../demos/">Trace demos</a><a href="https://github.com/fsmalkin/context-boundary-optimization-site">GitHub</a></div></aside>
+      </main>
+      <footer class="site-footer"><p>Working drafts. Empirical claims remain under development.</p><p><a href="index.html">Back to the mock board</a></p></footer>
+    </div>
+  </body>
+</html>

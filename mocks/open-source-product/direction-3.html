@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- impeccable-disable cramped-padding -- The shell delegates insets to its header, main, and footer; plain sections have no painted boundary, and accent sections define their own padding. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Start with one task and add a service-owned context contract to an agent-facing MCP connection.">
+    <meta name="robots" content="noindex">
+    <title>Context-Boundary Optimization</title>
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body class="direction-three">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="mock-shell">
+      <header class="site-header">
+        <a class="brand" href="../../"><img src="../../assets/images/cbo-mark-transparent.png" width="235" height="115" alt=""><span>Context-Boundary Optimization</span></a>
+        <nav class="site-nav" aria-label="Primary navigation"><a href="#why">Why CBO</a><a href="#how">How it works</a><a href="../../library/">Build</a><a href="../../papers/">Research</a><a href="https://github.com/fsmalkin/context-boundary-optimization-site">GitHub</a></nav>
+      </header>
+      <main id="main-content">
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-stamp">Open source</span>Framework + Python reference library</p>
+            <h1 id="page-title">Give each agent the service context for its task.</h1>
+            <p class="hero-lede">Keep your API for execution. The reference path uses MCP to ask the service for a task-scoped context contract before the agent acts.</p>
+            <div class="actions"><a class="button" href="../../library/examples/billing-service/">Open the billing example</a><a class="button secondary" href="#how">See the adoption path</a></div>
+            <p class="trust-line">Begin with one workflow. Expand only when the boundary proves useful.</p>
+          </div>
+          <figure class="hero-art"><img src="../../assets/images/cbo-workflow.webp" width="1200" height="600" alt="A task goes to a service, which prepares a focused context contract for an AI agent."></figure>
+        </section>
+
+        <section class="section" id="why" aria-labelledby="refund-title">
+          <div class="task-card">
+            <figure><img src="../../figures/fig2-fisheye.png" width="1536" height="1024" alt="A broad API catalog narrows to the capabilities relevant to the current task."><figcaption>The task creates a focused view of the service.</figcaption></figure>
+            <div><h2 id="refund-title">Imagine invoice 4471: four actions and the rules around them.</h2><p>A billing API might expose forty operations. For this illustrative task, the service could identify four relevant actions, attach approval and recordkeeping requirements, and prescribe the receipt the interaction must return.</p><p>CBO packages that service knowledge as one versioned context contract instead of asking each agent integration to reconstruct it.</p></div>
+          </div>
+        </section>
+
+        <section class="section accent-section" id="how" aria-labelledby="adopt-title">
+          <div class="section-head"><h2 id="adopt-title">Add the boundary in four steps</h2></div>
+          <div class="grid-2">
+            <article class="panel"><span class="number">1</span><h3>Choose one task</h3><p>Pick a workflow with clear service rules and a measurable completion record.</p></article>
+            <article class="panel"><span class="number">2</span><h3>Define the contract</h3><p>Declare the capabilities, state, policy, authority, and evidence the task requires.</p></article>
+            <article class="panel"><span class="number">3</span><h3>Expose it through MCP</h3><p>Use the standard connection to deliver the task-scoped view alongside the callable surface.</p></article>
+            <article class="panel"><span class="number">4</span><h3>Check the receipt</h3><p>Evaluate the obligations at the boundary and retain the contract-bound record.</p></article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="choose-title">
+          <div class="section-head"><h2 class="rule-title" id="choose-title">Choose your next step</h2></div>
+          <div class="intent-grid">
+            <a class="intent-card" href="../../papers/"><span class="panel-label">Learn</span><h3>Read the framework</h3><p>Start with the plain-language thesis, then open the papers.</p></a>
+            <a class="intent-card" href="../../library/"><span class="panel-label">Build</span><h3>Run the example</h3><p>Inspect the dependency-light Python reference implementation.</p></a>
+            <a class="intent-card" href="../../demos/"><span class="panel-label">Evaluate</span><h3>Review the traces</h3><p>See how the working experiments score task outcomes.</p></a>
+          </div>
+        </section>
+
+        <aside class="proof-band" aria-label="Project credibility"><strong>Open working project</strong><div class="proof-links"><a href="../../library/">Reference code</a><a href="../../papers/">Working papers</a><a href="../../demos/plain-english-results.html">Plain-English results</a><a href="../../LICENSE">Licenses</a></div></aside>
+      </main>
+      <footer class="site-footer"><p>Context-Boundary Optimization</p><p><a href="index.html">Back to the mock board</a></p></footer>
+    </div>
+  </body>
+</html>

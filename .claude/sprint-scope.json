@@ -302,9 +302,9 @@
         "nodeId": "context-boundary-optimization-site",
         "role": "project-node"
       },
-      "goal": "Implement Fred's selected Research Field Guide paper UI and a coherent hand-drawn CBO illustration set in the existing static site, then update only existing PR 1, pass T2 production-equivalent independent blind functional UAT, merge once, publish through GitHub Pages, and verify the live mobile-first outcome.",
+      "goal": "Preserve the accepted live CBO paper site, then research and prepare owner-pick mock variants for a broader sales-oriented open-source product landing page. The variants must explain the concept quickly, distinguish ordinary API integration from the recommended MCP path, organize navigation around visitor intent, and keep evidence as a credibility layer. Live homepage implementation waits for Fred's mock selection.",
       "priority": "Urgent",
-      "costOfDelayOrDeadline": "No calendar deadline. The selected redesign is now the only accepted path to replace the rejected glossy candidate and unblock the shareable live CBO outcome.",
+      "costOfDelayOrDeadline": "No calendar deadline. The accepted paper candidate is live; the next learning milestone is a clear product story that helps new visitors decide whether CBO fits their agent integration and where to go next.",
       "dependencies": [
         {
           "id": "cbo-paper-ui-owner-selection",
@@ -322,13 +322,13 @@
           "evidenceLink": "https://fsmalkin.github.io/context-boundary-optimization-site/"
         }
       ],
-      "risk": "T2 user-facing redesign. The source boundary is the static presentation layer and six CBO figure assets, plus exact UAT repairs for rendered paper metadata and links, trace-browser mobile containment, return navigation and one-to-one trace identity, and one corrected-inference sentence. Paper-body substance, PDFs, empirical data and analyses, and library behavior remain unchanged. External mutations are limited to replacing the existing PR 1 branch after review, one PR metadata update, one merge, the existing Pages build, and bounded readback. Rollback is a reviewed revert of only the redesign merge.",
-      "effort": "Generate the selected mock's required paper texture, workflow, navigation art, and five replacement CBO figures; implement the responsive paper layout in the existing Jekyll site; run deterministic, accessibility, link, visual, and interaction checks; pass Product Design design QA and independent review; update existing PR 1; run production-equivalent blind UAT; merge once; verify Pages and the mobile user task.",
+      "risk": "T2 follow-up design slice with full-loop-mock-first. The live homepage, papers, figures, library, data, demos, and provider state remain unchanged while research and static mocks are prepared. Mock source may reuse existing public tokens and illustration assets only. No live-homepage implementation, Gemini model request, Filevine share, image generation, merge, or Pages mutation is admitted by this checkpoint.",
+      "effort": "Capture the live baseline, synthesize current official developer-platform messaging patterns, create three responsive in-repo landing-page variants with existing CBO assets, obtain fresh blind R&D reads for each variant, and present a compact comparison for Fred's selection before implementation.",
       "capacity": {
         "wipLimit": 1,
         "activeCount": 1,
-        "verifiedAt": "2026-08-08T22:47:47.896Z",
-        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352"
+        "verifiedAt": "2026-08-09T04:48:28.581Z",
+        "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229813178"
       },
       "writerFence": {
         "taskId": "019fe30f-d649-7f31-bf96-f6f6fda5e74b",
@@ -407,8 +407,8 @@
         {
           "laneId": "paper-ui-pr1-update",
           "operationId": "cbo-aleph164-paper-ui-pr1-update-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 2,
           "invocationCeiling": 2,
           "costCeilingUsd": 0,
           "authorizedAt": "2026-08-09T00:32:44.231-04:00",
@@ -418,7 +418,19 @@
           "sourceCandidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882 plus task-local release and ordering receipts only",
           "boundedOperationSet": "One exact force-with-lease replacement of the existing PR branch, followed by one serialized GitHub metadata/readiness request. Do not create a branch or pull request.",
           "readback": "Require the remote branch to resolve to the pushed exact head, PR 1 to be open and ready with the current title/body, and the mergeable state to be clean before the merge boundary.",
-          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR."
+          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR.",
+          "firstInvocation": {
+            "type": "exact force-with-lease push",
+            "completedAt": "2026-08-09T00:36:29-04:00",
+            "previousRemoteHead": "2dbb70ca5ea32573d567219a1fa32b9dcf578930",
+            "resultingRemoteHead": "91dea8d697d3897c192d913eacfdc76da8a245fd",
+            "result": "PASS: only origin/afuturehead/aleph-164-api-illustrations changed and exact readback matched the pushed head."
+          },
+          "secondInvocation": {
+            "type": "one GraphQL request containing serialized metadata update and ready-for-review mutation",
+            "completedAt": "2026-08-09T00:37:23-04:00",
+            "result": "PASS: PR 1 title and body describe the accepted candidate and three-stage plan; draft=false, mergeable=MERGEABLE, mergeStateStatus=CLEAN, and head/base readback match."
+          }
         },
         {
           "laneId": "paper-ui-production-preview",
@@ -743,31 +755,38 @@
         {
           "laneId": "paper-ui-merge-pages",
           "operationId": "cbo-aleph164-paper-ui-main-pages-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "target": "merge existing PR 1 into fsmalkin/context-boundary-optimization-site main and trigger the existing legacy GitHub Pages build from main:/",
           "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
           "preInvocationReadback": "Re-read fsmalkin/aleph#170, PR 1, remote main, exact PR head, mergeability, and Pages source immediately before the single merge request.",
-          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route."
+          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route.",
+          "completedAt": "2026-08-09T00:39:10-04:00",
+          "mergeReceipt": "One exact REST merge request with expected head 91dea8d697d3897c192d913eacfdc76da8a245fd returned merged=true and merge commit 995572c1c453fe030ae53e0ab6eb2990b66ce158.",
+          "pagesReceipt": "Legacy build 1140529560 completed successfully at the same merge commit; source main:/ and HTTPS enforcement remained unchanged."
         },
         {
           "laneId": "paper-ui-live-verification",
           "operationId": "cbo-aleph164-paper-ui-live-verification-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "target": "https://fsmalkin.github.io/context-boundary-optimization-site/ at the resulting merge commit",
           "boundedOperationSet": "Wait for the matching successful Pages build, then verify the mobile-first homepage task, key routes, all six figures, navigation, and the withdrawn comparison route's 404 state.",
-          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation."
+          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation.",
+          "completedAt": "2026-08-09T00:43:46.780-04:00",
+          "browserReceipt": "PASS in the selected in-app browser at configured 390x844: correct URL/title/H1, meaningful main landmark, no framework overlay, document clientWidth=scrollWidth=375, no warning/error logs, complete above-fold images, and a semantic Research click reached the rendered Papers route without overflow.",
+          "httpReceipt": "PASS with no-cache readback: root, key routes, both rendered papers, core demos, CSS, and workflow art returned 200; comparison and raw index routes returned 404. All six public PNGs returned image/png and matched the merged repository bytes by SHA-256.",
+          "visualReceipt": "The live viewport capture matches the committed accepted mobile reference in hierarchy, typography, illustration placement, spacing, and plain-paper treatment."
         },
         {
           "laneId": "paper-ui-implementation-ledger",
           "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 2,
+          "state": "completed",
+          "invocationCount": 3,
           "invocationCeiling": 3,
           "lastInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
@@ -786,6 +805,14 @@
             "purpose": "Record the exact reviewed PM-first plain-paper candidate, independent affected-scope PASS, verified private preview refresh, unchanged release state, and Fred's current UAT next action.",
             "result": "PASS: the GitHub comment was created and independently read back with the actor line, event key, exact candidate, private URL, review verdict, Gemini wall, unchanged PR and Pages state, and Fred's next UAT action.",
             "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229557440"
+          },
+          "thirdInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-live-publication-2026-08-09-v1",
+            "target": "fsmalkin/aleph#170",
+            "completedAt": "2026-08-09T00:45:33-04:00",
+            "purpose": "Record the accepted candidate's PR merge, matching Pages build, live verification, controlling three-stage sequence, stage 2 navigation finding, incremental Gemini constraint, and preserved holds.",
+            "result": "PASS: comment created and independently read back; its exact event key auto-synchronized into ALEPH-164 once.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229813178"
           }
         },
         {
@@ -844,10 +871,355 @@
             "result": "PASS: ALEPH-164 independently read back with the exact UAT title, In Progress state, existing project and priority, and the actionable private-preview comment.",
             "receipt": "linear-comment:25dd321c-e14c-4fcb-9ef3-b5ba6f2b59ca"
           }
+        },
+        {
+          "laneId": "paper-ui-live-publication-linear-reconciliation",
+          "operationId": "cbo-aleph164-live-publication-linear-reconciliation-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "stableMaterialEventKey": "cbo-aleph164-paper-ui-live-publication-2026-08-09-v1",
+          "target": "existing ALEPH-164 only",
+          "boundedOperationSet": "After the final GitHub ledger comment auto-synchronizes, update the existing issue title to the broader open-source product-site outcome and remove the stale Fred assignment while keeping the issue In Progress for stages 2 and 3. Do not create an issue or duplicate the synchronized comment.",
+          "readback": "Verify the exact title, assignee=null, status remains In Progress, and the synchronized live receipt is present once.",
+          "cleanupOrRollback": "Restore only the prior title or assignee if readback differs from this exact projection.",
+          "completedAt": "2026-08-09T00:46:07.989-04:00",
+          "result": "PASS: ALEPH-164 title is Refine the CBO site as an open-source product, status is In Progress, assignee is null, completedAt is null, and exactly one synchronized live receipt remains.",
+          "receipt": "linear-comment:d1fd94c7-9918-42a7-93be-cfcc5704b1dd"
+        },
+        {
+          "laneId": "sales-landing-official-source-research",
+          "operationId": "cbo-aleph164-sales-landing-official-source-research-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceTuple": "Live CBO page at main@995572c1c453fe030ae53e0ab6eb2990b66ce158 plus current official public pages for MCP and respected developer-platform or agent-framework projects.",
+          "boundedOperationSet": "Read-only research covering problem framing, differentiation, credibility, navigation, and first-use guidance. Use sources as inspiration only; copy no wording or brand expression.",
+          "readback": "Record direct official URLs, access date, source-backed observations, and CBO-specific design implications.",
+          "completedAt": "2026-08-09T01:04:00-04:00",
+          "result": "PASS: current official LangChain, MCP introduction and architecture, Vercel AI SDK, and LlamaIndex pages were read and visually inspected. The synthesis records outcome-led category framing, a direct API/MCP/CBO layer model, concrete examples, credibility cues, intent-based paths, and one first-use action without copying wording or brand expression.",
+          "cleanupOrRollback": "Read-only research creates no external or product mutation."
+        },
+        {
+          "laneId": "sales-landing-rd-blind-baseline",
+          "operationId": "cbo-aleph164-sales-landing-rd-blind-baseline-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "boundedOperationSet": "One fresh-context UNCERTIFIED R&D blind read receiving only a new-visitor persona, comprehension goal, and the public live URL.",
+          "readback": "Require a concrete task outcome, inferred product promise, confusion points, next-action clarity, and no implementation-context access.",
+          "completedAt": "2026-08-09T00:56:17.480-04:00",
+          "result": "PASS for relevance triage, not adoption readiness: a cold mobile reader understood a service-prepared task brief and the ordinary API gap, but could not place CBO relative to MCP, distinguish it sharply from adjacent context mechanisms, judge integration effort or maturity, or identify an adoption-first path. The reader chose Evidence first, confirming that proof must support the story rather than appear as a visitor job.",
+          "cleanupOrRollback": "Read-only R&D evidence changes no product state and carries no promotion authority."
+        },
+        {
+          "laneId": "sales-landing-mock-source",
+          "operationId": "cbo-aleph164-sales-landing-mock-source-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceBoundary": "mocks/open-source-product/ and affected .claude/design-qa sales-landing artifacts only; reuse existing public CSS tokens and raster illustrations without modifying them.",
+          "boundedOperationSet": "Create exactly three responsive static landing-page mock variants that preserve the current plain-paper identity. Do not edit index.md or any live route.",
+          "readback": "Render every variant at 390x844 and desktop, verify primary navigation and CTA links in the mock surface, and run the carrier-deletion and Strong Drafting Style passes.",
+          "completedAt": "2026-08-09T01:37:46.3646939-04:00",
+          "sourceHashes": {
+            "board": "006D1A6036D80C8A49BE98F4400C35B3B4E24AF6ED5DEDD0A9BC8E4939FA68BB",
+            "direction1": "0B7F4934E45E85F39850CEF9632AC3CB11DA2B8B83740DFA06F633D0C520E924",
+            "direction2": "2176F9E8EA7701482FE95F09C0CEF95AC827CD939D80EA2D6F4600AA09A37D33",
+            "direction3": "D3C684604AADB7D4EC3459149DAC26971FDF990F6A2E0FD70608BA1DBEEE3975",
+            "stylesheet": "150BFC7B07F226556F9363CF0C0DF88E36A197157EC80A65AABD5B87A7487CD5"
+          },
+          "result": "PASS: three distinct responsive mock directions preserve the selected plain-paper and hand-sketched identity while changing only narrative order. All final mobile and desktop renders have matching client and scroll widths, complete images, zero warning or error logs, and copy before art on mobile. Semantic structure, primary actions, destinations, claim boundaries, carrier deletion, Strong Drafting Style, and impeccable detect pass. The live homepage remains unchanged.",
+          "cleanupOrRollback": "Remove only the unselected mock source or revert this mock-only commit. The live site remains at 995572c1 until a separately reviewed post-pick implementation."
+        },
+        {
+          "laneId": "sales-landing-rd-blind-mock-reads",
+          "operationId": "cbo-aleph164-sales-landing-rd-blind-mock-reads-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "boundedOperationSet": "One fresh-context UNCERTIFIED R&D blind read per exact rendered variant. Each reviewer receives only the new-visitor persona, comprehension goal, and sanctioned variant entry point.",
+          "readback": "Record task outcome, concept comprehension, friction, next action, and a clear variant verdict for Fred's comparison table.",
+          "completedAt": "2026-08-09T01:16:28.279-04:00",
+          "result": "PASS with common qualification across three independent fresh mobile reads. Every direction made the API/MCP/CBO relationship and service-owned value relevant, and every reader preferred a concrete build or billing-example action. Shared friction was product-category ambiguity; direction 2 also lacked a direct API comparison, and direction 3 placed art before its core mobile claim. The mock source was revised only at those evidence-backed seams plus the declared carrier-deletion pass.",
+          "cleanupOrRollback": "Read-only R&D evidence changes no product state and carries no promotion authority."
+        },
+        {
+          "laneId": "sales-landing-rd-blind-feedback-rechecks",
+          "operationId": "cbo-aleph164-sales-landing-rd-blind-feedback-rechecks-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 3,
+          "invocationCeiling": 3,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceDelta": "All three final mocks now name the exact artifact category, promote the billing example as the primary first action, and apply the carrier-deletion pass. Direction 2 directly names the API role and recommended MCP connection; direction 3 places the core claim before the illustration on mobile.",
+          "boundedOperationSet": "One final fresh-context UNCERTIFIED R&D blind read per revised rendered variant. Each reviewer receives only the new-visitor persona, comprehension goal, and exact sanctioned variant entry point.",
+          "readback": "Require the final rendered variant to support an accurate category statement, a clear API/MCP/CBO relationship, a relevance decision, and one primary next action without implementation-context access.",
+          "completedAt": "2026-08-09T01:29:01.348-04:00",
+          "result": "PASS across three fresh final reads. Every reviewer identified an open-source framework plus Python reference library, accurately separated API execution, MCP connection, and CBO service-owned context, and selected the billing example as the primary next action. Remaining compatibility, maturity, schema, and adoption-cost questions belong to deeper material. These R&D reads are uncertified and carry no promotion authority.",
+          "cleanupOrRollback": "Read-only R&D evidence changes no product state and carries no promotion authority."
+        },
+        {
+          "laneId": "sales-landing-mock-independent-review",
+          "operationId": "cbo-aleph164-sales-landing-mock-independent-review-2026-08-09-v1",
+          "state": "ambiguous",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "One immutable commit containing only the three sales-landing mock directions, their board, existing-asset references, design-loop evidence, and this admission record. The live homepage remains unchanged.",
+          "boundedOperationSet": "One independent read-only adversarial review by a reviewer other than the implementer. Inspect the immutable mock candidate, deterministic evidence, final rendered comparisons, user-direction fit, claim discipline, navigation hierarchy, carrier precedence, and the full-loop-mock-first pick boundary. No source or external mutation.",
+          "readback": "Require an explicit PASS or FAIL with P0-P3 findings, evidence anchors, and confirmation that the exact candidate is suitable for mock-board publication without implementing a homepage selection.",
+          "startedAt": "2026-08-09T01:42:00-04:00",
+          "resolvedAt": "2026-08-09T01:52:48.8539967-04:00",
+          "result": "AMBIGUOUS: the reviewer remained running without a report after the bounded review window, a direct finish instruction, and two interrupts. No source or external mutation occurred. Any late output is evidence-only and cannot satisfy this gate.",
+          "failureLedger": [
+            "The review gate lacks a verdict because the delegated lane returned no report.",
+            "The lane returned no report because it stayed inside an unbounded read-only turn after the requested stop.",
+            "The requested stop did not close the turn because the runtime remained running after two interrupt receipts.",
+            "A running lane cannot supply gate evidence because completion without bound output is not a report.",
+            "The safe recovery is one separately admitted reviewer against the same immutable commit while quarantining late output from this invocation."
+          ],
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict returns only the supported mock findings to the same writer for repair and invalidates this one-review operation."
+        },
+        {
+          "laneId": "sales-landing-mock-independent-review-recovery",
+          "operationId": "cbo-aleph164-sales-landing-mock-independent-review-recovery-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "Immutable mock candidate a350aa9c590ea02dfcf89240df772be8d8bdd041 with tree 5e4a47454506ef2609265b21471de7cd52185837. The first review invocation is quarantined and cannot satisfy this operation.",
+          "boundedOperationSet": "One replacement independent read-only adversarial review by a fresh reviewer other than the implementer. Use only the exact committed mock candidate and recorded evidence. Return the requested verdict without expanding into implementation, provider work, or external mutation.",
+          "readback": "Require an explicit PASS or FAIL with P0-P3 findings, evidence anchors, generator-test assessment, and a direct mock-board publication-readiness decision.",
+          "completedAt": "2026-08-09T02:02:00-04:00",
+          "result": "FAIL with one P1 instrument finding, one P2 copy finding, and one P3 markup note. The fullPage screenshot path produced blank two-color canvases while the validation record called them successful full renders; Direction 3 implied identical context across tasks; and the board wrapped flow content in span elements. Direction 1 remained the supportable narrative recommendation. Publication stayed held.",
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict keeps publication held and returns only supported findings to the same writer."
+        },
+        {
+          "laneId": "sales-landing-mock-review-remediation",
+          "operationId": "cbo-aleph164-sales-landing-mock-review-remediation-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceBoundary": "Only mocks/open-source-product/index.html, mocks/open-source-product/direction-3.html, .claude/design-qa/sales-landing-copy-pass.md, .claude/design-qa/sales-landing-validation.md, .claude/design-qa/sales-landing-mobile-comparison.html, the sales-landing viewport PNG evidence, and one focused capture-content check.",
+          "boundedOperationSet": "Resolve only the independent gate findings: replace false-green blank fullPage captures with valid top-viewport mobile and desktop captures, add a fail-closed nonblank-content instrument, state Direction 3's task scope accurately, and use a flow container for mock-board card copy. Remove redundant capture aliases and update exact evidence hashes.",
+          "readback": "Reproduce the fullPage false green, require the new content check to distinguish it from valid captures, inspect all revised mobile and desktop evidence, rerun rendered metrics and source checks, and commit one immutable remediation candidate.",
+          "startedAt": "2026-08-09T02:03:00-04:00",
+          "admissionTiming": "Process defect recorded in the same recovery work stretch: the exact bounded source repair began under the still-active ALEPH-164 parent admission before this remediation sub-operation was appended. No excluded path or external boundary was touched. This record and preflight precede further source work, validation, commit, review, and publication.",
+          "completedAt": "2026-08-09T02:11:46.5357051-04:00",
+          "sourceHashes": {
+            "board": "FD9CE9E8E6F745999203DB7204F8E399CBD48EF13975831A158BA98824D0B843",
+            "direction1": "0B7F4934E45E85F39850CEF9632AC3CB11DA2B8B83740DFA06F633D0C520E924",
+            "direction2": "2176F9E8EA7701482FE95F09C0CEF95AC827CD939D80EA2D6F4600AA09A37D33",
+            "direction3": "2BA92D52A0E78F2FC26301CBC7ABA2934E160CC1CCBAD5ECDACB5B6EB6BB996D",
+            "stylesheet": "150BFC7B07F226556F9363CF0C0DF88E36A197157EC80A65AABD5B87A7487CD5",
+            "captureCheck": "9EF01673DF1FDB50F9CC64A2DC232DF30F478FCC4F2C89ADCA313F2C0F9B910E",
+            "comparison": "53916E14E50303B2E322CCDC7175503AA514ADED7CEC51A458A38045FBDBFB6C"
+          },
+          "result": "PARTIAL: the fullPage false green was reproduced and the replacement captures were visually inspected as containing the intended rendered pages. Browser, copy, markup, HTTP, and live-homepage-exclusion checks passed. The first statistical capture checker later failed independent generator testing because an unrelated high-entropy synthetic could pass; it carries no readable-content proof and is superseded by the separately admitted exact-provenance remediation.",
+          "supersededInstrumentBy": "cbo-aleph164-sales-landing-capture-provenance-remediation-2026-08-09-v1",
+          "cleanupOrRollback": "Revert only the remediation commit. The prior mock candidate remains in Git history and the live homepage remains unchanged."
+        },
+        {
+          "laneId": "sales-landing-direction3-rd-blind-recheck",
+          "operationId": "cbo-aleph164-sales-landing-direction3-rd-blind-recheck-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "The revised rendered Direction 3 mobile first screen only.",
+          "boundedOperationSet": "One fresh-context UNCERTIFIED R&D blind read receiving only the new-visitor persona, comprehension goal, and revised Direction 3 entry point.",
+          "readback": "PASS. A fresh-context reader accurately understood CBO as a task-specific, service-owned contract; distinguished API execution, MCP delivery, and CBO definition, enforcement, versioning, and receipts; identified teams connecting agents to broad APIs; and chose the billing example as the primary next action. Minor residual ambiguity remains about whether MCP carries context only or both context and callable tools, and about infrastructure beyond the Python reference implementation.",
+          "completedAt": "2026-08-09T02:18:00.8104786-04:00",
+          "result": "UNCERTIFIED R&D blind comprehension PASS for the revised Direction 3 route.",
+          "cleanupOrRollback": "Read-only R&D evidence changes no product or external state."
+        },
+        {
+          "laneId": "sales-landing-mock-remediation-independent-review",
+          "operationId": "cbo-aleph164-sales-landing-mock-remediation-independent-review-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "The immutable remediation commit layered on a350aa9c590ea02dfcf89240df772be8d8bdd041 and the exact corrected capture evidence.",
+          "boundedOperationSet": "One independent affected-scope re-review by a reviewer other than the implementer. Verify the false-green instrument is retired, the copy and flow-content findings are resolved, and no unrelated design or live-homepage change entered the candidate.",
+          "readback": "FAIL at 8541320550900d5466255eeb3dfc85093c3b1101 / c18adc4f7bcb83a8af485485a3b3759d32de910c. The fixed-threshold checker rejected the original blank and a uniform canvas, but accepted a deterministic high-entropy synthetic image with no page content. This proves statistical complexity only, so the receipts overstated readable-content proof and publication remained held.",
+          "completedAt": "2026-08-09T02:26:42.1695899-04:00",
+          "result": "FAIL: P1 generator-test bypass and P2 evidence-claim overstatement. All copy, markup, scope, live-homepage exclusion, and actual corrected-capture visual checks otherwise passed.",
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict keeps publication held."
+        },
+        {
+          "laneId": "sales-landing-capture-provenance-remediation",
+          "operationId": "cbo-aleph164-sales-landing-capture-provenance-remediation-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceBoundary": "Only .claude/design-qa/check_sales_landing_captures.py, its focused regression test, .claude/design-qa/sales-landing-validation.md, and this exact task-local scope receipt. Mock source, captures, comparison, live homepage, and all product routes remain immutable.",
+          "boundedOperationSet": "Replace generic pixel-threshold content inference with exact SHA-256 and dimension binding to the independently inspected capture bytes. Retain pixel statistics as diagnostics only. Add positive exact-artifact coverage plus blank, high-entropy synthetic, and swapped-artifact negative controls. Correct the evidence claims to separate deterministic provenance from independent visual content judgment.",
+          "startedAt": "2026-08-09T02:26:42.1695899-04:00",
+          "whyChain": [
+            "A deterministic high-entropy synthetic image passed because the checker measured generic bitmap complexity.",
+            "Entropy, color count, and dark-pixel thresholds cannot establish that a bitmap depicts the declared rendered page.",
+            "The instrument was not cryptographically bound to the exact capture bytes that received independent visual inspection.",
+            "The validation receipt collapsed deterministic artifact identity and human visual content judgment into one claim.",
+            "The evidence seam lacked an exact manifest plus negative controls for unrelated but statistically complex images."
+          ],
+          "invariant": "The deterministic gate accepts only the exact independently inspected capture bytes at their declared dimensions. Any changed, swapped, blank, synthetic, or otherwise substituted artifact fails. Pixel statistics remain diagnostic and never claim semantic page content.",
+          "mostLeveragedLayer": "Bind provenance at the evidence seam instead of adding more image-statistics thresholds.",
+          "readback": "Require exact-current positive PASS and negative failures for the original blank, a uniform blank, deterministic high-entropy synthetic content, and a swapped valid capture. Validation and scope must state exactly what the deterministic and independent instruments each prove.",
+          "completedAt": "2026-08-09T02:30:07.8242545-04:00",
+          "sourceHashes": {
+            "captureProvenanceCheck": "01C98356EB49CD26AB1D6AECBE58EBDD967B597580C4FF4D1A7ED4510FE63EAD",
+            "captureProvenanceTests": "228B3ACC59B6B5AAE9816F32744BA4F87B1EE8D0E546F78A2CC5B2E94A26B281",
+            "validation": "139C704407E30852CE501F03C1055BB8E52CFA655B2E5AA3589A28AF8523A589"
+          },
+          "result": "PASS locally: exact reviewed captures pass. The original false-green capture, uniform blank, deterministic high-entropy synthetic, and swapped valid capture each fail on SHA-256 identity. Dimensions are exact. Pixel statistics are diagnostic only. The validation record now assigns content judgment to independent visual inspection and deterministic enforcement to exact artifact provenance.",
+          "cleanupOrRollback": "Revert only this provenance-remediation commit; publication remains held until a separately admitted independent review passes."
+        },
+        {
+          "laneId": "sales-landing-capture-provenance-independent-review",
+          "operationId": "cbo-aleph164-sales-landing-capture-provenance-independent-review-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "The immutable capture-provenance remediation commit only, including the checker, focused tests, corrected claims, and preserved exact capture bytes.",
+          "boundedOperationSet": "One fresh independent affected-scope review by a reviewer other than the implementer. Re-run positive and negative controls, inspect the exact reviewed captures, verify claims match enforcement, and return explicit publication readiness.",
+          "readback": "FAIL at a1039550672be5a0053730f4df595c91cdc9f86e / 837791787e99dfe14b61b242cdcc4e08223944bf. Normal execution rejected all declared negative controls, but standard Python optimized execution removed every load-bearing language assert. The original false-green capture then exited 0 and printed PASS under python -O.",
+          "completedAt": "2026-08-09T02:43:55.7844636-04:00",
+          "result": "FAIL: P1 optimized-interpreter false green and P2 protection-versus-enforcement mismatch. Visual capture validity, exact normal-mode provenance, source exclusion, and all other reviewed scope passed.",
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict keeps publication held."
+        },
+        {
+          "laneId": "sales-landing-capture-optimized-mode-remediation",
+          "operationId": "cbo-aleph164-sales-landing-capture-optimized-mode-remediation-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceBoundary": "Only .claude/design-qa/check_sales_landing_captures.py, its focused regression test, .claude/design-qa/sales-landing-validation.md, and this task-local scope receipt. Declared captures, comparison, mock source, live homepage, and product routes remain immutable.",
+          "boundedOperationSet": "Replace every load-bearing language assert in the production checker with explicit fail-closed exceptions, remove the import-time language assert from the test harness, and add subprocess controls proving normal, -O, and -OO executions reject known-wrong artifacts while exact artifacts pass.",
+          "startedAt": "2026-08-09T02:43:55.7844636-04:00",
+          "whyChain": [
+            "The original false-green capture printed PASS under python -O because Python removed every language assert.",
+            "Language asserts are optional debugging checks rather than runtime invariants.",
+            "The provenance checker used them for all SHA, format, dimension, and uniqueness enforcement.",
+            "The regression suite exercised normal execution only and therefore did not subscribe to the optimized-interpreter sibling path.",
+            "The evidence gate lacked an explicit optimized-mode negative control and fail-closed predicate primitive."
+          ],
+          "invariant": "Exact artifacts pass and every substituted, malformed, swapped, wrong-format, or wrong-dimension artifact exits nonzero under normal, -O, and -OO Python execution. A PASS marker is unreachable unless every provenance predicate executes and succeeds.",
+          "mostLeveragedLayer": "Use explicit runtime exceptions at the production evidence seam and test every standard interpreter optimization mode.",
+          "readback": "Require zero production language asserts, positive exact-artifact PASS in normal/-O/-OO modes, and negative nonzero exits in all three modes for at least the original false green, high-entropy synthetic, and swapped valid capture.",
+          "completedAt": "2026-08-09T02:46:59.0328194-04:00",
+          "sourceHashes": {
+            "captureProvenanceCheck": "FC7011279D9B3911043B9B83C283E8D03DCD2AF04BE177A18EBAFD34845447A5",
+            "captureProvenanceTests": "E14065900D0568505FDAF4D8FD894702A9DEB06978A1E0176D727816C31577FF",
+            "validation": "FAB52B6E8B1790EABA2EC6772673D81F0CECA7CA0F458ADDAA0CC8D7769E86BE"
+          },
+          "result": "PASS locally: the production checker has zero language asserts and uses explicit exceptions for SHA-256, format, dimensions, and uniqueness. Exact artifacts pass in normal, -O, and -OO modes. Each of the original false green, uniform blank, deterministic high-entropy synthetic, and swapped valid substitutions exits nonzero without a PASS marker in all three modes. The 5-test suite passes when its own runner uses normal, -O, or -OO mode.",
+          "cleanupOrRollback": "Revert only this optimized-mode remediation commit; publication remains held until a separately admitted independent review passes."
+        },
+        {
+          "laneId": "sales-landing-capture-optimized-mode-independent-review",
+          "operationId": "cbo-aleph164-sales-landing-capture-optimized-mode-independent-review-2026-08-09-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "The immutable optimized-mode remediation commit only, including explicit production predicates, regression controls, corrected claims, and unchanged bound captures.",
+          "boundedOperationSet": "One fresh independent affected-scope review by a reviewer other than the implementer. Re-run normal/-O/-OO generator controls, enumerate sibling bypass paths, verify claims match enforcement, and return explicit publication readiness.",
+          "readback": "PASS at 6f7d2ce5d9e00468edb990712e7b4c805602db4e / f4e80efede9cc995d3baa3f170c4f4e6b046c37e with P0-P3 all zero. Exact artifacts pass normal/-O/-OO; all 12 bad-fixture/mode combinations fail without PASS; all 28 explicit predicates execute before PASS; generator mutations fail; CLI and import converge on verify_all; claims match enforcement; mock, capture, and live-homepage blobs remain unchanged.",
+          "completedAt": "2026-08-09T02:59:51.1320871-04:00",
+          "result": "PASS: independent affected-scope publication readiness. Deterministic evidence proves exact capture identity and dimensions; unchanged independent visual inspection supplies the content judgment. This is not certified UAT, owner selection, or homepage implementation acceptance.",
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict keeps publication held."
+        },
+        {
+          "laneId": "sales-landing-mock-board-github-publication",
+          "operationId": "cbo-aleph164-sales-landing-mock-board-pr-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 3,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "externalTuple": "One force-free push of local branch codex/aleph-164-paper-ui-design-019fe30f to the same new remote branch in fsmalkin/context-boundary-optimization-site, one draft pull request targeting main, and one ready-for-review transition. Do not reuse or replace PR 1 or afuturehead/aleph-164-api-illustrations.",
+          "authority": "Fred directed publication of the accepted paper candidate first and a separate full-loop mock-pick board for the broader sales landing page. The exact immutable candidate passed deterministic, blind R&D, and independent affected-scope checks.",
+          "readback": "Require remote branch head equal to the local immutable publication head, one new PR with the exact base/head/file set and body, ready state, mergeable status, and no live-homepage file change.",
+          "cleanupOrRollback": "Before merge, close only the new PR and delete only the new remote mock-board branch if publication readback fails. After merge, use the reviewed revert procedure declared for the merge operation."
+        },
+        {
+          "laneId": "sales-landing-mock-board-ledger",
+          "operationId": "cbo-aleph164-sales-landing-mock-board-ledger-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "externalTuple": "At most two agent-authored comments on fsmalkin/aleph issue 170: one exact PR-ready receipt and one exact live Pages/owner-pick receipt, each with actor line and stable event key.",
+          "readback": "Require returned comment URLs and independent issue-comment readback matching the material transition.",
+          "cleanupOrRollback": "Correct a mistaken receipt with one explicit superseding comment; never edit history to imply an unearned gate."
+        },
+        {
+          "laneId": "sales-landing-mock-board-merge-pages",
+          "operationId": "cbo-aleph164-sales-landing-mock-board-main-pages-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "externalTuple": "One merge invocation for the exact new ready PR into fsmalkin/context-boundary-optimization-site main with expected head SHA, followed only by the repository's automatic legacy GitHub Pages main:/ build.",
+          "preconditions": "Immediately re-read issue 170, PR, remote main/head, checks, scope, writer, GitHub auth, and Pages state. Require exact reviewed candidate lineage, mergeable ready PR, and no conflicting open PR.",
+          "readback": "Require merged PR receipt, resulting main commit, successful legacy Pages build at that exact commit, and HTTPS public URL.",
+          "cleanupOrRollback": "If live verification fails, create and promote a reviewed revert of only the mock-board PR. Preserve the existing paper homepage and do not replay the merge invocation."
+        },
+        {
+          "laneId": "sales-landing-mock-board-live-verification",
+          "operationId": "cbo-aleph164-sales-landing-mock-board-live-verification-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "externalTuple": "Read-only mobile-first and desktop verification of the exact GitHub Pages mock board, three direction routes, CSS/assets, primary links, console state, and unchanged live homepage after the new Pages build.",
+          "readback": "Require HTTP 200, expected content and assets, zero page-level horizontal overflow, working core navigation, no console warnings/errors, and live homepage bytes unchanged from main before this PR.",
+          "cleanupOrRollback": "A failure invokes the reviewed revert boundary; no automatic second merge or Pages trigger is allowed."
+        },
+        {
+          "laneId": "sales-landing-mock-board-linear-owner-pick",
+          "operationId": "cbo-aleph164-sales-landing-mock-board-linear-pick-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "externalTuple": "One current owner-action comment on existing Linear ALEPH-164 and one Fred assignment after the live mock board is verified. Do not create a duplicate Linear issue.",
+          "readback": "Require ALEPH-164 to remain In Progress, carry the live board and issue 170 links, ask for an exact 1/2/3 pick, recommend Direction 1, and assign Fred only while that unresolved design choice is current.",
+          "cleanupOrRollback": "If the live board is rolled back, add a correcting comment and remove the stale Fred assignment in the separately admitted recovery boundary."
         }
       ],
-      "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
-      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5228571352",
+      "rationale": "Stage 1 is complete live. Fred directed a separate broader sales-page redesign while preserving accessibility for product managers and nontechnical visitors. The current Evidence job label is a recorded information-architecture finding. The same exact task, writer, checkout, and WIP 1/1 continue through research and mock selection; implementation remains held for Fred's pick.",
+      "evidenceLink": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229813178",
       "state": "active",
       "sourceBoundary": {
         "allowed": [
@@ -866,6 +1238,18 @@
           ".claude/sprint-scope.json task-local admission metadata"
         ],
         "excluded": "Paper-body prose beyond the one separately admitted plain-English correction, PDFs, empirical data and analyses, Python library behavior and tests except presentation-regression coverage, unrelated demos, Filevine, and all unrelated repositories."
+      },
+      "salesLandingMockBoundary": {
+        "framedAt": "2026-08-09T04:48:28.581Z",
+        "verificationTier": "T2 at the later live milestone; current work is UNCERTIFIED R&D mock evidence",
+        "designLoopMode": "full-loop-mock-first",
+        "primaryUserJob": "A new visitor decides whether CBO addresses an agent-integration problem, understands why service-owned context matters, and chooses a useful next path.",
+        "decisionOwner": "Fred",
+        "preservation": "Keep the warm plain-paper surface, printed navy typography, hand-sketched raster illustrations, muted accent palette, current papers and implementation, existing routes, and explicit working-draft status.",
+        "extension": "Add a sales-oriented narrative, a beginner-level API and MCP mental model, the context-as-a-service-for-your-service value proposition, credibility cues, visitor-intent navigation, and an obvious first-use action.",
+        "informationArchitecture": "Primary choices express visitor intent. Proof and experiment evidence support claims within the page and remain reachable through secondary navigation.",
+        "trustRisks": "Overclaiming experimental maturity, implying that MCP alone supplies CBO policy, presenting research proof as a user job, burying working-draft status, or replacing the selected hand-sketched identity with a borrowed platform aesthetic.",
+        "implementationHold": "Do not edit the live homepage until Fred selects one exact rendered variant."
       },
       "selectedVisual": {
         "path": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
@@ -897,7 +1281,16 @@
         "primaryPositioning": "Broader open-source product and business entry point. PM-first remains an accessibility standard, not the page's exclusive purpose or information architecture.",
         "navigationFinding": "The current phrase Open the deep dive that matches your job is directionally useful, but Evidence is a credibility layer rather than a visitor job. Stage 2 must organize primary paths around real visitor roles or intents and keep proof available as supporting credibility.",
         "providerState": "The official Gemini CLI preflight remains terminal at AUTH_METHOD_REQUIRED before any model request. The unconsumed one-shot operation stays held; later section operations require official Google-account OAuth, USD 0, and fresh exact admission. API-key, Vertex, paid paths, and other drafting providers remain prohibited.",
-        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged."
+        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged.",
+        "stage1Outcome": {
+          "state": "completed-live",
+          "pullRequest": "https://github.com/fsmalkin/context-boundary-optimization-site/pull/1",
+          "mergeCommit": "995572c1c453fe030ae53e0ab6eb2990b66ce158",
+          "pagesBuild": "1140529560 built successfully",
+          "liveUrl": "https://fsmalkin.github.io/context-boundary-optimization-site/",
+          "verifiedAt": "2026-08-09T00:43:46.780-04:00"
+        },
+        "nextStage": "Stage 2 research and full-loop mock preparation for the broader sales-oriented open-source product landing page."
       },
       "uatRemediation": {
         "framedAt": "2026-08-08T21:04:00-04:00",
@@ -998,5 +1391,6 @@
     "The recovered hand-drawn family is the Aug. 2 warm-paper marker-and-ink ImageGen direction. Exact original prompts and per-request receipts are not invented.",
     "Filevine, other drafting providers, and the historical generic image-generation and Gemini-drafting holds remain 0/0. The exact Gemini whole-site editorial operation is separately admitted at 0/1 through the official CLI, Google-account OAuth free usage, and a USD 0 ceiling.",
     "Fred accepted the current candidate for immediate publication through existing PR 1 and legacy Pages. The subsequent sales-page redesign and incremental Gemini sections remain separate later stages."
+    ,"Stage 1 is live at merge commit 995572c1c453fe030ae53e0ab6eb2990b66ce158 with matching successful Pages build 1140529560 and completed live mobile verification."
   ]
 }
