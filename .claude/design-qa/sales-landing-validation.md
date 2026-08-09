@@ -19,6 +19,8 @@ operations remain held.
 | `mocks/open-source-product/direction-2.html` | `2176F9E8EA7701482FE95F09C0CEF95AC827CD939D80EA2D6F4600AA09A37D33` | source |
 | `mocks/open-source-product/direction-3.html` | `2BA92D52A0E78F2FC26301CBC7ABA2934E160CC1CCBAD5ECDACB5B6EB6BB996D` | source |
 | `mocks/open-source-product/mock.css` | `150BFC7B07F226556F9363CF0C0DF88E36A197157EC80A65AABD5B87A7487CD5` | source |
+| Capture provenance check | `01C98356EB49CD26AB1D6AECBE58EBDD967B597580C4FF4D1A7ED4510FE63EAD` | source |
+| Capture provenance tests | `228B3ACC59B6B5AAE9816F32744BA4F87B1EE8D0E546F78A2CC5B2E94A26B281` | source |
 | Problem-first mobile viewport | `F095F6BB204268926F60C66169E0A2B4D874EF23FED0853AFCFA074C2A8FAF6A` | 375 x 812 |
 | Problem-first desktop viewport | `D12280FE83A0A906B93C7522586D8BF7FB93903EB49602E813A7998E78EFC386` | 1265 x 712 |
 | Mechanism-first mobile viewport | `5BB153DF1697824D619077EB4A98519CDF8F450A0E20056DEAAC1D0A63D18D5F` | 375 x 812 |
@@ -42,13 +44,22 @@ readiness, while the side-by-side board used a separate valid first-screen
 capture. None of those checks proved that the full-page files contained page
 content.
 
-The remediation replaces the blank files with normal mobile and desktop
-viewport captures and removes the redundant fold aliases. The focused
-`check_sales_landing_captures.py` control now requires readable dark pixels,
-nontrivial image entropy, at least 1,000 colors, expected dimensions, and a
-unique capture per direction. The discarded canvases had a zero dark-pixel
-ratio, entropy below 1.9, and no more than 106 colors. Every corrected capture
-passes with a dark-pixel ratio above 0.06 and entropy above 5.0.
+The first remediation replaced the blank files with normal mobile and desktop
+viewport captures and removed the redundant fold aliases. An independent
+generator control then proved that dark-pixel, entropy, color-count, and
+dimension thresholds could still accept an unrelated high-entropy synthetic
+image. Those measures establish bitmap complexity alone; rendered-page content
+requires a separate visual judgment.
+
+The final `check_sales_landing_captures.py` control binds every declared
+filename to the exact SHA-256 and dimensions of the capture that received
+independent visual inspection. Pixel measures remain diagnostic output only.
+The focused regression suite passes the exact artifacts and fails the original
+false-green capture, a uniform blank, deterministic high-entropy synthetic
+content, and a swapped valid capture. Any byte change invalidates the binding
+and requires a new visual inspection plus an explicit manifest update. The
+deterministic gate therefore proves capture identity and provenance; the
+independent side-by-side inspection is the content judgment.
 
 The same remediation changes Direction 3 to "Give each agent the service
 context for its task" and replaces the board's flow-content `span` wrappers
@@ -77,13 +88,16 @@ without changing a live route.
 ## Deterministic gates
 
 - `npx impeccable detect mocks/open-source-product`: exit 0.
-- `check_sales_landing_captures.py`: exit 0 across the three mobile captures,
-  three desktop captures, and the comparison board.
+- `check_sales_landing_captures.py`: exit 0 for exact SHA-256 and dimensions
+  across the three mobile captures, three desktop captures, and comparison.
+- `test_check_sales_landing_captures.py`: 5/5 pass, covering the exact positive
+  set plus original false-green, uniform blank, high-entropy synthetic, and
+  swapped-valid negative controls.
 - Strong Drafting Style hard checks across mock source and design evidence:
   exit 0, with two review-only exhaustive-list candidates retained.
 - `git diff --check`: exit 0.
-- Sprint preflight with admission and exclusive writer binding: exit 0 at scope
-  SHA-256 `6EF253BB76E1789959527AF1644B82321DA2DA68608A800667E83A680EA84C0F`.
+- Sprint preflight with admission and exclusive writer binding: exit 0 for the
+  exact task, writer, and checkout.
 - Source-server HTTP checks: the board, three variants, CSS, homepage, library,
   billing example, papers index, demos, license, and reused assets returned 200.
   The source-only Python server lacks Jekyll output for the two rendered paper
