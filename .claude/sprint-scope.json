@@ -322,7 +322,7 @@
           "evidenceLink": "https://fsmalkin.github.io/context-boundary-optimization-site/"
         }
       ],
-      "risk": "T2 user-facing redesign. The source boundary is the static presentation layer and the six CBO figure assets; papers, PDFs, experimental data, library behavior, and demos remain semantically unchanged. External mutations are limited to replacing the existing PR 1 branch after review, one PR metadata update, one merge, the existing Pages build, and bounded readback. Rollback is a reviewed revert of only the redesign merge.",
+      "risk": "T2 user-facing redesign. The source boundary is the static presentation layer and six CBO figure assets, plus exact UAT repairs for rendered paper metadata and links, trace-browser mobile containment, return navigation and one-to-one trace identity, and one corrected-inference sentence. Paper-body substance, PDFs, empirical data and analyses, and library behavior remain unchanged. External mutations are limited to replacing the existing PR 1 branch after review, one PR metadata update, one merge, the existing Pages build, and bounded readback. Rollback is a reviewed revert of only the redesign merge.",
       "effort": "Generate the selected mock's required paper texture, workflow, navigation art, and five replacement CBO figures; implement the responsive paper layout in the existing Jekyll site; run deterministic, accessibility, link, visual, and interaction checks; pass Product Design design QA and independent review; update existing PR 1; run production-equivalent blind UAT; merge once; verify Pages and the mobile user task.",
       "capacity": {
         "wipLimit": 1,
@@ -415,16 +415,186 @@
         {
           "laneId": "paper-ui-production-preview",
           "operationId": "cbo-aleph164-paper-ui-production-preview-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
-          "invocationCeiling": 2
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "boundaryInstance": "tailscale-serve-8447-paper-ui-uat-remediation-v2",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0 plus admitted uncommitted UAT remediation",
+          "indexSha256": "DC982A7B62E7E23DD54A45D11B678F3718218865F9792A1C8522CD860C550659",
+          "verifiedAt": "2026-08-08T21:12:36.5606142-04:00",
+          "cleanupOrRollback": "Remove only the Tailscale Serve HTTPS 8447 handler. Preserve every other Tailscale listener and the local production-equivalent build."
+        },
+        {
+          "laneId": "paper-ui-production-preview-trace-fix",
+          "operationId": "cbo-aleph164-paper-ui-production-preview-trace-identity-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "boundaryInstance": "tailscale-serve-8447-paper-ui-trace-identity-v3",
+          "indexSha256": "DC982A7B62E7E23DD54A45D11B678F3718218865F9792A1C8522CD860C550659",
+          "traceBrowserSha256": "ECEF0C6CD58BA579A4460281F0CD88031F0C074D05F0959C1ABAFFC15F103A7C",
+          "traceIdentitySha256": "21866E8F5C55E4E3DE2F0E94C034C0FE876484E5F8CDCDD2D4701FFE8314BCB4",
+          "verifiedAt": "2026-08-08T21:19:22.6712542-04:00",
+          "result": "Official GitHub Pages-equivalent build passed. Exhaustive mapping reached all 648 source traces exactly once with 648 unique full-task identities; the in-app browser opened both members of the identical 65-message collision pair as distinct conversations at 390 pixels.",
+          "cleanupOrRollback": "Remove only the Tailscale Serve HTTPS 8447 handler and preserve every other listener. Restore the prior verified local preview root if the production-equivalent build fails."
         },
         {
           "laneId": "paper-ui-blind-uat",
           "operationId": "cbo-aleph164-paper-ui-blind-uat-2026-08-08-v1",
-          "state": "planned",
+          "state": "completed",
+          "invocationCount": 2,
+          "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0",
+          "exactArtifact": "index-sha256:1597620DEFB10927BB3049BF00B05CBEB1B33C8649477496410612FB9DC0504A",
+          "attempt1": "provider-free preparation failure before prompt construction or Codex launch: jsonschema was absent from the default Python path; run directory contains only scratch and heartbeat evidence, and the blind-run lease was released",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard any run whose blindness certificate fails; resolve only gate findings against the same preview boundary."
+        },
+        {
+          "laneId": "paper-ui-blind-uat-runtime-recovery",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-powershell51-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "exactSourceCommit": "fc924dd496e47024f6b84bd5ffb51cac3d366eb0",
+          "exactArtifact": "index-sha256:1597620DEFB10927BB3049BF00B05CBEB1B33C8649477496410612FB9DC0504A",
+          "runtime": "Windows PowerShell 5.1.26100.8875 with ExecutionPolicy Bypass for the trusted local certified launcher",
+          "runtimeControl": "two distinct one-second heartbeat renewals plus live owner, acquisition, and verdict-stage readback passed before launch",
+          "result": "The actor ran with nine heartbeat renewals, but the blindness certificate failed. Its functional findings are discarded for gate authority. Independently reproduced source and browser checks established three remediation targets: raw Markdown paper routes, trace-browser mobile overflow and missing site navigation, and a user-facing corrected-inference overstatement.",
+          "certificate": "D:\\e2e-usability\\blind-runs\\20260808-204348034-e364757f-cbo-aleph164-paper-ui-mobile-019fe30f-ps51\\blindness-certificate.txt",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard a failed blindness certificate and release only the blind-run lease. Preserve the private preview for diagnosis."
+        },
+        {
+          "laneId": "paper-ui-uat-remediation-review",
+          "operationId": "cbo-aleph164-paper-ui-uat-remediation-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL: exhaustive read-only inspection found 18 pairs of rows whose truncated task ID and trial collide; the current find() resolver opens the first trace for both rows, leaving 18 conversations unreachable.",
+          "cleanupOrRollback": "Read-only affected-scope review created no product or provider mutation. The non-pass verdict blocks the replacement blind run."
+        },
+        {
+          "laneId": "paper-ui-uat-remediation-review-recovery",
+          "operationId": "cbo-aleph164-paper-ui-uat-remediation-review-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "PASS: exhaustive mapping reached all 648 source traces exactly once across 18 cells, preserved 648 unique stable identities, separated all 18 colliding pairs, and failed the metadata-order and duplicate-identity negative controls.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator controls and eight transcript/provenance controls passed. The corrected auditor also classified the prior exact transcript as 29 correlated Playwright calls, 58 target-origin output records, and zero host-access evidence hits.",
+          "cleanupOrRollback": "Remove only the task-local auditor copy if independent review finds that browser-output provenance or forbidden host-access detection is not discriminating. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: correlated events exempted invocation arguments, while same-call-ID executor output was exempt without exact result-content correlation or single-use enforcement. Three adversarial provenance-mismatch cases produced false greens.",
+          "cleanupOrRollback": "Read-only review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-provenance-repair-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-provenance-repair-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and fourteen transcript provenance controls pass. Exact static arguments, matched MCP result content, one executor output per call, and exact bounded-truncation projections are required. Injected arguments, mismatched output, duplicate output, and spoofed truncation fail. The prior exact transcript passes with 29 calls and 58 correlated records.",
+          "cleanupOrRollback": "Remove only the task-local provenance repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-provenance-repair-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-provenance-repair-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: the executor preamble and whole-result input_text blocks accepted extra properties, then the successful correlation removed the entire output array from the deny scan. Host-path metadata beside valid text therefore produced a false green.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-closed-shape-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-closed-shape-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and twenty-five transcript provenance controls pass. Result envelopes, result content, executor preambles and forwarded blocks use closed shapes; declared HTTPS target origin and transcript identity are bound; unknown agent record forms, orphan output, metadata injection, mismatched or duplicate output, cross-transcript correlation, absent or off-target page observations, and spoofed truncation fail. The prior exact transcript still passes with 29 calls, 58 correlated records, and the declared target observed.",
+          "cleanupOrRollback": "Remove only the task-local closed-shape repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-closed-shape-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-closed-shape-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "FAIL P1: the event payload and invocation envelopes permitted extra properties, alternate outer transcript record types failed open, and target observation trusted a Page URL literal returned by browser_evaluate without a real navigation. Six independent generator mutations produced false greens.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-envelope-navigation-controls",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-envelope-navigation-controls-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "Eight AST validator and thirty-four transcript controls pass. Transcript records, Playwright event payloads, invocations, executor calls, executor outputs, results, and forwarded content use closed shapes; unknown outer record types fail; duplicate MCP event IDs fail; target observation requires the declared origin in a real browser_navigate result. Alternate record types and a fabricated browser_evaluate Page URL fail. The prior exact transcript still passes with 29 calls, 58 correlated records, and the declared target observed.",
+          "cleanupOrRollback": "Remove only the task-local envelope and navigation repair if independent review finds another false-green path. Do not modify the shared D:\\e2e-usability harness."
+        },
+        {
+          "laneId": "paper-ui-certified-auditor-envelope-navigation-review",
+          "operationId": "cbo-aleph164-paper-ui-certified-auditor-envelope-navigation-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "result": "PASS: independent current-files-only review ran an additional 35-case generator suite with four valid positives and 31 negative mutations. All prior bypasses and correlated sibling cases discriminated correctly; PowerShell 5.1 parsing, launcher fail-closed wiring, exact scope identity, and provider fences passed with no P0-P2 finding.",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. A non-pass verdict keeps the replacement blind run held."
+        },
+        {
+          "laneId": "paper-ui-blind-uat-remediation",
+          "operationId": "cbo-aleph164-paper-ui-blind-uat-remediation-2026-08-08-v1",
+          "state": "held",
           "invocationCount": 0,
-          "invocationCeiling": 2
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "blind-run",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "cleanupOrRollback": "Read-only UAT creates no product mutation. Discard any run whose corrected task-local blindness certificate fails and release only the blind-run lease."
         },
         {
           "laneId": "paper-ui-merge-pages",
@@ -461,6 +631,11 @@
       "sourceBoundary": {
         "allowed": [
           "index.md",
+          "papers/index.md only for rendered-paper links",
+          "papers/technical-paper.md and papers/economic-paper.md only for rendering front matter; substantive paper prose remains excluded",
+          "demos/trace-browser.html only for mobile containment and a field-guide return link",
+          "demos/trace-identity.js only for stable one-to-one trace-row binding",
+          "demos/plain-english-results.html only for the verified corrected-inference sentence",
           "_config.yml only where required for the selected presentation and existing publication exclusion",
           "_layouts/default.html",
           "assets/css/style.scss",
@@ -469,7 +644,7 @@
           "focused regression and design-QA artifacts",
           ".claude/sprint-scope.json task-local admission metadata"
         ],
-        "excluded": "Paper bodies and PDFs, empirical claims, experimental data, Python library behavior and tests except presentation-regression coverage, unrelated demos, Filevine, and all unrelated repositories."
+        "excluded": "Paper-body prose beyond the one separately admitted plain-English correction, PDFs, empirical data and analyses, Python library behavior and tests except presentation-regression coverage, unrelated demos, Filevine, and all unrelated repositories."
       },
       "selectedVisual": {
         "path": "C:\\Users\\Fred\\.codex\\generated_images\\019fe30f-d649-7f31-bf96-f6f6fda5e74b\\exec-3b10c2b7-8c00-4e91-9473-08bb69096708.png",
@@ -484,6 +659,53 @@
           "clipped index-card navigation for Papers, Build, and Explore",
           "working-drafts status carried as a quiet stamp"
         ]
+      },
+      "changedDeliveryDirection": {
+        "stableKey": "cbo-iterative-publications-gemini-whole-site-editorial-2026-08-08-v1",
+        "receivedAt": "2026-08-08T21:47:41.5215102-04:00",
+        "scope": "After the current certified-UAT recovery checkpoint, federate the smallest compatible Gemini-led whole-site editorial and publication slice covering information architecture, framing, navigation, illustrations, and prose within this same exact ALEPH-164 task and writer lineage.",
+        "sequencing": "Finish the current auditor review and replacement blind UAT first. Treat the selected paper UI as the first small reviewed publication candidate, then admit the editorial slice without replacing the task, writer, checkout, branch, or existing PR.",
+        "providerState": "Gemini remains held at 0/0 until an exact post-UAT federated admission binds the official provider, subscription or account authentication, zero-dollar cost ceiling unless separately approved, bounded invocation count, serialized lane, cleanup, and reliable readback. A real unavailable or authentication wall is recorded instead of improvising another provider.",
+        "preservedFences": "Filevine, other drafting providers, release, one-writer, and existing PR fences remain unchanged."
+      },
+      "uatRemediation": {
+        "framedAt": "2026-08-08T21:04:00-04:00",
+        "ownerUatHandoff": {
+          "requestedAt": "2026-08-08T22:14:00.2354539-04:00",
+          "actor": "Fred",
+          "environment": "production-equivalent private Tailscale preview",
+          "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
+          "status": "awaiting explicit functioning-outcome verdict",
+          "automatedReplacementInvocation": "held at 0/1"
+        },
+        "whyChain": [
+          "The first full mobile task failed because two paper links returned raw Markdown and the trace browser required horizontal scrolling and browser Back navigation.",
+          "The paper source files lacked Jekyll front matter, so GitHub Pages copied them as text/markdown instead of rendering them through the selected paper layout.",
+          "The standalone trace browser had desktop-width flex and content assumptions plus no route back to the field guide.",
+          "The earlier presentation boundary treated existing paper and demo routes as semantically frozen even though the redesign changed their user-facing shell and mobile entry path.",
+          "No production-equivalent mobile functional gate had previously traversed the full paper-reading and trace-exploration task."
+        ],
+        "invariant": "Every primary mobile route opened from the field guide renders inside the selected UI or deliberately preserves a usable standalone tool, fits a 390-pixel viewport without page-level horizontal scrolling, and provides a visible path back to the field guide. User-facing result prose must match the corrected paper inference.",
+        "allowedRepair": [
+          "add rendering-only Jekyll front matter to papers/technical-paper.md and papers/economic-paper.md",
+          "change only paper route links in index.md and papers/index.md from raw .md to rendered .html",
+          "add responsive containment and one field-guide return link to demos/trace-browser.html",
+          "replace only the disproven inferential sentence in demos/plain-english-results.html with the corrected result"
+        ],
+        "independentReviewFinding": {
+          "severity": "P1",
+          "finding": "The index truncates telecom task IDs to 60 characters while open_ uses find() on that truncated prefix and trial. Eighteen collision groups therefore resolve both rows to the first conversation.",
+          "whyChain": [
+            "Eighteen trace rows opened another row's conversation because the resolver selected the first prefix match.",
+            "The index stores a 60-character display task ID, while the source trace stores the full task ID.",
+            "The display abbreviation was reused as an identity key.",
+            "No exhaustive row-to-source bijection check exercised all 648 click targets.",
+            "The trace browser treated visible labels as persistent identity rather than binding a stable full-task identifier at the data seam."
+          ],
+          "invariant": "Each of the 648 index rows binds to exactly one source trace by cell-local position and a stable full-task identifier; every source trace is reachable once, and any row/source metadata mismatch fails loudly before display.",
+          "allowedRepair": "Add one small trace-identity helper, switch open_ to exact bound resolution, and add an exhaustive 648-row positive check plus collision and mismatch negative controls."
+        },
+        "excluded": "No new routes, redesign variants, paper-body rewriting, data or experiment changes, library behavior changes, provider calls, PR publication, merge, or Pages publication before the repaired artifact passes the declared gates."
       },
       "verification": {
         "tier": "T2",

@@ -50,13 +50,13 @@ description: Services computing, per task and at runtime, the information archit
       <span class="paper-number" aria-hidden="true">A</span>
       <h3>Technical framework</h3>
       <p>What is a context contract, and does one improve agent reliability?</p>
-      <p class="paper-links"><a href="{{ '/papers/technical-paper.md' | relative_url }}">Read online →</a><a href="{{ '/papers/context-boundary-optimization.pdf' | relative_url }}">Open PDF</a></p>
+      <p class="paper-links"><a href="{{ '/papers/technical-paper.html' | relative_url }}">Read online →</a><a href="{{ '/papers/context-boundary-optimization.pdf' | relative_url }}">Open PDF</a></p>
     </article>
     <article class="paper-card">
       <span class="paper-number" aria-hidden="true">B</span>
       <h3>Economic argument</h3>
       <p>Who should compute the boundary, and why is the provider the low-cost producer?</p>
-      <p class="paper-links"><a href="{{ '/papers/economic-paper.md' | relative_url }}">Read online →</a><a href="{{ '/papers/computing-the-context-boundary.pdf' | relative_url }}">Open PDF</a></p>
+      <p class="paper-links"><a href="{{ '/papers/economic-paper.html' | relative_url }}">Read online →</a><a href="{{ '/papers/computing-the-context-boundary.pdf' | relative_url }}">Open PDF</a></p>
     </article>
   </div>
 </section>

@@ -2,26 +2,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Conversation browser - 648 traces</title>
 <style>
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;background:#f4f4f2;color:#1f2430;font:15px/1.55 -apple-system,'Segoe UI',Roboto,sans-serif}
-.wrap{max-width:860px;margin:0 auto;padding:16px 12px 70px}
+.wrap{width:100%;max-width:860px;min-width:0;margin:0 auto;padding:16px 12px 70px}
 h1{font-size:20px;margin:0 0 4px} .sub{color:#6b7280;font-size:13px;margin:0 0 12px}
+.site-return{display:inline-block;margin:0 0 12px;color:#334155;font-size:13px;font-weight:700;text-underline-offset:3px}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
-select{border:1px solid #cbd5e1;border-radius:8px;padding:7px 9px;font-size:13.5px;background:#fff}
+select{max-width:100%;min-width:0;border:1px solid #cbd5e1;border-radius:8px;padding:7px 9px;font-size:13.5px;background:#fff}
 .row{background:#fff;border:1px solid #e5e5e3;border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .row:hover{border-color:#a5b4fc}
 .pill{font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px}
 .pass{background:#dcfce7;color:#166534} .fail{background:#fee2e2;color:#991b1b} .dim{background:#eef0f2;color:#475569}
-.task{font-size:12.5px;color:#374151;flex:1;min-width:10em}
+.task{min-width:0;flex:1;font-size:12.5px;color:#374151;overflow-wrap:anywhere}
 #viewer{display:none}
 .msg{border-radius:10px;padding:9px 12px;margin:7px 0;font-size:13.5px;white-space:pre-wrap;word-break:break-word}
 .assistant{background:#eef2ff;border:1px solid #c7d2fe}
 .user{background:#fff;border:1px solid #e5e5e3}
 .tool{background:#f0fdf4;border:1px solid #bbf7d0;font-size:12.5px}
 .role{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#6b7280;margin-bottom:3px}
-.toolcall{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;padding:6px 8px;margin:5px 0;overflow-x:auto}
+.toolcall{max-width:100%;font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:8px;padding:6px 8px;margin:5px 0;white-space:pre-wrap;overflow-wrap:anywhere}
 .back{position:sticky;top:0;background:#111827;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;margin:0 0 10px}
 .count{font-size:12.5px;color:#6b7280;margin:6px 0}
+@media (max-width:520px){
+  .filters{display:grid;grid-template-columns:1fr}
+  select{width:100%}
+  .row{align-items:flex-start}
+  .task{flex-basis:100%}
+}
 </style></head><body><div class="wrap">
+<a class="site-return" href="../#explore">&larr; Research field guide</a>
 <h1>Conversation browser</h1>
 <p class="sub">Every conversation from the 648-trace run, unabridged (agent messages, customer replies, tool calls). Conditions are revealed here - your reference labels are locked and the graders see only blinded packets, so this view can't contaminate anything. Tap a row to read.</p>
 <div id="list">
@@ -39,6 +49,7 @@ select{border:1px solid #cbd5e1;border-radius:8px;padding:7px 9px;font-size:13.5
 <div id="msgs"></div>
 </div>
 </div>
+<script src="trace-identity.js"></script>
 <script>
 let INDEX=[], CACHE={};
 const cond_short = c => c.replace('_only','').replace('integrated_context_contract','integrated contract').replace('retrieval_provenance','retrieval').replace('orchestration_state','workflow state').replace('mcp_style','MCP-style').replace('schema','schema').replace('approval','approval').replace(/_/g,' ');
@@ -49,6 +60,14 @@ async function boot(){
   for(const c of conds){const o=document.createElement('option');o.value=c;o.textContent=cond_short(c);fcond.appendChild(o);}
   for(const d of doms){const o=document.createElement('option');o.value=d;o.textContent=d;fdom.appendChild(o);}
   render();
+}
+async function loadCell(cell){
+  if(!CACHE[cell]){
+    const traces=await (await fetch('traces/'+cell+'.json')).json();
+    CBO_TRACE_IDENTITY.bindCell(INDEX,traces,cell);
+    CACHE[cell]=traces;
+  }
+  return CACHE[cell];
 }
 function render(){
   const c=fcond.value,d=fdom.value,w=frew.value;
@@ -64,8 +83,8 @@ function render(){
 }
 async function open_(i){
   const r=INDEX[i];
-  if(!CACHE[r.cell]) CACHE[r.cell]=await (await fetch('traces/'+r.cell+'.json')).json();
-  const sim=CACHE[r.cell].find(s=>s.task_id.slice(0,60)===r.task_id&&s.trial===r.trial);
+  await loadCell(r.cell);
+  const sim=CBO_TRACE_IDENTITY.resolve(INDEX,CACHE,i);
   vhead.innerHTML=`<div class="row" style="cursor:default">
     <span class="pill ${r.reward>=1?'pass':'fail'}">${r.reward>=1?'succeeded':'failed'}</span>
     <span class="pill dim">${cond_short(r.condition)}</span><span class="pill dim">${r.domain}</span>
