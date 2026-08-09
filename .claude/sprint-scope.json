@@ -380,9 +380,29 @@
         {
           "laneId": "paper-ui-independent-review",
           "operationId": "cbo-aleph164-paper-ui-independent-review-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "ambiguous",
+          "invocationCount": 2,
           "invocationCeiling": 2
+        },
+        {
+          "laneId": "paper-ui-independent-review-recovery",
+          "operationId": "cbo-aleph164-paper-ui-independent-review-recovery-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Read-only review creates no product or provider mutation. If no report returns, mark terminal-no-verdict and do not retry."
+        },
+        {
+          "laneId": "paper-ui-table-fix-review",
+          "operationId": "cbo-aleph164-paper-ui-table-fix-review-2026-08-08-v1",
+          "state": "completed",
+          "invocationCount": 1,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "cleanupOrRollback": "Read-only affected-scope review creates no product or provider mutation. If no verdict returns, do not retry."
         },
         {
           "laneId": "paper-ui-pr1-update",

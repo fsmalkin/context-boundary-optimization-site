@@ -777,6 +777,17 @@ blockquote {
     flex-direction: column;
   }
 
+  table {
+    table-layout: fixed;
+    font-size: 0.82rem;
+  }
+
+  th,
+  td {
+    padding: 0.48rem;
+    overflow-wrap: anywhere;
+  }
+
   .site-footer {
     align-items: flex-start;
     flex-direction: column;

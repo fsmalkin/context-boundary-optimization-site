@@ -47,6 +47,10 @@ No additional crop was needed. At `800 x 894`, the same-input comparison keeps t
 3. Third comparison: blocked by a P2 asset-fidelity and accessibility mismatch. The CBO mark was a styled text badge, the ruled paper used CSS-generated lines, and mobile navigation targets were below 44 pixels. Fix: extract the exact selected CBO mark as a transparent raster, use the generated paper texture asset directly, and raise the navigation targets to 44 pixels.
 4. Final comparison: passed. The post-fix evidence is `.claude/design-qa/design-qa-comparison.png`; all P0-P2 findings are resolved.
 
+## Post-review responsive correction
+
+Independent review found that the paper shell could conceal overflow from long Build-page tables at mobile width. The narrow-screen table layout now keeps table semantics while wrapping long cell content inside the available columns. At `390 x 844`, both the worked billing example and library tests page have zero overflowing cells and zero page-level horizontal overflow. Evidence and exact screenshots are recorded in `.claude/design-qa/table-fix-mobile.md`.
+
 ## Primary Interactions Tested
 
 - `Papers` scrolls to `#papers` and exposes the `Read the research` heading.
