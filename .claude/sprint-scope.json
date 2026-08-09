@@ -971,8 +971,8 @@
         {
           "laneId": "sales-landing-mock-independent-review",
           "operationId": "cbo-aleph164-sales-landing-mock-independent-review-2026-08-09-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "ambiguous",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
@@ -980,7 +980,31 @@
           "sourceBoundary": "One immutable commit containing only the three sales-landing mock directions, their board, existing-asset references, design-loop evidence, and this admission record. The live homepage remains unchanged.",
           "boundedOperationSet": "One independent read-only adversarial review by a reviewer other than the implementer. Inspect the immutable mock candidate, deterministic evidence, final rendered comparisons, user-direction fit, claim discipline, navigation hierarchy, carrier precedence, and the full-loop-mock-first pick boundary. No source or external mutation.",
           "readback": "Require an explicit PASS or FAIL with P0-P3 findings, evidence anchors, and confirmation that the exact candidate is suitable for mock-board publication without implementing a homepage selection.",
+          "startedAt": "2026-08-09T01:42:00-04:00",
+          "resolvedAt": "2026-08-09T01:52:48.8539967-04:00",
+          "result": "AMBIGUOUS: the reviewer remained running without a report after the bounded review window, a direct finish instruction, and two interrupts. No source or external mutation occurred. Any late output is evidence-only and cannot satisfy this gate.",
+          "failureLedger": [
+            "The review gate lacks a verdict because the delegated lane returned no report.",
+            "The lane returned no report because it stayed inside an unbounded read-only turn after the requested stop.",
+            "The requested stop did not close the turn because the runtime remained running after two interrupt receipts.",
+            "A running lane cannot supply gate evidence because completion without bound output is not a report.",
+            "The safe recovery is one separately admitted reviewer against the same immutable commit while quarantining late output from this invocation."
+          ],
           "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict returns only the supported mock findings to the same writer for repair and invalidates this one-review operation."
+        },
+        {
+          "laneId": "sales-landing-mock-independent-review-recovery",
+          "operationId": "cbo-aleph164-sales-landing-mock-independent-review-recovery-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "sourceLane": "fable-default with the recorded codex-exception only while the same Claude weekly-limit outage remains current",
+          "routingReceipt": "ROUTING_RECEIPT mode=codex-exception task=019fe30f-d649-7f31-bf96-f6f6fda5e74b source-lane=fable-default fallback-target=gpt-5.6-sol:max reason=fable-default:claude-capability-outage evidence=claude-cli-exit-1-api-error-429-weekly-limit-input-output-zero",
+          "sourceBoundary": "Immutable mock candidate a350aa9c590ea02dfcf89240df772be8d8bdd041 with tree 5e4a47454506ef2609265b21471de7cd52185837. The first review invocation is quarantined and cannot satisfy this operation.",
+          "boundedOperationSet": "One replacement independent read-only adversarial review by a fresh reviewer other than the implementer. Use only the exact committed mock candidate and recorded evidence. Return the requested verdict without expanding into implementation, provider work, or external mutation.",
+          "readback": "Require an explicit PASS or FAIL with P0-P3 findings, evidence anchors, generator-test assessment, and a direct mock-board publication-readiness decision.",
+          "cleanupOrRollback": "Read-only review changes no source or external state. A failing verdict keeps publication held and returns only supported findings to the same writer."
         }
       ],
       "rationale": "Stage 1 is complete live. Fred directed a separate broader sales-page redesign while preserving accessibility for product managers and nontechnical visitors. The current Evidence job label is a recorded information-architecture finding. The same exact task, writer, checkout, and WIP 1/1 continue through research and mock selection; implementation remains held for Fred's pick.",
