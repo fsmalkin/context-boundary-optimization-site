@@ -410,6 +410,14 @@
           "state": "planned",
           "invocationCount": 0,
           "invocationCeiling": 2,
+          "costCeilingUsd": 0,
+          "authorizedAt": "2026-08-09T00:32:44.231-04:00",
+          "authority": "Fred accepted the current private paper candidate and explicitly directed immediate publication through the existing reviewed GitHub and Pages path. The later sales-page redesign and incremental Gemini work must not delay this release.",
+          "target": "existing PR https://github.com/fsmalkin/context-boundary-optimization-site/pull/1 and existing remote branch origin/afuturehead/aleph-164-api-illustrations only",
+          "expectedRemoteHead": "2dbb70ca5ea32573d567219a1fa32b9dcf578930",
+          "sourceCandidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882 plus task-local release and ordering receipts only",
+          "boundedOperationSet": "One exact force-with-lease replacement of the existing PR branch, followed by one serialized GitHub metadata/readiness request. Do not create a branch or pull request.",
+          "readback": "Require the remote branch to resolve to the pushed exact head, PR 1 to be open and ready with the current title/body, and the mergeable state to be clean before the merge boundary.",
           "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR."
         },
         {
@@ -647,8 +655,8 @@
           "provider": "Official @google/gemini-cli 0.54.4 only",
           "authentication": "Google account OAuth using Gemini Code Assist individual free usage only. GEMINI_API_KEY and GOOGLE_API_KEY are absent and remain prohibited; paid API, Vertex, Workspace billing, or subscription changes are excluded.",
           "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
-          "sourceTuple": "Current CBO navigation, homepage, papers index, library index, demos index, selected visual direction, and Fred's PM-first audience/job. The editorial packet contains public static-site prose only.",
-          "boundedOperationSet": "One read-only whole-site editorial review returning information-architecture, framing, navigation, illustration-placement, and prose recommendations. No source write, tool action, search grounding, account mutation, or publication.",
+          "sourceTuple": "Historical preflight for the current CBO navigation, homepage, papers index, library index, demos index, and selected visual direction. The earlier PM-first primary positioning and one-shot whole-site packet are superseded before any model request.",
+          "boundedOperationSet": "This unconsumed one-shot whole-site editorial operation stays held at 0/1 and must not be invoked. Stage 3 admits one exact public prose section at a time under a separately bounded derived operation. Each section receives review and Fred acceptance before the next section is admitted. No source write, tool action, search grounding, account mutation, or publication occurs in the Gemini provider lane.",
           "readback": "Capture CLI version, authentication outcome, exact bounded prompt, exit status, output, and provider-request acceptance state. Treat an authentication wall or ambiguous request state as terminal for automatic retry.",
           "cleanupOrRollback": "The review is read-only. Delete only task-local transient packet/output copies after durable synthesis; never alter account or billing settings.",
           "lastPreflight": {
@@ -663,8 +671,8 @@
             "costUsd": 0,
             "sessionId": "ef440a03-4c05-4fcf-8951-99ed080f77a2"
           },
-          "ownerAction": "Complete one official Google-account OAuth sign-in for Gemini CLI. The exact editorial operation then resumes with the same 0/1 model invocation ceiling and USD 0 boundary; API-key, Vertex, and paid paths remain held.",
-          "adjacentWork": "Implement and validate Fred's explicit PM-first homepage direction locally while the Gemini-only review boundary waits."
+          "ownerAction": "Stage 3 requires one official Google-account OAuth sign-in for Gemini CLI before its first separately admitted section. The wall does not block stage 1 publication or stage 2 research and mock design. API-key, Vertex, and paid paths remain held.",
+          "adjacentWork": "Publish the accepted candidate now, then run the broader sales-page research and full-loop mock-pick slice while the Gemini-only provider boundary waits."
         },
         {
           "laneId": "paper-ui-editorial-preview-refresh",
@@ -737,14 +745,23 @@
           "operationId": "cbo-aleph164-paper-ui-main-pages-2026-08-08-v1",
           "state": "planned",
           "invocationCount": 0,
-          "invocationCeiling": 1
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "target": "merge existing PR 1 into fsmalkin/context-boundary-optimization-site main and trigger the existing legacy GitHub Pages build from main:/",
+          "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
+          "preInvocationReadback": "Re-read fsmalkin/aleph#170, PR 1, remote main, exact PR head, mergeability, and Pages source immediately before the single merge request.",
+          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route."
         },
         {
           "laneId": "paper-ui-live-verification",
           "operationId": "cbo-aleph164-paper-ui-live-verification-2026-08-08-v1",
           "state": "planned",
           "invocationCount": 0,
-          "invocationCeiling": 1
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "target": "https://fsmalkin.github.io/context-boundary-optimization-site/ at the resulting merge commit",
+          "boundedOperationSet": "Wait for the matching successful Pages build, then verify the mobile-first homepage task, key routes, all six figures, navigation, and the withdrawn comparison route's 404 state.",
+          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation."
         },
         {
           "laneId": "paper-ui-implementation-ledger",
@@ -874,10 +891,13 @@
       "changedDeliveryDirection": {
         "stableKey": "cbo-iterative-publications-gemini-whole-site-editorial-2026-08-08-v1",
         "receivedAt": "2026-08-08T21:47:41.5215102-04:00",
-        "scope": "After the current certified-UAT recovery checkpoint, federate the smallest compatible Gemini-led whole-site editorial and publication slice covering information architecture, framing, navigation, illustrations, and prose within this same exact ALEPH-164 task and writer lineage.",
-        "sequencing": "Finish the current auditor review and replacement blind UAT first. Treat the selected paper UI as the first small reviewed publication candidate, then admit the editorial slice without replacing the task, writer, checkout, branch, or existing PR.",
-        "providerState": "The historical generic Gemini hold remains 0/0. Fred's current UAT feedback activates one separately admitted read-only whole-site editorial operation through the official Gemini CLI at a USD 0 ceiling. Google-account OAuth must already be available or surface a real authentication wall; API-key and paid-provider paths remain prohibited.",
-        "preservedFences": "Filevine, other drafting providers, release, one-writer, and existing PR fences remain unchanged."
+        "supersededAt": "2026-08-09T00:32:44.231-04:00",
+        "scope": "The current accepted paper candidate publishes first. A separate broader sales-oriented landing-page slice then presents CBO as a prospective open-source product or business while remaining accessible to product managers and nontechnical visitors. Gemini editorial work follows as incremental section-by-section proposals.",
+        "sequencing": "Stage 1 publishes the accepted candidate through existing PR 1 and legacy Pages. Stage 2 uses current official-source research and the full-loop mock-pick process for the broader sales-page redesign. Stage 3 admits one Gemini editorial section at a time; every section is reviewed and accepted before the next begins.",
+        "primaryPositioning": "Broader open-source product and business entry point. PM-first remains an accessibility standard, not the page's exclusive purpose or information architecture.",
+        "navigationFinding": "The current phrase Open the deep dive that matches your job is directionally useful, but Evidence is a credibility layer rather than a visitor job. Stage 2 must organize primary paths around real visitor roles or intents and keep proof available as supporting credibility.",
+        "providerState": "The official Gemini CLI preflight remains terminal at AUTH_METHOD_REQUIRED before any model request. The unconsumed one-shot operation stays held; later section operations require official Google-account OAuth, USD 0, and fresh exact admission. API-key, Vertex, paid paths, and other drafting providers remain prohibited.",
+        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged."
       },
       "uatRemediation": {
         "framedAt": "2026-08-08T21:04:00-04:00",
@@ -886,9 +906,13 @@
           "actor": "Fred",
           "environment": "production-equivalent private Tailscale preview",
           "target": "https://chasebox-1.tail3b1bce.ts.net:8447/context-boundary-optimization-site/",
-          "status": "Refreshed PM-first plain-paper candidate is independently reviewed and verified at the exact private URL; awaiting Fred's explicit functioning-outcome verdict",
+          "status": "Fred accepted the current plain-paper candidate in the private preview and explicitly directed immediate publication through the existing reviewed GitHub and Pages path.",
           "candidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882",
           "refreshedAt": "2026-08-08T23:21:47.9562112-04:00",
+          "acceptedAt": "2026-08-09T00:32:44.231-04:00",
+          "acceptanceActor": "Fred",
+          "userTask": "Understand the CBO concept and use the mobile homepage to reach the existing deeper material.",
+          "result": "PASS for immediate publication. The broader sales-page positioning, intent-based navigation, and incremental Gemini rewrite are later slices and do not delay this candidate.",
           "automatedReplacementInvocation": "held at 0/1",
           "geminiEditorialState": "Official Gemini CLI preflight reached a Google-account OAuth wall before any model request; review remains 0/1 and USD 0 until Fred completes one sign-in."
         },
@@ -973,6 +997,6 @@
     "Rejected draft PR 1 remains open and unmerged at 2dbb70ca5ea32573d567219a1fa32b9dcf578930; it receives no update in this design-selection admission.",
     "The recovered hand-drawn family is the Aug. 2 warm-paper marker-and-ink ImageGen direction. Exact original prompts and per-request receipts are not invented.",
     "Filevine, other drafting providers, and the historical generic image-generation and Gemini-drafting holds remain 0/0. The exact Gemini whole-site editorial operation is separately admitted at 0/1 through the official CLI, Google-account OAuth free usage, and a USD 0 ceiling.",
-    "No comparison board, mock route, branch push, pull request, merge, deployment, or publication occurs before Fred selects a direction."
+    "Fred accepted the current candidate for immediate publication through existing PR 1 and legacy Pages. The subsequent sales-page redesign and incremental Gemini sections remain separate later stages."
   ]
 }
