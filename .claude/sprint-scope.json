@@ -629,10 +629,10 @@
         {
           "laneId": "paper-ui-implementation-linear",
           "operationId": "cbo-aleph164-paper-ui-implementation-linear-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 1,
+          "state": "in-progress",
+          "invocationCount": 2,
           "invocationCeiling": 2,
-          "lastInvocation": {
+          "firstInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
             "target": "ALEPH-164",
             "startedAt": "2026-08-08T22:20:06.1415122-04:00",
@@ -640,6 +640,13 @@
             "purpose": "Project the immutable candidate and active Fred UAT checkpoint while preserving the issue's non-complete state.",
             "result": "PASS: Linear comment created and independently read back; ALEPH-164 remains non-complete while Fred's UAT verdict is pending.",
             "receipt": "linear-comment:7e5abdb5-f849-4613-acee-56203fcd0c72"
+          },
+          "currentInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-owner-uat-entrypoint-correction-2026-08-08-v1",
+            "target": "ALEPH-164",
+            "startedAt": "2026-08-08T22:28:08.6628992-04:00",
+            "purpose": "Reuse and retitle the existing exact CBO issue as Fred's phone-readable UAT action, and bind the private production-equivalent URL after the public-baseline environment mix-up.",
+            "boundedMutationSet": "One title update and one actionable UAT comment on ALEPH-164; preserve assignment, project, priority, status, relations, and every provider or release fence."
           }
         }
       ],
