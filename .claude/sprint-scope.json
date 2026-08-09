@@ -785,8 +785,8 @@
         {
           "laneId": "paper-ui-implementation-ledger",
           "operationId": "cbo-aleph164-paper-ui-implementation-ledger-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 2,
+          "state": "completed",
+          "invocationCount": 3,
           "invocationCeiling": 3,
           "lastInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-paper-ui-candidate-owner-uat-handoff-2026-08-08-v1",
@@ -805,6 +805,14 @@
             "purpose": "Record the exact reviewed PM-first plain-paper candidate, independent affected-scope PASS, verified private preview refresh, unchanged release state, and Fred's current UAT next action.",
             "result": "PASS: the GitHub comment was created and independently read back with the actor line, event key, exact candidate, private URL, review verdict, Gemini wall, unchanged PR and Pages state, and Fred's next UAT action.",
             "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229557440"
+          },
+          "thirdInvocation": {
+            "stableMaterialEventKey": "cbo-aleph164-paper-ui-live-publication-2026-08-09-v1",
+            "target": "fsmalkin/aleph#170",
+            "completedAt": "2026-08-09T00:45:33-04:00",
+            "purpose": "Record the accepted candidate's PR merge, matching Pages build, live verification, controlling three-stage sequence, stage 2 navigation finding, incremental Gemini constraint, and preserved holds.",
+            "result": "PASS: comment created and independently read back; its exact event key auto-synchronized into ALEPH-164 once.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229813178"
           }
         },
         {
@@ -867,15 +875,18 @@
         {
           "laneId": "paper-ui-live-publication-linear-reconciliation",
           "operationId": "cbo-aleph164-live-publication-linear-reconciliation-2026-08-09-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "stableMaterialEventKey": "cbo-aleph164-paper-ui-live-publication-2026-08-09-v1",
           "target": "existing ALEPH-164 only",
           "boundedOperationSet": "After the final GitHub ledger comment auto-synchronizes, update the existing issue title to the broader open-source product-site outcome and remove the stale Fred assignment while keeping the issue In Progress for stages 2 and 3. Do not create an issue or duplicate the synchronized comment.",
           "readback": "Verify the exact title, assignee=null, status remains In Progress, and the synchronized live receipt is present once.",
-          "cleanupOrRollback": "Restore only the prior title or assignee if readback differs from this exact projection."
+          "cleanupOrRollback": "Restore only the prior title or assignee if readback differs from this exact projection.",
+          "completedAt": "2026-08-09T00:46:07.989-04:00",
+          "result": "PASS: ALEPH-164 title is Refine the CBO site as an open-source product, status is In Progress, assignee is null, completedAt is null, and exactly one synchronized live receipt remains.",
+          "receipt": "linear-comment:d1fd94c7-9918-42a7-93be-cfcc5704b1dd"
         }
       ],
       "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
