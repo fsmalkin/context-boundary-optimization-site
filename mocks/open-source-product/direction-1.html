@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- impeccable-disable cramped-padding -- The shell delegates insets to its header, main, and footer; plain sections have no painted boundary, and accent sections define their own padding. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Context-Boundary Optimization lets a service supply task-specific context to AI agents through an MCP connection.">
+    <meta name="robots" content="noindex">
+    <title>Context-Boundary Optimization</title>
+    <link rel="stylesheet" href="mock.css">
+  </head>
+  <body class="direction-one">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="mock-shell">
+      <header class="site-header">
+        <a class="brand" href="../../">
+          <img src="../../assets/images/cbo-mark-transparent.png" width="235" height="115" alt="">
+          <span>Context-Boundary Optimization</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#why">Why CBO</a><a href="#how">How it works</a><a href="../../library/">Build</a><a href="../../papers/">Research</a><a href="https://github.com/fsmalkin/context-boundary-optimization-site">GitHub</a>
+        </nav>
+      </header>
+      <main id="main-content">
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-stamp">Open source</span>Framework + Python reference library</p>
+            <h1 id="page-title">Your API exposes actions. CBO supplies the context for this task.</h1>
+            <p class="hero-lede">Context-Boundary Optimization lets a service assemble one focused context contract before an AI agent acts: the relevant capabilities, service rules, task state, and evidence to return.</p>
+            <div class="actions"><a class="button" href="../../library/examples/billing-service/">Open the billing example</a><a class="button secondary" href="#why">See the difference</a></div>
+            <p class="trust-line">Provider-owned. Task-scoped. Versioned and inspectable.</p>
+          </div>
+          <figure class="hero-art"><img src="../../assets/images/cbo-workflow.webp" width="1200" height="600" alt="A task goes to a service, which prepares a focused context contract for an AI agent."></figure>
+        </section>
+
+        <section class="section" id="why" aria-labelledby="layers-title">
+          <div class="section-head"><h2 class="rule-title" id="layers-title">Give each layer one clear job</h2><p>CBO adds the task-specific context decision to the service boundary, where the capabilities and operating rules are known.</p></div>
+          <div class="layer-stack">
+            <div class="layer-row"><strong>API</strong><p>Defines operations, inputs, outputs, and the service execution surface.</p></div>
+            <div class="layer-row"><strong>MCP</strong><p>Standardizes how AI applications connect to tools, resources, and prompts.</p></div>
+            <div class="layer-row"><strong>CBO</strong><p>Lets the service compute the focused context and obligations to carry through that connection for the current task.</p></div>
+          </div>
+        </section>
+
+        <section class="section accent-section" id="how" aria-labelledby="before-after-title">
+          <div class="section-head"><h2 id="before-after-title">From a catalog to a focused operating brief</h2></div>
+          <div class="comparison">
+            <article class="panel"><span class="panel-label">Ordinary agent integration</span><h3>A forty-operation billing catalog</h3><p>Imagine a broad billing service. The integration chooses which functions matter and reconstructs approval, authority, and recordkeeping rules for a duplicate charge.</p></article>
+            <div class="compare-arrow" aria-hidden="true">-&gt;</div>
+            <article class="panel"><span class="panel-label">Recommended MCP + CBO integration</span><h3>Four task actions and the rules for invoice 4471</h3><p>For this illustrative task, the service could return the focused operations, obligations, and required receipt fields through its agent-facing connection.</p></article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="next-title">
+          <div class="section-head"><h2 class="rule-title" id="next-title">Choose your next step</h2></div>
+          <div class="intent-grid">
+            <a class="intent-card" href="../../papers/"><span class="panel-label">Understand</span><h3>Learn the model</h3><p>Read the technical and economic working papers.</p></a>
+            <a class="intent-card" href="../../library/"><span class="panel-label">Build</span><h3>Inspect the contract</h3><p>Open the Python objects, CLI, and billing-service example.</p></a>
+            <a class="intent-card" href="../../demos/"><span class="panel-label">Evaluate</span><h3>Follow the traces</h3><p>Review adjudication, scoring, and plain-English results.</p></a>
+          </div>
+        </section>
+
+        <aside class="proof-band" aria-label="Project credibility"><strong>Working in the open</strong><div class="proof-links"><a href="../../papers/">2 working papers</a><a href="../../library/">Reference implementation</a><a href="../../demos/">Trace demos</a><a href="../../LICENSE">MIT code and CC BY papers</a></div></aside>
+      </main>
+      <footer class="site-footer"><p>Context-Boundary Optimization</p><p><a href="index.html">Back to the mock board</a></p></footer>
+    </div>
+  </body>
+</html>
