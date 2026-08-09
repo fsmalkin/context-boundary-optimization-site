@@ -1,7 +1,7 @@
 title: Context-Boundary Optimization
 description: >-
-  Services computing, per task and at runtime, the information architecture an
-  agent needs to act well.
+  Context-Boundary Optimization lets a software service prepare the focused
+  context and rules an AI agent needs for each task.
 theme: jekyll-theme-cayman
 # Publication roots. Files inside these directories are served unless they are
 # explicitly excluded below.
