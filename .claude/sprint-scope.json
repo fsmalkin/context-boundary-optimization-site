@@ -407,8 +407,8 @@
         {
           "laneId": "paper-ui-pr1-update",
           "operationId": "cbo-aleph164-paper-ui-pr1-update-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 2,
           "invocationCeiling": 2,
           "costCeilingUsd": 0,
           "authorizedAt": "2026-08-09T00:32:44.231-04:00",
@@ -418,7 +418,19 @@
           "sourceCandidate": "e442e8b8429b7b8563187a3bddb0445beeef7510 tree 286f0e4533ef6a917d9d0aa15315c267c6f07882 plus task-local release and ordering receipts only",
           "boundedOperationSet": "One exact force-with-lease replacement of the existing PR branch, followed by one serialized GitHub metadata/readiness request. Do not create a branch or pull request.",
           "readback": "Require the remote branch to resolve to the pushed exact head, PR 1 to be open and ready with the current title/body, and the mergeable state to be clean before the merge boundary.",
-          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR."
+          "cleanupOrRollback": "Return PR 1 to draft and restore its previous exact branch head with force-with-lease only if reviewed rollback is required; do not create another PR.",
+          "firstInvocation": {
+            "type": "exact force-with-lease push",
+            "completedAt": "2026-08-09T00:36:29-04:00",
+            "previousRemoteHead": "2dbb70ca5ea32573d567219a1fa32b9dcf578930",
+            "resultingRemoteHead": "91dea8d697d3897c192d913eacfdc76da8a245fd",
+            "result": "PASS: only origin/afuturehead/aleph-164-api-illustrations changed and exact readback matched the pushed head."
+          },
+          "secondInvocation": {
+            "type": "one GraphQL request containing serialized metadata update and ready-for-review mutation",
+            "completedAt": "2026-08-09T00:37:23-04:00",
+            "result": "PASS: PR 1 title and body describe the accepted candidate and three-stage plan; draft=false, mergeable=MERGEABLE, mergeStateStatus=CLEAN, and head/base readback match."
+          }
         },
         {
           "laneId": "paper-ui-production-preview",
@@ -743,25 +755,32 @@
         {
           "laneId": "paper-ui-merge-pages",
           "operationId": "cbo-aleph164-paper-ui-main-pages-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "target": "merge existing PR 1 into fsmalkin/context-boundary-optimization-site main and trigger the existing legacy GitHub Pages build from main:/",
           "serializedLane": "019fe30f-d649-7f31-bf96-f6f6fda5e74b:/root",
           "preInvocationReadback": "Re-read fsmalkin/aleph#170, PR 1, remote main, exact PR head, mergeability, and Pages source immediately before the single merge request.",
-          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route."
+          "cleanupOrRollback": "If live verification fails, prepare and independently review a revert of only the PR 1 merge; do not replay the merge invocation and do not restore the removed comparison route.",
+          "completedAt": "2026-08-09T00:39:10-04:00",
+          "mergeReceipt": "One exact REST merge request with expected head 91dea8d697d3897c192d913eacfdc76da8a245fd returned merged=true and merge commit 995572c1c453fe030ae53e0ab6eb2990b66ce158.",
+          "pagesReceipt": "Legacy build 1140529560 completed successfully at the same merge commit; source main:/ and HTTPS enforcement remained unchanged."
         },
         {
           "laneId": "paper-ui-live-verification",
           "operationId": "cbo-aleph164-paper-ui-live-verification-2026-08-08-v1",
-          "state": "planned",
-          "invocationCount": 0,
+          "state": "completed",
+          "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
           "target": "https://fsmalkin.github.io/context-boundary-optimization-site/ at the resulting merge commit",
           "boundedOperationSet": "Wait for the matching successful Pages build, then verify the mobile-first homepage task, key routes, all six figures, navigation, and the withdrawn comparison route's 404 state.",
-          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation."
+          "cleanupOrRollback": "A live failure activates the reviewed PR-only revert path declared by the merge operation.",
+          "completedAt": "2026-08-09T00:43:46.780-04:00",
+          "browserReceipt": "PASS in the selected in-app browser at configured 390x844: correct URL/title/H1, meaningful main landmark, no framework overlay, document clientWidth=scrollWidth=375, no warning/error logs, complete above-fold images, and a semantic Research click reached the rendered Papers route without overflow.",
+          "httpReceipt": "PASS with no-cache readback: root, key routes, both rendered papers, core demos, CSS, and workflow art returned 200; comparison and raw index routes returned 404. All six public PNGs returned image/png and matched the merged repository bytes by SHA-256.",
+          "visualReceipt": "The live viewport capture matches the committed accepted mobile reference in hierarchy, typography, illustration placement, spacing, and plain-paper treatment."
         },
         {
           "laneId": "paper-ui-implementation-ledger",
@@ -844,6 +863,19 @@
             "result": "PASS: ALEPH-164 independently read back with the exact UAT title, In Progress state, existing project and priority, and the actionable private-preview comment.",
             "receipt": "linear-comment:25dd321c-e14c-4fcb-9ef3-b5ba6f2b59ca"
           }
+        },
+        {
+          "laneId": "paper-ui-live-publication-linear-reconciliation",
+          "operationId": "cbo-aleph164-live-publication-linear-reconciliation-2026-08-09-v1",
+          "state": "planned",
+          "invocationCount": 0,
+          "invocationCeiling": 1,
+          "costCeilingUsd": 0,
+          "stableMaterialEventKey": "cbo-aleph164-paper-ui-live-publication-2026-08-09-v1",
+          "target": "existing ALEPH-164 only",
+          "boundedOperationSet": "After the final GitHub ledger comment auto-synchronizes, update the existing issue title to the broader open-source product-site outcome and remove the stale Fred assignment while keeping the issue In Progress for stages 2 and 3. Do not create an issue or duplicate the synchronized comment.",
+          "readback": "Verify the exact title, assignee=null, status remains In Progress, and the synchronized live receipt is present once.",
+          "cleanupOrRollback": "Restore only the prior title or assignee if readback differs from this exact projection."
         }
       ],
       "rationale": "Fred explicitly selected the second generated Research Field Guide direction. That resolves the load-bearing visual choice and releases implementation inside the already approved ALEPH-164 live-site outcome. The same exact task and clean main-based checkout continue at WIP 1/1. No new PR is created; PR 1 stays frozen until the replacement candidate passes its source and design gates.",
@@ -897,7 +929,16 @@
         "primaryPositioning": "Broader open-source product and business entry point. PM-first remains an accessibility standard, not the page's exclusive purpose or information architecture.",
         "navigationFinding": "The current phrase Open the deep dive that matches your job is directionally useful, but Evidence is a credibility layer rather than a visitor job. Stage 2 must organize primary paths around real visitor roles or intents and keep proof available as supporting credibility.",
         "providerState": "The official Gemini CLI preflight remains terminal at AUTH_METHOD_REQUIRED before any model request. The unconsumed one-shot operation stays held; later section operations require official Google-account OAuth, USD 0, and fresh exact admission. API-key, Vertex, paid paths, and other drafting providers remain prohibited.",
-        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged."
+        "preservedFences": "Filevine, image generation, other drafting providers, one-writer, existing PR 1, release, and exactly-once fences remain unchanged.",
+        "stage1Outcome": {
+          "state": "completed-live",
+          "pullRequest": "https://github.com/fsmalkin/context-boundary-optimization-site/pull/1",
+          "mergeCommit": "995572c1c453fe030ae53e0ab6eb2990b66ce158",
+          "pagesBuild": "1140529560 built successfully",
+          "liveUrl": "https://fsmalkin.github.io/context-boundary-optimization-site/",
+          "verifiedAt": "2026-08-09T00:43:46.780-04:00"
+        },
+        "nextStage": "Stage 2 research and full-loop mock preparation for the broader sales-oriented open-source product landing page."
       },
       "uatRemediation": {
         "framedAt": "2026-08-08T21:04:00-04:00",
@@ -998,5 +1039,6 @@
     "The recovered hand-drawn family is the Aug. 2 warm-paper marker-and-ink ImageGen direction. Exact original prompts and per-request receipts are not invented.",
     "Filevine, other drafting providers, and the historical generic image-generation and Gemini-drafting holds remain 0/0. The exact Gemini whole-site editorial operation is separately admitted at 0/1 through the official CLI, Google-account OAuth free usage, and a USD 0 ceiling.",
     "Fred accepted the current candidate for immediate publication through existing PR 1 and legacy Pages. The subsequent sales-page redesign and incremental Gemini sections remain separate later stages."
+    ,"Stage 1 is live at merge commit 995572c1c453fe030ae53e0ab6eb2990b66ce158 with matching successful Pages build 1140529560 and completed live mobile verification."
   ]
 }
