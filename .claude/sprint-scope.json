@@ -761,17 +761,20 @@
             "result": "PASS: comment created and independently read back with exact actor, event key, candidate, gates, held lanes, and next action.",
             "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229347777"
           },
-          "currentInvocation": {
+          "secondInvocation": {
             "stableMaterialEventKey": "cbo-aleph164-pm-first-private-uat-refresh-2026-08-08-v1",
             "target": "fsmalkin/aleph#170",
             "startedAt": "2026-08-08T23:21:47.9562112-04:00",
-            "purpose": "Record the exact reviewed PM-first plain-paper candidate, independent affected-scope PASS, verified private preview refresh, unchanged release state, and Fred's current UAT next action."
+            "completedAt": "2026-08-08T23:23:34-04:00",
+            "purpose": "Record the exact reviewed PM-first plain-paper candidate, independent affected-scope PASS, verified private preview refresh, unchanged release state, and Fred's current UAT next action.",
+            "result": "PASS: the GitHub comment was created and independently read back with the actor line, event key, exact candidate, private URL, review verdict, Gemini wall, unchanged PR and Pages state, and Fred's next UAT action.",
+            "receipt": "https://github.com/fsmalkin/aleph/issues/170#issuecomment-5229557440"
           }
         },
         {
           "laneId": "paper-ui-pm-editorial-linear-projection",
           "operationId": "cbo-aleph164-pm-first-private-uat-linear-projection-2026-08-08-v1",
-          "state": "in-progress",
+          "state": "completed",
           "invocationCount": 1,
           "invocationCeiling": 1,
           "costCeilingUsd": 0,
@@ -779,7 +782,25 @@
           "stableMaterialEventKey": "cbo-aleph164-pm-first-private-uat-refresh-2026-08-08-v1",
           "target": "ALEPH-164",
           "boundedOperationSet": "Add one phone-readable comment to the existing issue with the refreshed private UAT URL, reviewed candidate identity, current Gemini authentication wall, and Fred's exact next action. Do not create a new issue or change status, priority, project, or assignment.",
-          "readback": "Read back the created comment by returned ID and verify the exact URL, candidate, current next action, and Gemini wall."
+          "readback": "Read back the created comment by returned ID and verify the exact URL, candidate, current next action, and Gemini wall.",
+          "completedAt": "2026-08-08T23:25:20.2186978-04:00",
+          "result": "PASS after duplicate cleanup: the canonical GitHub ledger comment automatically synchronized into ALEPH-164 as comment 02a8f395-9fcf-4021-a2b1-9098affe0861 and carries the event key, candidate, private URL, Gemini wall, and next action. A separately created direct Linear comment was redundant and was deleted by exact ID; readback confirms it is absent while the synchronized canonical projection remains.",
+          "receipt": "linear-comment:02a8f395-9fcf-4021-a2b1-9098affe0861",
+          "unexpectedDirectComment": {
+            "id": "aa718b6f-5bc7-4b6f-b669-e0531c9d6641",
+            "state": "deleted",
+            "cleanupInvocationCount": 1,
+            "cleanupInvocationCeiling": 1,
+            "readback": "Exact ID absent; synchronized receipt, material event key, candidate, and tailnet URL present."
+          },
+          "whyChain": [
+            "The material transition briefly appeared twice in Linear because the canonical GitHub comment auto-synchronized before the task also posted its planned direct Linear comment.",
+            "The task treated GitHub and Linear comment writes as independent transports and did not inspect Linear after the GitHub mutation before invoking the direct projection.",
+            "The issue's GitHub integration is a second projection path for the same material event key.",
+            "The pre-mutation gate checked duplicate issues and operation identity but did not check for post-GitHub automatic synchronization.",
+            "Future synchronized-issue transitions must read Linear after the GitHub receipt and suppress a direct comment when the same event key is already present."
+          ],
+          "invariant": "Exactly one current Linear projection remains for one stable material event key, regardless of whether it arrives through GitHub synchronization or a direct Linear mutation."
         },
         {
           "laneId": "paper-ui-implementation-linear",
