@@ -1,0 +1,6 @@
+That Truthy Feeling — five-essay public reading edition
+Copyright 2026 Fred Smalkin, Jr. All rights reserved except as otherwise expressly stated.
+
+This directory contains a separate authored essay series. The license notices for the neighboring Context-Boundary Optimization project's code and papers do not grant a new license to these essays. Third-party works are linked and attributed, not republished here. Statutory quotation and other applicable rights are unaffected.
+
+The author directed the argument and revisions; substantial AI assistance was used in research, drafting, editing and site preparation. Publication is not a claim of exhaustive scholarly review or empirical validation. The text may be revised.

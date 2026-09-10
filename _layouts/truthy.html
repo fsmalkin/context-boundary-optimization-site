@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f6f0df">
+  <title>{{ page.title | escape }} · Fred Smalkin</title>
+  <meta name="description" content="{{ page.description | escape }}">
+  <link rel="stylesheet" href="{{ '/truthy-feeling/reading.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#reading">Skip to the essay</a>
+<div class="sheet">
+<header class="masthead">
+  <a class="brand" href="{{ '/truthy-feeling/' | relative_url }}">That Truthy Feeling</a>
+  <nav aria-label="Series navigation">
+    <a href="{{ '/truthy-feeling/' | relative_url }}">The series</a>
+    <a href="{{ '/truthy-feeling/introduction.html' | relative_url }}">Introduction</a>
+    <a href="{{ '/truthy-feeling/#about' | relative_url }}">About</a>
+  </nav>
+</header>
+<main id="reading" tabindex="-1">
+{{ content }}
+</main>
+<footer class="footer">
+  <p>Fred Smalkin, Jr. · <a href="https://www.linkedin.com/in/fredsmalkin">LinkedIn</a></p>
+  <p>Working essays developed with substantial AI assistance in research, drafting and revision. Proposed account, not an empirically established cognitive mechanism. This is an independent reading site, not a LessWrong publication.</p>
+  <p><a href="{{ '/truthy-feeling/' | relative_url }}">All five essays</a> · First web edition: September 10, 2026 · <a href="{{ '/truthy-feeling/rights.txt' | relative_url }}">Rights</a></p>
+</footer>
+</div>
+</body>
+</html>
