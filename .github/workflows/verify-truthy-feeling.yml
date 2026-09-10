@@ -1,0 +1,80 @@
+name: Verify Truthy Feeling publication
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'truthy-feeling/**'
+      - '_layouts/truthy.html'
+      - '.github/workflows/verify-truthy-feeling.yml'
+  workflow_dispatch:
+permissions: {}
+jobs:
+  verify-public-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Check the deployed reading pages
+        env:
+          SITE: https://fsmalkin.github.io/context-boundary-optimization-site/truthy-feeling/
+        run: |
+          python3 - <<'PY'
+          import os, time, urllib.request, urllib.parse
+          from html.parser import HTMLParser
+          root = os.environ['SITE']
+          pages = {
+              '': 'That Truthy Feeling: Toward a Physicalist Ontology',
+              'introduction.html': 'That Truthy Feeling: Toward a Physicalist Ontology',
+              'philosophy-1.html': 'What Makes a Claim True?',
+              'philosophy-2.html': 'Degrees, Domains, and Ideal Evaluation',
+              'cognition-1.html': 'How a Judgment Becomes a Feeling',
+              'cognition-2.html': 'Testing a Model of Evaluation',
+          }
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.links=[]; self.h1=0; self.data=[]; self.styles=[]
+              def handle_starttag(self, tag, attrs):
+                  a=dict(attrs)
+                  if tag=='a' and 'href' in a: self.links.append(a['href'])
+                  if tag=='h1': self.h1+=1
+                  if tag=='link' and a.get('rel')=='stylesheet': self.styles.append(a['href'])
+              def handle_data(self, data): self.data.append(data)
+          verified={}
+          for attempt in range(24):
+              try:
+                  checked={}
+                  for path, title in pages.items():
+                      url=root+path
+                      req=urllib.request.Request(url+'?publication-check='+str(int(time.time())), headers={'User-Agent':'CST-publication-check'})
+                      with urllib.request.urlopen(req, timeout=20) as response:
+                          assert response.status==200, (url, response.status)
+                          html=response.read().decode('utf-8')
+                      p=Page(); p.feed(html)
+                      text=' '.join(p.data)
+                      assert p.h1==1, (path, 'h1 count', p.h1)
+                      assert title in text, (path, 'title missing')
+                      assert 'substantial AI assistance' in text, (path, 'provenance missing')
+                      assert 'not a LessWrong publication' in text, (path, 'venue status missing')
+                      assert '{{' not in html and '{%' not in html, (path, 'unrendered template')
+                      assert all(x not in html for x in ['docs.google.com/', 'linear.app/', 'github.com/fsmalkin/truth-schema-theory', 'afuturehead@gmail.com']), (path, 'private-reference leak')
+                      if path:
+                          assert len(text)>8000, (path, 'unexpectedly short essay')
+                          assert 'Explore with an AI tutor' in text, (path, 'tutor missing')
+                      valid=set(pages)|{'index.html','reading.css','rights.txt'}
+                      for link in p.links+p.styles:
+                          resolved=urllib.parse.urlsplit(urllib.parse.urljoin(url,link))
+                          if resolved.netloc==urllib.parse.urlsplit(root).netloc:
+                              assert resolved.path.startswith(urllib.parse.urlsplit(root).path), (path, 'out-of-section link',link)
+                              suffix=resolved.path[len(urllib.parse.urlsplit(root).path):]
+                              assert suffix in valid, (path, 'unknown local route',link)
+                      checked[path]=len(text)
+                  for asset in ['reading.css','rights.txt']:
+                      with urllib.request.urlopen(root+asset,timeout=20) as r:
+                          assert r.status==200 and len(r.read())>100
+                  verified=checked; break
+              except Exception as e:
+                  print('Deployment not ready or verification failed:',str(e),flush=True)
+                  if attempt==23: raise
+                  time.sleep(10)
+          for path, size in verified.items(): print('PASS',root+path,'visible characters:',size)
+          print('PASS six HTML pages, two local assets, local routing, AI disclosure, and private-reference boundary.')
+          PY
